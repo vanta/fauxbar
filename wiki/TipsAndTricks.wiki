@@ -1,0 +1,116 @@
+#summary How Fauxbar works, and how you can work it.
+
+= Fauxbar Tips & Tricks =
+
+Here are the different ways you can use Fauxbar. Some of the features below can be adjusted or toggled within the options.
+
+== The Fauxbar ==
+
+  * As long as Fauxbar is enabled:
+      * when you visit a webpage:
+          * Fauxbar will add the page's title and URL to its index.
+          * Fauxbar will calculate and assign a new frecency score for that page.
+          * if the page is one of your top pages, Fauxbar will generate a new thumbnail preview for the main page tiles.
+          * Fauxbar will scan the page to see if it has a usable search engine it can potentially add to the Search Box.
+      * when you delete a webpage from Chrome's history, Fauxbar will also delete that webpage from Fauxbar's index.
+      * when you create, modify or remove a bookmark from Chrome, Fauxbar will also create, modify or remove that bookmark's entry in Fauxbar's index.
+      * Chrome's default New Tab page will be overridden.
+  * If Fauxbar is disabled and you continue browsing using Chrome, Fauxbar's index will become out of sync. However, reindexing Fauxbar will resolve this.
+
+  * You can resize the Address Box and Search Box by dragging the handle between them.
+
+  * Keep Fauxbar's memory usage to a minimum by making sure [http://foo/ Fauxbar Memory Helper] is installed and enabled.
+
+
+== Address Box ==
+
+  * Focus the Address Box by pressing *Alt*+*D* or *Ctrl*+*L* within Fauxbar and other webpages.
+
+  * Display your top pages:
+      * by clicking the down-arrow/triangle on the right-side of the Address Box.
+      * by double-clicking the Address Box when it's empty.
+      * by pressing the *Down Arrow* when the Address Box is focused and empty.
+
+  * To find history items and bookmarks, type words into the Address Box;
+      * Fauxbar will display results with pages whose titles and/or URLs match your words, ordered by frecency.
+      * Fauxbar may also auto-complete your input with a matching URL.
+      * Mid-word searching and full character searching is performed.
+      * To only search for bookmarks, enter *is:fav* as a word.
+
+  * If a desired result appears, you can navigate to it by:
+      * pressing the *Up Arrow* or *Down Arrow*.
+      * pressing *Tab* or *Shift*+*Tab*.
+  * Navigating in this way will put the result's URL into the Address Box. To restore your original input, press Esc, or navigate back to the Address Box.
+
+  * Results also act as clickable hyperlinks:
+      * *Click* a result to open it in the current tab.
+      * *Ctrl*+*Click* or *Middle-click* a result to open it in a new tab.
+      * *Shift*+*Click* a result to open it in a new window.
+      * *Right-click* a result to perform other actions.
+  * If a result is already opened as a tab in the current window, "Switch to tab" will be displayed. Clicking this result will have Chrome change focus to the existing tab.
+
+  * When you want to go to your Address Box's input:
+      * press *Enter* to go to the entered address in the current tab.
+      * press *Alt*+*Enter* to go to the entered address in a new tab.
+      * press *Ctrl*+*Enter* to wrap "http://www." and ".com" around your input, and go to the address in the current tab.
+      * click the Go Arrow to go to the entered address in the current tab.
+  * If the Address Box's input is a URL, the URL will be visited. But if the input is not a URL, the input will be performed as a search using Fauxbar's "Fallback URL".
+
+
+== Chrome's Omnibox ==
+
+  * You can use a simplified version of Fauxbar's Address Box from within Chrome's Omnibox. To do so, focus the Omnibox and press *F*+*Spacebar*, then you can either:
+      * type some words, and matching results from Fauxbar's index will be displayed, or
+      * just press *Enter* and the tab will open Fauxbar's main page.
+
+  * "Switch to tab" functionality still works this way, but auto-completing URLs, opening results in new tabs or windows, and Quick Delete are not available when using Fauxbar from within the Omnibox. Chrome's Omnibox may also impose its own limit of how many results can be displayed at once.
+
+
+== Search Box ==
+
+  * The Search Box lets you use a search engine straight from Fauxbar, without needing to visit the search engine's webpage first.
+
+  * To choose which search engine to use, click the down arrow/triangle on the left side of the Search Box.
+
+  * To search, type a query into the Search Box. Then, you can perform your search:
+      * in the current tab:
+          * by pressing *Enter*, or
+          * by clicking the magnifying glass icon.
+      * in a new tab:
+          * by pressing *Alt*+*Enter*.
+
+  * As you type your query, Fauxbar may display:
+      * past queries that match your input, and/or
+      * suggestions from the selected search engine.
+
+  * If a desired query or suggestion appears, you can navigate to it by:
+      * pressing the *Up Arrow* or *Down Arrow*.
+      * pressing *Tab* or *Shift*+*Tab*.
+  * Navigating in this way will put the query or suggestion into the Search Box for you. To restore your original input, press *Esc*, or navigate back to the Search Box.
+
+  * Queries and suggestions displayed in this way also act as mock hyperlinks:
+      * *Click* a query/suggestion to open it in the current tab.
+      * *Ctrl*+*Click* or *Middle-click* a query/suggestion to open it in a new tab.
+
+
+== Quick Delete == 
+
+  * If Quick Delete is enabled and an Address Box result or Search Box query has been navigated to or hovered over and appears highlighted, pressing *Delete* will remove the result from both Fauxbar and Chrome's history *without prompt*.
+
+  * Bookmarks can't be removed via Quick Delete. They may disappear from the list of results temporarily, but they will not actually be removed.
+
+
+== Search Engines ==
+
+  * Fauxbar's Search Box comes pre-loaded with the Google, Yahoo! and Bing search engines.
+
+  * To add a new search engine to the Search Box, visit a webpage that offers a search engine. Fauxbar should detect the engine and display a clickable "Fauxbar+" icon in Chrome's Omnibox, symbolizing that you can add the webpage's search engine to Fauxbar. Click the icon to add the engine to the Search Box.
+
+  * Fauxbar looks for new search engines by scanning each webpage you visit for:
+      * an [http://www.opensearch.org/ OpenSearch] declaration, or
+      * a lone input text box.
+
+  * If an OpenSearch declaration is found, Fauxbar will check to ensure the webpage's OpenSearch XML code is correct.
+
+  * If an OpenSearch declaration is not found, but a text box is found that looks like it _might_ be used as a search input box, Fauxbar attempts to interpret the text box's HTML form variables to derive a usable search URL. This usually works fine, but not always.
+
