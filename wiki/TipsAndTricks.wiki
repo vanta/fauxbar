@@ -52,7 +52,7 @@ Some of the features below can be adjusted or toggled within the options.
   * When you want to go to your Address Box's input:
       * press *Enter* to go to the entered address in the current tab.
       * press *Alt*+*Enter* to go to the entered address in a new tab.
-      * press *Ctrl*+*Enter* to wrap "http://www." and ".com" around your input, and go to the address in the current tab.
+      * press *Ctrl*+*Enter* to wrap "ht**tp://www." and ".com" around your input, and go to the address in the current tab.
       * click the Go Arrow to go to the entered address in the current tab.
   * If the Address Box's input is a URL, the URL will be visited. But if the input is not a URL, the input will be performed as a search using Fauxbar's "Fallback URL".
 
