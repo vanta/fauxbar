@@ -110,6 +110,6 @@ Some of the features below can be adjusted or toggled within the options.
       * an [http://www.opensearch.org/ OpenSearch] declaration, or
       * a lone input text box.
 
-  * If an OpenSearch declaration is found, Fauxbar will check to ensure the webpage's OpenSearch XML code is correct.
+  * If an !OpenSearch declaration is found, Fauxbar will check to ensure the webpage's !OpenSearch XML code is correct.
 
-  * If an OpenSearch declaration is not found, but a text box is found that looks like it _might_ be used as a search input box, Fauxbar attempts to interpret the text box's HTML form variables to derive a usable search URL. This usually works fine, but not always.
+  * If an !OpenSearch declaration is not found, but a text box is found that looks like it _might_ be used as a search input box, Fauxbar attempts to interpret the text box's HTML form variables to derive a usable search URL. This usually works fine, but not always.
