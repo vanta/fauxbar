@@ -14,7 +14,8 @@ Apart from this, no, Fauxbar does not send any data across the Internet. Your hi
 
 === Can I open Fauxbar without opening a New Tab? ===
 Yes. Use this address:
-[chrome-extension://hibkhcnpkakjniplpfblaoikiggkopka/fauxbar.html]
+
+`chrome-extension://hibkhcnpkakjniplpfblaoikiggkopka/fauxbar.html`
 
 You could add this to your bookmarks bar, or set it as Chrome's home page.
 
