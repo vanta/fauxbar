@@ -1,4 +1,4 @@
-#summary How Fauxbar works, and how you can work it.
+#summary How Fauxbar works, and how to use it.
 
 = Fauxbar Tips & Tricks =
 
