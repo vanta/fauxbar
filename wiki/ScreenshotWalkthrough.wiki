@@ -1,0 +1,68 @@
+#summary A look at Fauxbar and its features.
+
+http://i.imgur.com/nwowN.jpg
+
+When you install Fauxbar for the first time, Fauxbar processes your Chrome history items and bookmarks to create its own separate index. This only takes a moment, and once complete, the index is updated silently on-the-fly from then on.
+
+----
+
+http://i.imgur.com/SmOSF.jpg
+
+This is the standard Fauxbar layout and styling. The Address Box is on the left; the Search Box is on the right.
+
+In this example, the Address Box is showing a list of top pages from a user's Chrome history and bookmarks.
+
+----
+
+http://i.imgur.com/yXNXr.jpg
+
+When a search query is entered in the Search Box, past queries and suggestions from the selected search engine can be displayed.
+
+A custom background has been applied in this example.
+
+----
+
+http://i.imgur.com/bjRfG.png
+
+When typing into the Address Box, Fauxbar displays matching pages from your history and bookmarks, with full support for mid-word searching and non-alphanumeric characters.
+
+Custom pink and yellow styling has been applied in this example. Fauxbar lets you theme it however you'd like.
+
+----
+
+http://i.imgur.com/UebIi.jpg
+
+When visiting a site that has a search box, Fauxbar displays a "Fauxbar+" icon in Chrome's Omnibox, signaling that it can add the page's search engine to Fauxbar's Search Box.
+
+In this example, Fauxbar has detected Wolfram|Alpha has a search engine it can use. By clicking the Fauxbar+ icon, you can add the search engine to Fauxbar.
+
+----
+
+http://i.imgur.com/vlX6I.jpg
+
+As you visit websites and add their search engines to Fauxbar, you can select the engines you'd like to use from the Search Box.
+
+A custom background image has been applied in this example.
+
+----
+
+http://i.imgur.com/u1Iik.jpg
+
+Fauxbar can display your top sites as tiled thumbnails (and installed Chrome apps - not shown).
+
+Custom green styling has been applied in this example.
+
+----
+
+http://i.imgur.com/iGxRl.png
+
+A Chromified version of Fauxbar's Address Box can be accessed from Chrome's Omnibox.
+
+By pressing F and then Spacebar, you can find your history items and bookmarks using Fauxbar from the Omnibox. This can be handy if you don't feel like opening the main Fauxbar page.
+
+----
+
+http://i.imgur.com/pQlwY.jpg
+
+A peek at Fauxbar's Options page, with a custom background.
+Fauxbar has 60+ options you can configure.
