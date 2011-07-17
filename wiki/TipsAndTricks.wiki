@@ -1,4 +1,5 @@
 #summary How Fauxbar works, and how to use it.
+#labels Featured
 
 = Fauxbar Tips & Tricks =
 
