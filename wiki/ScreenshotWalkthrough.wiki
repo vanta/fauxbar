@@ -38,7 +38,7 @@ Custom pink and yellow styling has been applied in this example. Fauxbar lets yo
 
 ----
 
-=== 5. Adding a search engine ===
+=== 5. Adding a search engine to Fauxbar ===
 
 http://i.imgur.com/UebIi.jpg
 
