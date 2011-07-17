@@ -5,7 +5,7 @@
 
 Some of the features below can be adjusted or toggled within the options.
 
-== The Fauxbar ==
+== 1. The Fauxbar ==
 
   * As long as Fauxbar is enabled:
       * when you visit a webpage:
@@ -23,7 +23,7 @@ Some of the features below can be adjusted or toggled within the options.
   * Keep Fauxbar's memory usage to a minimum by making sure [http://foo/ Fauxbar Memory Helper] is installed and enabled.
 
 
-== Address Box ==
+== 2. Address Box ==
 
   * Focus the Address Box by pressing *Alt*+*D* or *Ctrl*+*L* within Fauxbar and other webpages.
 
@@ -58,7 +58,7 @@ Some of the features below can be adjusted or toggled within the options.
   * If the Address Box's input is a URL, the URL will be visited. But if the input is not a URL, the input will be performed as a search using Fauxbar's "Fallback URL".
 
 
-== Chrome's Omnibox ==
+== 3. Chrome's Omnibox ==
 
   * You can use a simplified version of Fauxbar's Address Box from within Chrome's Omnibox. To do so, focus the Omnibox and press *F*+*Spacebar*, then you can either:
       * type some words, and matching results from Fauxbar's index will be displayed, or
@@ -67,7 +67,7 @@ Some of the features below can be adjusted or toggled within the options.
   * "Switch to tab" functionality still works this way, but auto-completing URLs, opening results in new tabs or windows, and Quick Delete are not available when using Fauxbar from within the Omnibox. Chrome's Omnibox may also impose its own limit of how many results can be displayed at once.
 
 
-== Search Box ==
+== 4. Search Box ==
 
   * The Search Box lets you use a search engine straight from Fauxbar, without needing to visit the search engine's webpage first.
 
@@ -94,14 +94,14 @@ Some of the features below can be adjusted or toggled within the options.
       * *Ctrl*+*Click* or *Middle-click* a query/suggestion to open it in a new tab.
 
 
-== Quick Delete == 
+== 5. Quick Delete == 
 
   * If Quick Delete is enabled and an Address Box result or Search Box query has been navigated to or hovered over and appears highlighted, pressing *Delete* will remove the result from both Fauxbar and Chrome's history *without prompt*.
 
   * Bookmarks can't be removed via Quick Delete. They may disappear from the list of results temporarily, but they will not actually be removed.
 
 
-== Search Engines ==
+== 6. Search Engines ==
 
   * Fauxbar's Search Box comes pre-loaded with the Google, Yahoo! and Bing search engines.
 
