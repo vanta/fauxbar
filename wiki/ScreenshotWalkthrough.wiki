@@ -32,7 +32,7 @@ A custom background has been applied in this example.
 
 http://i.imgur.com/bjRfG.png
 
-When typing into the Address Box, Fauxbar displays matching pages from your history and bookmarks, with full support for mid-word searching and non-alphanumeric characters.
+When typing into the Address Box, Fauxbar displays matching pages from your history, bookmarks and opened tabs, with full support for mid-word searching and non-alphanumeric characters.
 
 Custom pink and yellow styling has been applied in this example. Fauxbar lets you theme it however you'd like.
 
