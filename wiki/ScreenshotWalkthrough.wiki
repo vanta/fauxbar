@@ -13,7 +13,7 @@ When you install Fauxbar for the first time, Fauxbar processes your Chrome histo
 
 == 2. Default layout ==
 
-http://i.imgur.com/5whaH.png
+http://i.imgur.com/w4uOS.png
 
 This is the standard Fauxbar layout and styling. The Address Box is on the left; the Search Box is on the right.
 
