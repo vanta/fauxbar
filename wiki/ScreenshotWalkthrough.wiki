@@ -1,4 +1,5 @@
 #summary A look at Fauxbar and its features.
+#labels Featured
 
 === 1. Initial setup ===
 
