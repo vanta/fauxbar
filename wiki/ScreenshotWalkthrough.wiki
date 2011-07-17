@@ -1,7 +1,9 @@
 #summary A look at Fauxbar and its features.
 #labels Featured
 
-=== 1. Initial setup ===
+= Fauxbar Screenshots =
+
+== 1. Initial setup ==
 
 http://i.imgur.com/nwowN.jpg
 
@@ -9,7 +11,7 @@ When you install Fauxbar for the first time, Fauxbar processes your Chrome histo
 
 ----
 
-=== 2. Default layout ===
+== 2. Default layout ==
 
 http://i.imgur.com/5whaH.png
 
@@ -19,7 +21,7 @@ In this example, the Address Box is showing a list of top pages from a user's Ch
 
 ----
 
-=== 3. Search Box ===
+== 3. Search Box ==
 
 http://i.imgur.com/yXNXr.jpg
 
@@ -29,7 +31,7 @@ A custom background has been applied in this example.
 
 ----
 
-=== 4. Address Box ===
+== 4. Address Box ==
 
 http://i.imgur.com/bjRfG.png
 
@@ -39,7 +41,7 @@ Custom pink and yellow styling has been applied in this example. Fauxbar lets yo
 
 ----
 
-=== 5. Adding a search engine to Fauxbar ===
+== 5. Adding a search engine to Fauxbar ==
 
 http://i.imgur.com/UebIi.jpg
 
@@ -49,7 +51,7 @@ In this example, Fauxbar has detected Wolfram|Alpha has a search engine it can u
 
 ----
 
-=== 6. Selecting a search engine ===
+== 6. Selecting a search engine ==
 
 http://i.imgur.com/vlX6I.jpg
 
@@ -59,7 +61,7 @@ A custom background image has been applied in this example.
 
 ----
 
-=== 7. Top site tiles ===
+== 7. Top site tiles ==
 
 http://i.imgur.com/u1Iik.jpg
 
@@ -69,7 +71,7 @@ Custom green styling has been applied in this example.
 
 ----
 
-=== 8. Using Fauxbar from Chrome's Omnibox ===
+== 8. Using Fauxbar from Chrome's Omnibox ==
 
 http://i.imgur.com/iGxRl.png
 
@@ -79,7 +81,7 @@ By pressing F and then Spacebar, you can find your history items and bookmarks u
 
 ----
 
-=== 9. Options page ===
+== 9. Options page ==
 
 http://i.imgur.com/pQlwY.jpg
 
