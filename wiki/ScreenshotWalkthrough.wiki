@@ -75,7 +75,7 @@ Custom green styling has been applied in this example.
 
 http://i.imgur.com/iGxRl.png
 
-A Chromified version of Fauxbar's Address Box can be accessed from Chrome's Omnibox.
+A condensed version of Fauxbar's Address Box can be accessed from Chrome's Omnibox.
 
 By pressing F and then Spacebar, you can find your history items and bookmarks using Fauxbar from the Omnibox. This can be handy if you don't feel like opening the main Fauxbar page.
 
