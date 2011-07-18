@@ -1,0 +1,17 @@
+#summary Credits.
+
+= Credits =
+
+  * [http://jquery.com/ jQuery]
+
+  * [https://github.com/jeresig/jquery.hotkeys jquery.hotkeys]
+
+  * [http://jscolor.com/ JSColor]
+
+  * [http://digitalbush.com/projects/masked-input-plugin/ Masked Input Plugin]
+
+  * [http://www.mezzoblue.com/archives/2010/10/07/paintbrushjs/ PaintbrushJS]
+
+  * [http://phpjs.org/ php.js]
+
+  * [http://code.google.com/p/rangyinputs/ Rangyinputs]
