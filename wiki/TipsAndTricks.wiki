@@ -114,3 +114,13 @@ Some of the features below can be adjusted or toggled within the options.
   * If an !OpenSearch declaration is found, Fauxbar will check to ensure the webpage's !OpenSearch XML code is correct.
 
   * If an !OpenSearch declaration is not found, but a text box is found that looks like it _might_ be used as a search input box, Fauxbar attempts to interpret the text box's HTML form variables to derive a usable search URL. This usually works fine, but not always.
+
+== 7. Tiles ==
+
+  * Tiles are thumbnails of your top sites.
+
+  * When Fauxbar is first installed, the thumbnails will be missing, but they will be created as you browse (updated every 5 minutes).
+
+  * Tiles can also show your installed Chrome apps.
+
+  * Tiles can be enabled or disabled in the options.
