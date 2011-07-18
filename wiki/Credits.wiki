@@ -17,3 +17,5 @@ Parts of Fauxbar's code includes:
   * [http://phpjs.org/ php.js]
 
   * [http://code.google.com/p/rangyinputs/ Rangyinputs]
+
+And a thank you to [http://www.mozilla.org/ Mozilla] for [http://www.mozilla.com/firefox/ Firefox]'s Awesome Bar logic and [https://developer.mozilla.org/en/The_Places_frecency_algorithm frecency algorithm].
