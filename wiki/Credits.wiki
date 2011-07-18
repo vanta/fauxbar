@@ -2,6 +2,8 @@
 
 = Credits =
 
+Parts of Fauxbar's code includes:
+
   * [http://jquery.com/ jQuery]
 
   * [https://github.com/jeresig/jquery.hotkeys jquery.hotkeys]
