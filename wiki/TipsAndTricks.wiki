@@ -20,7 +20,7 @@ Some of the features below can be adjusted or toggled within the options.
 
   * You can resize the Address Box and Search Box by dragging the handle between them.
 
-  * Keep Fauxbar's memory usage to a minimum by making sure [http://foo/ Fauxbar Memory Helper] is installed and enabled.
+  * Keep Fauxbar's memory usage to a minimum by making sure [https://chrome.google.com/webstore/detail/domhiadbdhomljcdankobiglghedagkm Fauxbar Memory Helper] is installed and enabled.
 
 
 == 2. Address Box ==
