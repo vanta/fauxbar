@@ -1,0 +1,3 @@
+#summary Download Fauxbar.
+
+=== [https://chrome.google.com/webstore/detail/hibkhcnpkakjniplpfblaoikiggkopka Download Fauxbar from the Chrome Web Store] ===
