@@ -2,6 +2,8 @@
 
 === [https://chrome.google.com/webstore/detail/hibkhcnpkakjniplpfblaoikiggkopka Download Fauxbar from the Chrome Web Store] ===
 
-(*please note:* the download link will only work for approved testers right now)
+*Please note:* The download link will only work for approved testers right now.
+
+*Interested in testing?* Email [mailto:fauxbar.org@gmail.com fauxbar.org@gmail.com] for access.
 
 [https://chrome.google.com/webstore/detail/hibkhcnpkakjniplpfblaoikiggkopka http://www.fauxbar.org/fauxbar48x.png] [https://chrome.google.com/webstore/detail/hibkhcnpkakjniplpfblaoikiggkopka http://code.google.com/chrome/webstore/images/branding/ChromeWebStore_Badge_v2_206x58.png]
