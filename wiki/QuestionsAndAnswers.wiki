@@ -15,6 +15,7 @@ For best results, yes, always leave it enabled if you can. If Fauxbar is disable
 
 === 4. Does Fauxbar send data to any external servers? Is my personal information safe? ===
 When typing into the Search Box, Fauxbar may send the text you've entered to the selected search engine, to retrieve and display query suggestions from the search engine. This is enabled by default but can be disabled in the options.
+
 Apart from this, no, Fauxbar does not send any data across the Internet. Your history, bookmarks, search engines and options stay put on your local computer.
 
 === 5. Can I open Fauxbar without opening a New Tab? ===
