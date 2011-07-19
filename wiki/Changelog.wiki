@@ -4,7 +4,7 @@
 = Fauxbar Version History =
 
 *19 July 2011 - v0.0.3:*
- * Hopefully fixed the bug where clicking Address Box results had no effect.
+ * Hopefully fixed the bug where clicking Address Box results sometimes had no effect.
 
 *18 July 2011 - v0.0.2:*
  * Initial beta release.
