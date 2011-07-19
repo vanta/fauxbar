@@ -3,6 +3,15 @@
 
 = Fauxbar Version History =
 
+*20 July 2011 - v0.0.5:*
+ * Clicking a "Switch to tab" result will no longer sometimes cause the current tab to doubly open the clicked URL.
+
+ * Disabled caching of site tile thumbnails; they should update more promptly now.
+
+ * Added an option to always show the Options "..." icon in the Omnibox. Available under Fauxbar Options > General > Omnibox. Disabled by default.
+ 
+ * Improved the way speech input is handled.
+
 *19 July 2011 - v0.0.4:*
  * Fixed a Mac-only lock-up error that was introduced in v0.0.3. (Alert boxes during page transitions are bad)
 
