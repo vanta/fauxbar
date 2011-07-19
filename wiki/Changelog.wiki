@@ -4,7 +4,7 @@
 = Fauxbar Version History =
 
 *19 July 2011 - v0.0.4:*
- * Fixed a Mac-only lock-up error that was introduced in v0.0.3. Alert boxes during page transitions are bad.
+ * Fixed a Mac-only lock-up error that was introduced in v0.0.3. (Alert boxes during page transitions are bad)
 
 *19 July 2011 - v0.0.3:*
  * Hopefully fixed a Windows XP bug where clicking Address Box results sometimes had no effect.
