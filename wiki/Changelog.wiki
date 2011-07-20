@@ -3,13 +3,15 @@
 
 = Fauxbar Version History =
 
+*21 July 2011 - v0.0.6:*
+ * Improved handling of links for fi**le:/// URLs.
+ * Added options to prevent fi**le:/// URLs, pinned URLs and opened URLs from being displayed as top site tiles. Available under Fauxbar Options > General > Tiles.
+ * Top site frecency scores will now be recalculated more often.
+
 *20 July 2011 - v0.0.5:*
  * Clicking a "Switch to tab" result will no longer sometimes cause the current tab to doubly open the clicked URL.
-
  * Disabled caching of site tile thumbnails; they should update more promptly now.
-
  * Added an option to always show the Options "..." icon in the Omnibox. Available under Fauxbar Options > General > Omnibox. Disabled by default.
- 
  * Improved the way speech input is handled.
 
 *19 July 2011 - v0.0.4:*
