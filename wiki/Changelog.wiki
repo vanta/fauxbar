@@ -3,6 +3,12 @@
 
 = Fauxbar Version History =
 
+*23 July 2011 - v0.0.7:*
+ * Site tile loading times have been improved.
+ * All database queries have been optimized for better performance.
+ * The Options page will now try to open into an existing Fauxbar tab if possible.
+ * Tiles now have their own main section in the Options page.
+
 *21 July 2011 - v0.0.6:*
  * Improved handling of links for fi**le:/// URLs.
  * Added options to prevent fi**le:/// URLs, pinned URLs and opened URLs from being displayed as top site tiles. Available under Fauxbar Options > General > Tiles.
