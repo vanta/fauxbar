@@ -61,13 +61,19 @@ A custom background image has been applied in this example.
 
 ----
 
-== 7. Top site tiles ==
+== 7. Tiles ==
 
 http://i.imgur.com/u1Iik.jpg
 
 Fauxbar can display your top sites as tiled thumbnails (and installed Chrome apps - not shown).
 
 Custom green styling has been applied in this example.
+
+http://i.imgur.com/sIxIM.jpg
+
+Site tiles be chosen and arranged automatically, or you can decide which tiles to use, and how they should be placed.
+
+In this example, a site tile is being clicked and dragged into place.
 
 ----
 
