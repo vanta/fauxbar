@@ -21,23 +21,23 @@ In this example, the Address Box is showing a list of top pages from a user's Ch
 
 ----
 
-== 3. Search Box ==
-
-http://i.imgur.com/yXNXr.jpg
-
-When a search query is entered in the Search Box, past queries and suggestions from the selected search engine can be displayed.
-
-A custom background has been applied in this example.
-
-----
-
-== 4. Address Box ==
+== 3. Address Box ==
 
 http://i.imgur.com/bjRfG.png
 
 When typing into the Address Box, Fauxbar displays matching pages from your history, bookmarks and opened tabs, with full support for mid-word searching and non-alphanumeric characters.
 
 Custom pink and yellow styling has been applied in this example. Fauxbar lets you theme it however you'd like.
+
+----
+
+== 4. Search Box ==
+
+http://i.imgur.com/yXNXr.jpg
+
+When a search query is entered in the Search Box, past queries and suggestions from the selected search engine can be displayed.
+
+A custom background has been applied in this example.
 
 ----
 
