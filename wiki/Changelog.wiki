@@ -3,7 +3,7 @@
 
 = Fauxbar Version History =
 
-*<i>Coming soon - v0.1.0:</i>*
+=== *<i>Coming soon - v0.1.0:</i>* ===
  * Added the ability to manually select and arrange your own site tiles. Available in Fauxbar's Options > Tiles > Site Tiles.
  * Decreased the default Typed frecency transition bonus score from 125 to 100, so that Omnibox transitions no longer inflate scoring. This brings all default transition type bonus scores to 100, except for !Auto_Bookmark, which remains at 75.
  * Fixed a bug where clearing Chrome's recent browsing history would remove partially affected history items from Fauxbar's index, instead of recalculating their frecency scores.
