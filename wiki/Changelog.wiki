@@ -3,10 +3,10 @@
 
 = Fauxbar Version History =
 
-=== *<i>Coming soon in v0.1.0:</i>* ===
- * Added the ability to manually select and arrange your own site tiles. Available in Fauxbar's Options > Tiles > Site Tiles.
- * Decreased the default Typed frecency transition bonus score from 125 to 100, so that Omnibox transitions no longer inflate scoring. This brings all default transition type bonus scores to 100, except for !Auto_Bookmark, which remains at 75.
- * Fixed a bug where clearing Chrome's recent browsing history would remove partially affected history items from Fauxbar's index, instead of recalculating their frecency scores.
+=== *26 July 2011 - v0.1.0:* ===
+ * Added the ability to manually select and arrange site tiles. Available in Fauxbar's Options > Tiles > Site Tiles.
+ * Decreased the default Typed frecency transition bonus score from 125 to 100, so that Omnibox page transitions no longer inflate scoring. This brings all default transition type bonus scores to 100, except for !Auto_Bookmark, which remains at 75.
+ * Fixed a bug where clearing Chrome's recent browsing history would remove partially affected history items completely from Fauxbar's index, instead of just recalculating their frecency scores.
  * Decreased the default amount of previous queries the Search Box can display from 20 to 10.
 
 *23 July 2011 - v0.0.7:*
