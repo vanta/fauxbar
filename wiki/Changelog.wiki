@@ -3,6 +3,19 @@
 
 = Fauxbar Version History =
 
+* 27 July 2011 - v0.1.1:*
+ * New and improved:
+   * Fauxbar now lets you know when an update has been applied.
+   * Fauxbar loading times have been improved, if input box icon colors and bookmark icon opacity levels are using their default values.
+   * Added default tooltips for colors and opacity levels in the options.
+ * Fixed issues:
+   * Bookmark frecency scores were being incorrectly calculated after deleting a bookmark folder from Chrome.
+   * The http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16options.png icon would always display a link to edit site tiles, even if you'd opted not to show them.
+   * [https://chrome.google.com/webstore/detail/domhiadbdhomljcdankobiglghedagkm Fauxbar Memory Helper] would (try to) restart Fauxbar while the site tile editor was open.
+   * Custom input box icon colors were not being applied when being hovered over.
+ * Changed:
+   * The Address Box will no longer display bookmark URLs beginning with "javascript:void", as these seem to crash Fauxbar.
+
 === *26 July 2011 - v0.1.0:* ===
  * Added the ability to manually select and arrange site tiles. Available in Fauxbar's Options > Tiles > Site Tiles.
  * Decreased the default Typed frecency transition bonus score from 125 to 100, so that Omnibox page transitions no longer inflate scoring. This brings all default transition type bonus scores to 100, except for !Auto_Bookmark, which remains at 75.
