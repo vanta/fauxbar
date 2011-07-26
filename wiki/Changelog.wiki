@@ -14,7 +14,7 @@
    * [https://chrome.google.com/webstore/detail/domhiadbdhomljcdankobiglghedagkm Fauxbar Memory Helper] would (try to) restart Fauxbar while the site tile editor was open.
    * Custom input box icon colors were not being applied when being hovered over.
  * Changed:
-   * The Address Box will no longer display bookmark URLs beginning with "javascript:void", as these seem to crash Fauxbar.
+   * The Address Box will no longer display bookmark URLs that begin with "javascript:void", as these seem to crash Fauxbar.
 
 === *26 July 2011 - v0.1.0:* ===
  * Added the ability to manually select and arrange site tiles. Available in Fauxbar's Options > Tiles > Site Tiles.
