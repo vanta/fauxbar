@@ -16,7 +16,7 @@
  * Changed:
    * The Address Box will no longer display bookmark URLs that begin with "javascript:void", as these seem to crash Fauxbar.
 
-=== *26 July 2011 - v0.1.0:* ===
+*26 July 2011 - v0.1.0:*
  * Added the ability to manually select and arrange site tiles. Available in Fauxbar's Options > Tiles > Site Tiles.
  * Decreased the default Typed frecency transition bonus score from 125 to 100, so that Omnibox page transitions no longer inflate scoring. This brings all default transition type bonus scores to 100, except for !Auto_Bookmark, which remains at 75.
  * Fixed a bug where clearing Chrome's recent browsing history would remove partially affected history items completely from Fauxbar's index, instead of just recalculating their frecency scores.
