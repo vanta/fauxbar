@@ -10,7 +10,7 @@
    * Added default tooltips for colors and opacity levels in the options.
  * Fixed issues:
    * Bookmark frecency scores were being incorrectly calculated after deleting a bookmark folder from Chrome.
-   * The http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16options.png icon would always display a link to edit site tiles, even if you'd opted not to show them.
+   * The clickable http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16options.png icon would always display a link to edit site tiles, even if you'd opted not to show them.
    * [https://chrome.google.com/webstore/detail/domhiadbdhomljcdankobiglghedagkm Fauxbar Memory Helper] would (try to) restart Fauxbar while the site tile editor was open.
    * Custom input box icon colors were not being applied when being hovered over.
  * Changed:
