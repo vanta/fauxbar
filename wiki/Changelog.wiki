@@ -3,7 +3,13 @@
 
 = Fauxbar Version History =
 
-* 27 July 2011 - v0.1.1:*
+*30 July 2011 - v0.2.0*:
+ * New and improved:
+   * Added an error logging system, so users can submit reports to help improve and cheer up Fauxbar. Available in Fauxbar's Options > Management.
+   * Error messages are now less intrusive and more informative. The option to display error messages has been automatically re-enabled for this release.
+   * Added an option to "consolidate duplicate bookmarks", so that duplicate bookmarks don't clutter Address Box results. Enabled by default. Toggleable in Fauxbar's Options > Address Bar.
+
+*27 July 2011 - v0.1.1:*
  * New and improved:
    * Fauxbar now lets you know when an update has been applied.
    * Fauxbar loading times have been improved, if input box icon colors and bookmark icon opacity levels are using their default values.
