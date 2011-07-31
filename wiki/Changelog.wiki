@@ -3,14 +3,17 @@
 
 = Fauxbar Version History =
 
-*1 August 2011 - v0.2.1*:
+*1 August 2011 - v0.2.2:*
+ * Site tile thumbnails should now persist between sessions again. (fixes bug from v0.2.1)
+
+*1 August 2011 - v0.2.1:*
  * New and improved:
   * Fauxbar tabs now load faster than before. (added CSS caching and optimized tile memory usage)
   * Fauxbar's version number is now shown under Fauxbar Options > Management.
  * Known issues:
   * Thumbnails for manually-selected site tiles are not getting saved between sessions. To fix, enter Tile Editing Mode and click Save (should only have to do this once).
 
-*30 July 2011 - v0.2.0*:
+*30 July 2011 - v0.2.0:*
  * New and improved:
    * Added an error logging system, so users can submit reports to help improve and cheer up Fauxbar. Available in Fauxbar's Options > Management.
    * Error messages are now less intrusive and more informative. The option to display error messages has been automatically re-enabled for this release.
