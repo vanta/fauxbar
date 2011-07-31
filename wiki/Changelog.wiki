@@ -3,6 +3,10 @@
 
 = Fauxbar Version History =
 
+*1 August 2011 - v0.2.1*:
+ * Fauxbar tabs now load faster than before. (added CSS caching and optimized tile memory usage)
+ * Fauxbar's version number is now shown under Fauxbar Options > Management.
+
 *30 July 2011 - v0.2.0*:
  * New and improved:
    * Added an error logging system, so users can submit reports to help improve and cheer up Fauxbar. Available in Fauxbar's Options > Management.
