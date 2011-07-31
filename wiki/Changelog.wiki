@@ -4,7 +4,8 @@
 = Fauxbar Version History =
 
 *1 August 2011 - v0.2.2:*
- * Site tile thumbnails should now persist between sessions again. (fixes bug from v0.2.1)
+ * Fixed:
+  * Site tile thumbnails should now persist between sessions again. (fixes bug from v0.2.1)
 
 *1 August 2011 - v0.2.1:*
  * New and improved:
