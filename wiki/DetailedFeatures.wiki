@@ -1,4 +1,5 @@
 #summary Detailed overview of Fauxbar's features.
+#labels Deprecated
 
 = Fauxbar's Features =
 
