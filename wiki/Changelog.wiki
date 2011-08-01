@@ -3,6 +3,10 @@
 
 = Fauxbar Version History =
 
+*2 August 2011 - v0.2.3:*
+ * Added:
+  * A new Support section is now available in Fauxbar's Options, containing links to Fauxbar's documentation and social engagement pages.
+
 *1 August 2011 - v0.2.2:*
  * Fixed:
   * Site tile thumbnails should now persist between sessions again. (fixes bug from v0.2.1)
