@@ -4,8 +4,8 @@
 
 Parts of Fauxbar's code includes:
 
-  * [http://www.48design.de/news/2009/11/20/kollisionsabfrage-per-jquery-plugin-update-v11-8/ Collision Check Plugin]
   * [http://jquery.com/ jQuery]
+  * [http://www.48design.de/news/2009/11/20/kollisionsabfrage-per-jquery-plugin-update-v11-8/ Collision Check Plugin]
   * [http://jscolor.com/ JSColor]
   * [http://digitalbush.com/projects/masked-input-plugin/ Masked Input Plugin]
   * [http://www.mezzoblue.com/archives/2010/10/07/paintbrushjs/ PaintbrushJS]
