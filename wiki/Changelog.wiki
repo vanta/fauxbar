@@ -3,6 +3,19 @@
 
 = Fauxbar Version History =
 
+*3 August 2011 - v0.3.0:*
+ * New:
+  * Fauxbar now requires Google Chrome v13 to run. You can update Chrome by clicking Chrome's Wrench > About Google Chrome.
+  * When using the Address Box, the first result displayed can now be pre-rendered for you. Enabled by default. Toggleable in Fauxbar's Options > Address Box > Results.
+  * Unwanted domains and URLs can now be excluded from showing up in Address Box results. Manage your blacklist in Fauxbar's Options > Address Box > Results.
+ * Improved:
+  * Optimized the way Alt+D, Ctrl+K and Ctrl+L shortcuts are handled. (dropped the jQuery Hotkeys plugin and fixed some Chrome 13 hanging issues)
+ * Fixed:
+  * Typing too fast into the Address Box would sometimes display non-matching results.
+  * Input box icons were getting recolored even if the default color was selected. Fauxbar should load more quickly now.
+  * Pressing Ctrl+Enter in the Address Box will now only wrap "www." and ".com" around your actual typed input, ignoring any auto-filled text.
+  * Opening the Error Log will now clear the red error count if the Error Log turns out to be empty.
+
 *2 August 2011 - v0.2.3:*
  * Added:
   * A new Support section is now available in Fauxbar's Options, containing links to Fauxbar's documentation and social engagement pages.
