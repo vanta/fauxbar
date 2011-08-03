@@ -7,7 +7,7 @@
 Fed up with Firefox's poor memory performance and Chrome's unpredictable Omnibox behavior, Fauxbar was created to combine Firefox's Awesome Bar functionality with Chrome's stability.
 
 === 2. What version of Chrome is required? ===
-Fauxbar requires Google Chrome version 12 or higher to run, and works on Windows, Mac OS and Linux.
+Fauxbar requires Google Chrome version 13 or higher to run, and works on Windows, Mac OS and Linux.
 
 === 3. Should I always leave Fauxbar enabled? ===
 For best results, yes, always leave it enabled if you can. If Fauxbar is disabled and you continue browsing with Chrome, Fauxbar's index will become out of sync with Chrome's index. While you can get Fauxbar back up to speed by clicking the Reindex button within Fauxbar's options, this can be tedious.
