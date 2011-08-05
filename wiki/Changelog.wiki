@@ -3,6 +3,22 @@
 
 = Fauxbar Version History =
 
+*5 August 2011 - v0.4.0:*
+ * New:
+  * Search engine keywords have been added, letting you access your Fauxbar search engines from the Address Box and/or Search Box by typing an engine's keyword and pressing spacebar. Keywords can be defined in Fauxbar's Options > Search Box > Search Engines. Suggestions and past queries can be toggled in Fauxbar's Options > Address Box > Keywords.
+ * Changed:
+  * The default unvisited bookmark bonus frecency score has been been reduced from 140 to 1, as unvisited bookmarks seemed to often appear higher than history items that you're trying to revisit. If you were using the default score of 140, you can apply the new scoring change, if desired, by reindexing Fauxbar in Fauxbar's Options > Management > Database. Afterwards, if you happen to have difficulty finding an unvisited bookmark, try adding the *is:fav* modifier to your search string.
+  * A more efficient method of preventing data: URLs from being displayed in Address Box results has been implemented, but you may need to reindex Fauxbar for this change to take effect. (if Address Box results still seem fast enough for you, don't worry about this)
+ * Fixed:
+  * When history items are removed from Chrome, they should now also be removed from Fauxbar.
+  * Blacklisted URLs will no longer appear in Fauxbar's Omnibox results.
+  * Errors occurring during page transitions should now be logged properly.
+  * Search engines sending invalid JSON suggestions will no longer throw errors.
+ * Hopefully fixed:
+  * To try and resolve Fauxbar's occasional start-up crashes, the loading order of certain !JavaScript files has been changed, and small communication delays between Fauxbar and Fauxbar Memory Helper have been added. (Memory Helper has been updated to v0.0.2)
+
+----
+
 *3 August 2011 - v0.3.0:*
  * New:
   * Fauxbar now requires Google Chrome v13 to run. You can update Chrome by clicking Chrome's Wrench > About Google Chrome.
@@ -16,13 +32,19 @@
   * Pressing Ctrl+Enter in the Address Box will now only wrap "www." and ".com" around your actual typed input, ignoring any auto-filled text.
   * Opening the Error Log will now clear the red error count if the Error Log turns out to be empty.
 
+----
+
 *2 August 2011 - v0.2.3:*
  * Added:
   * A new Support section is now available in Fauxbar's Options, containing links to Fauxbar's documentation and social engagement pages.
 
+----
+
 *1 August 2011 - v0.2.2:*
  * Fixed:
   * Site tile thumbnails should now persist between sessions again. (fixes bug from v0.2.1)
+
+----
 
 *1 August 2011 - v0.2.1:*
  * New and improved:
@@ -31,11 +53,15 @@
  * Known issues:
   * Thumbnails for manually-selected site tiles are not getting saved between sessions. To fix, enter Tile Editing Mode and click Save (should only have to do this once).
 
+----
+
 *30 July 2011 - v0.2.0:*
  * New and improved:
    * Added an error logging system, so users can submit reports to help improve and cheer up Fauxbar. Available in Fauxbar's Options > Management.
    * Error messages are now less intrusive and more informative. The option to display error messages has been automatically re-enabled for this release.
    * Added an option to "consolidate duplicate bookmarks", so that duplicate bookmarks don't clutter Address Box results. Enabled by default. Toggleable in Fauxbar's Options > Address Bar.
+
+----
 
 *27 July 2011 - v0.1.1:*
  * New and improved:
@@ -50,11 +76,15 @@
  * Changed:
    * The Address Box will no longer display bookmark URLs that begin with "javascript:void", as these seem to crash Fauxbar.
 
+----
+
 *26 July 2011 - v0.1.0:*
  * Added the ability to manually select and arrange site tiles. Available in Fauxbar's Options > Tiles > Site Tiles.
  * Decreased the default Typed frecency transition bonus score from 125 to 100, so that Omnibox page transitions no longer inflate scoring. This brings all default transition type bonus scores to 100, except for !Auto_Bookmark, which remains at 75.
  * Fixed a bug where clearing Chrome's recent browsing history would remove partially affected history items completely from Fauxbar's index, instead of just recalculating their frecency scores.
  * Decreased the default amount of previous queries the Search Box can display from 20 to 10.
+
+----
 
 *23 July 2011 - v0.0.7:*
  * Site tile loading times have been improved.
@@ -62,10 +92,14 @@
  * The Options page will now try to open into an existing Fauxbar tab if possible.
  * Tiles now have their own main section in the Options page.
 
+----
+
 *21 July 2011 - v0.0.6:*
  * Improved handling of links for fi**le:/// URLs.
  * Added options to prevent fi**le:/// URLs, pinned URLs and opened URLs from being displayed as top site tiles. Available under Fauxbar Options > General > Tiles.
  * Top site frecency scores will now be recalculated more often.
+
+----
 
 *20 July 2011 - v0.0.5:*
  * Clicking a "Switch to tab" result will no longer sometimes cause the current tab to doubly open the clicked URL.
@@ -73,11 +107,17 @@
  * Added an option to always show the Options "..." icon in the Omnibox. Available under Fauxbar Options > General > Omnibox. Disabled by default.
  * Improved the way speech input is handled.
 
+----
+
 *19 July 2011 - v0.0.4:*
  * Fixed a Mac-only lock-up error that was introduced in v0.0.3. (Alert boxes during page transitions are bad)
 
+----
+
 *19 July 2011 - v0.0.3:*
  * Hopefully fixed a Windows XP bug where clicking Address Box results sometimes had no effect.
+
+----
 
 *18 July 2011 - v0.0.2:*
  * Initial beta release.
