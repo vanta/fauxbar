@@ -14,6 +14,7 @@
   * Blacklisted URLs will no longer appear in Fauxbar's Omnibox results.
   * Errors occurring during page transitions should now be logged properly.
   * Search engines sending invalid JSON suggestions will no longer throw errors.
+  * Links in the "latest tweet" part of the Support section will now work properly.
  * Hopefully fixed:
   * To try and resolve Fauxbar's occasional start-up crashes, the loading order of certain !JavaScript files has been changed, and small communication delays between Fauxbar and Fauxbar Memory Helper have been added. (Memory Helper has been updated to v0.0.2)
 
