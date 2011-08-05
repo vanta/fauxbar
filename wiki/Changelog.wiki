@@ -17,6 +17,8 @@
   * Links in the "latest tweet" part of the Support section will now work properly.
  * Hopefully fixed:
   * To try and resolve Fauxbar's occasional start-up crashes, the loading order of certain !JavaScript files has been changed, and small communication delays between Fauxbar and Fauxbar Memory Helper have been added. (Memory Helper has been updated to v0.0.2)
+ * Known issues:
+  * When showing just the Address Box without the Search Box, search suggestions are not being displayed when using search engine keywords.
 
 ----
 
