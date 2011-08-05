@@ -3,6 +3,12 @@
 
 = Fauxbar Version History =
 
+*5 August 2011 - v0.4.1:*
+ * Fixed:
+  * Search suggestions and queries were not being displayed when using search engine keywords with just the Address Box showing.
+
+----
+
 *5 August 2011 - v0.4.0:*
  * New:
   * Search engine keywords have been added, letting you access your Fauxbar search engines from the Address Box and/or Search Box by typing an engine's keyword and pressing spacebar. Keywords can be defined in Fauxbar's Options > Search Box > Search Engines. Suggestions and past queries can be toggled in Fauxbar's Options > Address Box > Keywords.
