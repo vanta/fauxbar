@@ -14,7 +14,7 @@
     * Add/Edit Bookmark
     * Add Keyword
     * <i>Note:</i> If needed, you can access Chrome's normal context menu by Ctrl+Right-clicking.
-  * Keywords can now be assigned to Address Box results. Right-click on a result to add or edit a keyword for the result's URL. Then, when you start typing that keyword into the Address Box, the keyworded result will appear above all other results. Keywords are a Fauxbar-only feature, and are kept separate from Chrome's database, and are not synced between installations. However, keywords can be backed-up and restored via Fauxbar's Management option section.
+  * Keywords can now be assigned to Address Box results. Right-click on a result to add or edit a keyword for the result's URL. Then, when you start typing that keyword into the Address Box, the keyworded result will appear above all other results. Keywords are a Fauxbar-only feature, and are kept separate from Chrome's database, and are not synced between installations. However, keywords can be backed-up and restored via Fauxbar's Options > Management > Backup/Restore.
   * The Address Box's globe icon is now clickable, giving access to Fauxbar's search engines, much like the Search Box. If the Search Box seems somewhat obsolete now, you can opt to show only the Address Box via Fauxbar's Options > General > Input Boxes.
  * Enhanced:
   * Modified the way search engine names look when using search engines in the Address Box.
