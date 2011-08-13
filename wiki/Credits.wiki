@@ -12,4 +12,6 @@ Parts of Fauxbar's code includes:
   * [http://phpjs.org/ php.js]
   * [http://code.google.com/p/rangyinputs/ Rangyinputs]
 
+Certain images from [http://www.chromium.org/ Chromium] are used in Fauxbar.
+
 And thank you to [http://www.mozilla.org/ Mozilla] for [http://www.mozilla.com/firefox/ Firefox]'s Awesome Bar logic and [https://developer.mozilla.org/en/The_Places_frecency_algorithm frecency algorithm], and Google for maintaining a stable browser.
