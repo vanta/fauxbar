@@ -5,7 +5,7 @@
 
 *13 August 2011 - v0.5.1:*
  * Fixed:
-  * The General option for "When Fauxbar opens, focus: Chrome's Omnibox" was not working correctly.
+  * The General > Startup option for "When Fauxbar opens, focus: Chrome's Omnibox" was not working correctly.
 
 ----
 
