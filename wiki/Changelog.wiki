@@ -3,6 +3,12 @@
 
 = Fauxbar Version History =
 
+*13 August 2011 - v0.5.1:*
+ * Fixed:
+  * The General option for "When Fauxbar opens, focus: Chrome's Omnibox" was not working correctly.
+
+----
+
 *13 August 2011 - v0.5.0:*
  * New:
   * Fauxbar can now cut, copy and paste text. To continue using Fauxbar, you must accept this new clipboard-access permission when Chrome asks you.
