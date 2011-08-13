@@ -3,6 +3,35 @@
 
 = Fauxbar Version History =
 
+*13 August 2011 - v0.5.0:*
+ * New:
+  * Fauxbar can now cut, copy and paste text. To continue using Fauxbar, you must accept this new clipboard-access permission when Chrome asks you.
+  * Right-clicking on anything within Fauxbar will now display a custom context menu. Menu options that appear may include:
+    * Customize Fauxbar
+    * Edit Tiles
+    * Paste & Go
+    * Quick access to Fauxbar's search engines
+    * Add/Edit Bookmark
+    * Add Keyword
+    * <i>Note:</i> If needed, you can access Chrome's normal context menu by Ctrl+Right-clicking.
+  * Keywords can now be assigned to Address Box results. Right-click on a result to add or edit a keyword for the result's URL. Then, when you start typing that keyword into the Address Box, the keyworded result will appear above all other results. Keywords are a Fauxbar-only feature, and are kept separate from Chrome's database, and are not synced between installations. However, keywords can be backed-up and restored via Fauxbar's Management option section.
+  * The Address Box's globe icon is now clickable, giving access to Fauxbar's search engines, much like the Search Box. If the Search Box seems somewhat obsolete now, you can opt to show only the Address Box via Fauxbar's Options > General > Input Boxes.
+ * Enhanced:
+  * Modified the way search engine names look when using search engines in the Address Box.
+  * Fauxbar's Options page width is now independent from the Fauxbar's width, meaning it won't get squished too thinly anymore.
+  * Fauxbar now performs a quick bit of database maintenance upon each start-up, to optimize its database's speed.
+ * Fixed:
+  * When adding a search engine, URL parameters were sometimes not getting processed properly.
+  * Bookmark star icons were sometimes causing Address Box results to become too tall.
+  * Search engine keywords were not getting applied when restoring Fauxbar's options.
+  * Bookmark and history item frecency scores were becoming out of sync in some cases.
+ * Hopefully fixed:
+  * Added further delays to Fauxbar Memory Helper's communication with Fauxbar. It seems that if Fauxbar is using a lot of memory, and is then disabled and re-enabled too fast, it crashes when it tries to start. Memory Helper has been updated to version 0.0.3.
+ * Known issues:
+  * Mac OS styling is sub-par to the Windows version.
+
+----
+
 *5 August 2011 - v0.4.1:*
  * Fixed:
   * Search suggestions and queries were not being displayed when using search engine keywords with just the Address Box showing.
