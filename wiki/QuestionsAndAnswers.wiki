@@ -17,6 +17,8 @@ Fauxbar does not send any of your personal data across the Internet. Your histor
 
 The only exception is, when typing into the Search Box, Fauxbar may send the text you've entered to the selected search engine, to retrieve and display query suggestions from the search engine. This is enabled by default but can be disabled in the options.
 
+Fauxbar may also fetch and display Fauxbar-related information from Twitter and Facebook, to display in Fauxbar's Support section in the Options.
+
 === 5. Can I open Fauxbar without opening a New Tab? ===
 Yes. Use this address:
 
