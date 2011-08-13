@@ -25,6 +25,7 @@
   * Bookmark star icons were sometimes causing Address Box results to become too tall.
   * Search engine keywords were not getting applied when restoring Fauxbar's options.
   * Bookmark and history item frecency scores were becoming out of sync in some cases.
+  * Newly-installed Chrome apps were not appearing in Fauxbar right away.
  * Hopefully fixed:
   * Added further delays to Fauxbar Memory Helper's communication with Fauxbar. It seems that if Fauxbar is using a lot of memory, and is then disabled and re-enabled too fast, it crashes when it tries to start. Memory Helper has been updated to version 0.0.3.
  * Known issues:
