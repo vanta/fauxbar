@@ -3,6 +3,22 @@
 
 = Fauxbar Version History =
 
+*15 August 2011 - v0.5.2:*
+ * New:
+  * You can now change the number of maximum site tiles per row while in tile edit mode.
+  * Added an option to prompt for confirmation before deleting a history result when using Quick Delete. Enabled by default. Toggleable in Fauxbar's Options > Results & Suggestions > Quick Delete.
+  * Added a "Delete from History" context menu option for Address Box results.
+  * "Switch to tab" functionality is now optional. Enabled by default. Changeable under Fauxbar's Options > Address Box > Results.
+ * Fixed:
+  * Site tiles sometimes had a large gap between the thumbnail and tile name.
+  * Omnibox result titles would sometimes display "undefined" if they did not have a keyword.
+  * History items removed via Quick Delete were not getting deleted from Fauxbar properly if a bookmark for the URL existed; said bookmarks' frecency scores were then not getting updated with the unvisited bookmark frecency score.
+  * Address Box results were not displaying properly if result titles contained quotation marks.
+  * Page titles were sometimes getting applied to the wrong history URL in Fauxbar's database during page transitions.
+  * Tile thumbnails were not getting created if the tile's target page did not have !JavaScript enabled.
+
+----
+
 *13 August 2011 - v0.5.1:*
  * Fixed:
   * The General > Startup option for "When Fauxbar opens, focus: Chrome's Omnibox" was not working correctly.
