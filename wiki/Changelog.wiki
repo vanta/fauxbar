@@ -11,7 +11,7 @@
   * Speech input wasn't triggering results to be displayed.
  * Known issues:
   * Site thumbnail images have been reset for this release, as Fauxbar now stores them using the !FileSystem API instead of SQLite.
-  * Site tiles still load slowly, though this is no different than before.
+  * Site tiles still don't load very fast, but this is no different than before.
 
 ----
 
