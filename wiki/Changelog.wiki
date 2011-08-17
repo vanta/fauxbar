@@ -6,7 +6,7 @@
 *17 August 2011 - v0.5.3:*
  * Enhanced:
   * Fauxbar now opens faster than before, meaning Omnibox focus can be stolen more quickly. (reordered and delayed loading of certain functions)
-  * Fauxbar's memory usage has been improved. (implemented a new site thumbnail storage method)
+  * Fauxbar now uses less memory. (implemented a new site thumbnail storage method)
  * Fixed:
   * Speech input wasn't triggering results to be displayed.
  * Known issues:
