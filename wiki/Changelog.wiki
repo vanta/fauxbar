@@ -3,6 +3,18 @@
 
 = Fauxbar Version History =
 
+*17 August 2011 - v0.5.3:*
+ * Enhanced:
+  * Fauxbar now opens faster than before, meaning Omnibox focus can be stolen more quickly. (reordered and delayed loading of certain functions)
+  * Fauxbar's memory usage has been improved. (implemented a new site thumbnail storage method)
+ * Fixed:
+  * Speech input wasn't triggering results to be displayed.
+ * Known issues:
+  * Site thumbnail images have been reset for this release, as Fauxbar now stores them using the !FileSystem API instead of SQLite.
+  * Site tiles still load slowly, though this is no different than before.
+
+----
+
 *15 August 2011 - v0.5.2:*
  * New:
   * You can now change the number of maximum site tiles per row while in tile edit mode.
