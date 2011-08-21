@@ -15,6 +15,8 @@ _This version is a release candidate for Fauxbar 1.0.0._
   * Added a message during bookmark reindexing, advising that Address Box results may be delayed during this process. (happens when a bookmark folder is deleted)
   * Set the default font to "Ubuntu" for Linux installations.
   * Added a slight delay before fetching Address Box results when queries are one-character-long, to help prevent Address Box lag.
+ * Changed:
+  * In preparation for Fauxbar's 1.0.0 public release, error alerts and error counts are disabled by default (for new installs).
  * Fixed:
   * Input box sizes and icon positions were displaying unevenly if the font size was less than 15 pixels; this was most noticeable on Mac OS.
   * The "Edit Tiles" button within Fauxbar's Options was not working properly.
