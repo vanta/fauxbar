@@ -3,7 +3,7 @@
 
 = Fauxbar Version History =
 
-*21 August 2011 - v0.5.4:*
+*22 August 2011 - v0.5.4:*
 
 _This version is a release candidate for Fauxbar 1.0.0._
  * New:
