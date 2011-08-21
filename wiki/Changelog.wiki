@@ -3,6 +3,30 @@
 
 = Fauxbar Version History =
 
+*21 August 2011 - v0.5.4:*
+
+_This version is a release candidate for Fauxbar 1.0.0._
+ * New:
+  * You can now choose a background image from your computer. Available in Fauxbar's Options > Page Background.
+  * You can now manually add search engines to Fauxbar, if you know the search URL you want to enter. Available in Fauxbar's Options > Search Engines.
+ * Improved:
+  * Pre-rendering for Address Box result pages is now more intelligent. If enabled, Fauxbar will record what you type and which results you go to. Then, if you type the same query again in the future, Fauxbar will assume you want to go to the same page as last time, and will ask Chrome to start pre-rendering the page in the background for you. Toggleable in Fauxbar's Options > Address Box > Results. (the previous time-delay option has been removed)
+  * Thumbnail filesizes have been decreased without affecting quality, so future tiles should load slightly faster.
+  * Added a message during bookmark reindexing, advising that Address Box results may be delayed during this process. (happens when a bookmark folder is deleted)
+  * Set the default font to "Ubuntu" for Linux installations.
+  * Added a slight delay before fetching Address Box results when queries are one-character-long, to help prevent Address Box lag.
+ * Fixed:
+  * Input box sizes and icon positions were displaying unevenly if the font size was less than 15 pixels; this was most noticeable on Mac OS.
+  * The "Edit Tiles" button within Fauxbar's Options was not working properly.
+  * Clicking a search suggestion from the Address Box would sometimes enter the text in the Search Box instead.
+  * When selecting a Search Box search engine, the search engine selection would not persist between tab sessions.
+  * Custom input box font colors were not being applied to placeholder texts.
+  * Search suggestions were not getting truncated with "..." if they were too long.
+  * Unhelpful/undebuggable errors were getting added to the error log. (unhelpful errors tend to get reported if XMLHttpRequest logging is not enabled in Chrome's dev console)
+  * The color picker palette was not displaying consistently. (updated jscolor from v1.3.1 to v1.3.9)
+
+----
+
 *17 August 2011 - v0.5.3:*
  * Enhanced:
   * Fauxbar now opens faster than before, meaning Omnibox focus can be stolen more quickly. (reordered and delayed loading of certain functions)
