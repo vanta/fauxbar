@@ -18,7 +18,7 @@ _This version is a release candidate for Fauxbar 1.0.0._
  * Changed:
   * In preparation for Fauxbar's 1.0.0 public release, error alerts and error counts are disabled by default (for new installs).
  * Fixed:
-  * Input box sizes and icon positions were displaying unevenly if the font size was less than 15 pixels; this was most noticeable on Mac OS.
+  * Input box sizes and icon positions were displaying unevenly if the font size was less than 15 pixels; this was most noticeable on Mac OS. (*note:* this change will be fully applied when you open Fauxbar's options)
   * The "Edit Tiles" button within Fauxbar's Options was not working properly.
   * Clicking a search suggestion from the Address Box would sometimes enter the text in the Search Box instead.
   * When selecting a Search Box search engine, the search engine selection would not persist between tab sessions.
