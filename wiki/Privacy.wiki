@@ -3,7 +3,7 @@
 
 = Fauxbar's Privacy Policy =
 
-In order to show you relevant websites that you search for, Fauxbar collects and stores data on your local computer, within Chrome's extension storage areas, and does not share this information.
+In order to show you relevant websites that you search for, Fauxbar collects and stores data on your local computer, within Chrome's extension storage areas.
 
 == What information does Fauxbar collect? ==
 
@@ -25,11 +25,11 @@ Fauxbar may collect:
 
 Fauxbar uses the above information to help you search for and locate relevant webpages to visit.
 
-The information Fauxbar collects stays on your local computer. Fauxbar does not send this information across the Internet.
+Fauxbar may send search queries to the selected search engine as you type (details below), but apart from this, Fauxbar does not share any collected information over the Internet. All other collected information stays on your local computer.
 
 The "latest tweet" is fetched every 60 minutes, and is used to display the latest Fauxbar news within Fauxbar's Options > Support section.
 
-And although Fauxbar does not send data over the Internet, Fauxbar gives you the ability to easily copy your Options data in plaintext, so you can backup and restore your chosen settings if desired. You can also copy Fauxbar's errors to manually email Fauxbar's developers to help fix bugs. But neither of these are done automatically by Fauxbar alone; user assistance is always required.
+Fauxbar gives you the ability to easily copy your Options data in plaintext, so you can backup and restore your chosen settings if desired. You can also copy Fauxbar's errors to manually email Fauxbar's developers to help fix bugs. But neither of these are done automatically by Fauxbar alone; user assistance is always required.
 
 == Can I see what Fauxbar has collected? ==
 
@@ -55,3 +55,11 @@ When you visit a webpage, Fauxbar may:
  * Use the webpage's title to update Fauxbar's history entry for the page's URL.
  * Take a screenshot of the page to use as a tile thumbnail.
 No personal data is sought.
+
+== Does Fauxbar send any non-collected data anywhere? ==
+
+When you're typing a search query using one of Fauxbar's search engines, if the search engine supports receiving queries and returning suggestions that Fauxbar then displays, Fauxbar will send the query you're typing to the selected search engine as you type. This is enabled by default, but can be disabled within Fauxbar's Options > Search Engines > Suggestions.
+
+Fauxbar requests its Twitter account's latest tweet every 60 minutes, as mentioned above. Twitter.com may receive your IP address or other host information through this request, but this is no different from just visiting Twitter.com, or any website.
+
+Fauxbar also displays Facebook and Twitter information within Fauxbar's Options > Support section. These use Facebook's and Twitter's plugins. Fauxbar has no direct association with either company, apart from signing up and joining to create a Fauxbar Facebook Page and Twitter account respectively. Twitter and Facebook may receive your IP address or other host information through this request, but this is no different from visiting either website, or any website.
