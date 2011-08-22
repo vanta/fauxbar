@@ -14,4 +14,4 @@ Parts of Fauxbar's code includes:
 
 Certain images from [http://www.chromium.org/ Chromium] are also used in Fauxbar.
 
-And thank you to [http://www.mozilla.org/ Mozilla] for [http://www.mozilla.com/firefox/ Firefox]'s Awesome Bar logic and [https://developer.mozilla.org/en/The_Places_frecency_algorithm frecency algorithm], and Google for maintaining a stable browser.
+And thank you to [http://www.mozilla.org/ Mozilla] for [http://www.mozilla.com/firefox/ Firefox]'s Awesome Bar logic and [https://developer.mozilla.org/en/The_Places_frecency_algorithm frecency algorithm], and [http://www.google.com/ Google] for maintaining [http://www.google.com/chrome Chrome] and its stability.
