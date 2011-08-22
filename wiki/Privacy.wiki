@@ -1,4 +1,5 @@
 #summary Fauxbar's privacy policy.
+#labels Featured
 
 = Fauxbar's Privacy Policy =
 
