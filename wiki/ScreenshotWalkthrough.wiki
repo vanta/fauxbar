@@ -100,7 +100,7 @@ By pressing F and then Spacebar, you can find your history items and bookmarks u
 http://i.imgur.com/k6146.jpg
 
 A peek at Fauxbar's Options page, with a custom background.
-Fauxbar has 60+ options you can configure.
+Fauxbar has 60+ options you can configure. You can open Fauxbar's Options by right-clicking anywhere within Fauxbar.
 
 ----
 
