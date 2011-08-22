@@ -8,6 +8,7 @@
  * [TipsAndTricks Tips & Tricks]
  * [QuestionsAndAnswers FAQ]
  * [Privacy Privacy Policy]
+ * [Credits Credits]
 
 *Other Links:*
  * [https://chrome.google.com/webstore/detail/hibkhcnpkakjniplpfblaoikiggkopka Download Fauxbar]
