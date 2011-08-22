@@ -1,9 +1,16 @@
 #summary Fauxbar's persistent wiki sidebar.
 #labels Deprecated
 
+*Documentation:*
  * [http://code.google.com/p/fauxbar/ Fauxbar Overview]
  * [Features Features]
  * [ScreenshotWalkthrough Screenshot Walkthrough]
  * [TipsAndTricks Tips & Tricks]
  * [QuestionsAndAnswers FAQ]
  * [Privacy Privacy Policy]
+
+*Other Links:*
+ * [http://www.facebook.com/pages/Fauxbar/147907341953576?sk=wall Fauxbar on Facebook]
+ * [https://twitter.com/Fauxbar Fauxbar on Twitter]
+ * [http://reddit.com/r/Fauxbar Fauxbar on Reddit]
+ * [https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZXUCR8FU2XGYY Donate via PayPal]
