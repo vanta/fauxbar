@@ -1,6 +1,8 @@
 #summary Full list of Fauxbar's features.
 #labels Featured
 
+= Fauxbar's Features =
+
 Fauxbar brings Firefox's Awesome Bar functionality to Google Chrome™.
 
 Do you dislike Chrome's Omnibox?
