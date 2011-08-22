@@ -76,13 +76,13 @@ Some of the features below can be adjusted or toggled within Fauxbar's Options.
       * press *Enter* to go to the entered address in the current tab.
       * press *Alt*+*Enter* to go to the entered address in a new tab.
       * press *Ctrl*+*Enter* to wrap "ht**tp://www." and ".com" around your input, and go to the address in the current tab.
-      * click the Go Arrow to go to the entered address in the current tab.
+      * click the http://fauxbar.googlecode.com/svn/trunk/Fauxbar/goarrow.png icon to go to the entered address in the current tab.
  
 <img src="http://i.imgur.com/m3Eg3.jpg" align="right" width="264" />
 
  * If the Address Box's input is a URL, the URL will be visited. But if the input is not a URL, the input will be performed as a search using Fauxbar's "Fallback URL".
 
-  * When you go to a result, either by clicking a result or pressing Enter, Fauxbar may record what you typed to get to the result. Then, if you type the same text again in the future, Fauxbar will assume you want go to the same result as last time, and will ask Chrome to start pre-rendering the result's page in the background for you. This will hopefully decrease visible page loading time for you.
+  * When you go to a result, either by clicking a result or pressing Enter, Fauxbar may record what you typed to get to the result. Then, if you type the same text again in the future, Fauxbar will assume you want go to the same result as last time, and will ask Chrome to start pre-rendering the result's page in the background, hopefully decreasing visible page loading time for you.
 
   * Fauxbar's search engines can also be used within the Address Box by:
       * clicking the down-arrow/triangle beside the globe icon, or
@@ -115,7 +115,7 @@ Some of the features below can be adjusted or toggled within Fauxbar's Options.
   * To search, type a query into the Search Box. Then, you can perform your search:
       * in the current tab:
           * by pressing *Enter*, or
-          * by clicking the magnifying glass icon.
+          * by clicking the http://fauxbar.googlecode.com/svn/trunk/Fauxbar/search.png icon.
       * in a new tab:
           * by pressing *Alt*+*Enter*.
 
