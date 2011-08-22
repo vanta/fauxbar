@@ -151,7 +151,7 @@ Some of the features below can be adjusted or toggled within Fauxbar's Options.
   * Fauxbar's Search Box comes pre-loaded with the Google, Yahoo! and Bing search engines.
 
   * To add a new search engine to the Search Box, you can either:
-     * Visit a webpage that offers a search engine. Fauxbar should detect the engine and display a clickable http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16plus.png icon in Chrome's Omnibox, symbolizing that you can add the webpage's search engine to Fauxbar. Left-click the icon to add the engine to the Search Box.
+     * Visit a webpage that offers a search engine. Fauxbar should detect the engine and display a clickable http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16plus.png icon in Chrome's Omnibox, symbolizing that you can add the webpage's search engine to Fauxbar. Left-click the icon to add the engine to the Search Box. Or,
      * Go to Fauxbar's Options > Search Engines > Adding Engines and click the Add Manually button (only worth using if you know a search engine's query URL)
 
   * Fauxbar looks for new search engines by scanning each webpage you visit for:
