@@ -8,6 +8,8 @@ Fauxbar brings Firefox's Awesome Bar functionality to Google Chrome™.
 Do you dislike Chrome's Omnibox?
 Become a Fauxbar user and transform your New Tab page into something more useful.
 
+Fauxbar's features include:
+
 === Address Box: ===
  * Accurately find your history items, bookmarks, and opened tabs
  * Results are ranked by the frecency algorithm, just like Firefox's Awesome Bar
