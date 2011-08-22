@@ -3,9 +3,11 @@
 
 = Fauxbar Screenshots =
 
+<wiki:toc max_depth="2" />
+
 == 1. Initial setup ==
 
-http://i.imgur.com/nwowN.jpg
+http://i.imgur.com/x8WnQ.jpg
 
 When you install Fauxbar for the first time, Fauxbar processes your Chrome history items and bookmarks to create its own separate index. This only takes a moment, and once complete, the index is updated silently on-the-fly from then on.
 
@@ -23,63 +25,69 @@ In this example, the Address Box is showing a list of top pages from a user's Ch
 
 == 3. Address Box ==
 
-http://i.imgur.com/bjRfG.png
+http://i.imgur.com/QyUwF.jpg
 
 When typing into the Address Box, Fauxbar displays matching pages from your history, bookmarks and opened tabs, with full support for mid-word searching and non-alphanumeric characters.
 
-Custom pink and yellow styling has been applied in this example. Fauxbar lets you theme it however you'd like.
+The above example has the Address Box auto-completing the user's query, based on the highest-ranked matching URL.
+
+http://i.imgur.com/2RW89.jpg
+
+This second example above shows how Fauxbar is able to do mid-word searching.
+
+http://i.imgur.com/wBHKe.jpg
+
+This third example above shows the context menu that appears when you right-click on a result.
+
+http://i.imgur.com/PMsP2.jpg http://i.imgur.com/m3Eg3.jpg
+
+This fourth and fifth examples above show how a search engine can be selected and used from the Address Box.
+
+http://i.imgur.com/fP8FG.jpg
+
+You can also add a keyword (aka tag or label) to a URL. Typing a keyword into Fauxbar's Address Box will always display matching keyworded results first.
 
 ----
 
 == 4. Search Box ==
 
-http://i.imgur.com/yXNXr.jpg
+http://i.imgur.com/g34SH.jpg
 
-When a search query is entered in the Search Box, past queries and suggestions from the selected search engine can be displayed.
-
-A custom background has been applied in this example.
+When a search query is entered in the Search Box (or the Address Box, once a search engine has been selected), past queries and suggestions from the selected search engine can be displayed.
 
 ----
 
 == 5. Adding a search engine to Fauxbar ==
 
-http://i.imgur.com/UebIi.jpg
+http://i.imgur.com/JHrZV.jpg
 
-When visiting a site that has a search box, Fauxbar displays a "Fauxbar+" icon in Chrome's Omnibox, signaling that it can add the page's search engine to Fauxbar's Search Box.
+When visiting a site that has a search box, Fauxbar displays a http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16plus.png icon in Chrome's Omnibox, signaling that it can add the page's search engine to Fauxbar's Search Box.
 
-In this example, Fauxbar has detected Wolfram|Alpha has a search engine it can use. By clicking the Fauxbar+ icon, you can add the search engine to Fauxbar.
-
-----
-
-== 6. Selecting a search engine ==
-
-http://i.imgur.com/vlX6I.jpg
-
-As you visit websites and add their search engines to Fauxbar, you can select the engines you'd like to use from the Search Box.
-
-A custom background image has been applied in this example.
+In this example, Fauxbar has detected Wolfram|Alpha has a search engine it can use. By left-clicking the http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16plus.png icon, you can add the search engine to Fauxbar.
 
 ----
 
-== 7. Tiles ==
+== 6. Tiles ==
 
-http://i.imgur.com/u1Iik.jpg
+http://i.imgur.com/b2QAL.jpg
 
-Fauxbar can display your top sites as tiled thumbnails (and installed Chrome apps - not shown).
+Fauxbar can display your top sites as tiled thumbnails.
 
-Custom green styling has been applied in this example.
+http://i.imgur.com/rxNT9.jpg
 
-http://i.imgur.com/sIxIM.jpg
+Site tiles can be chosen and arranged automatically, or you can decide which tiles to use, and how they should be placed.
 
-Site tiles be chosen and arranged automatically, or you can decide which tiles to use, and how they should be placed.
+In the above example, a site tile is being clicked and dragged into place.
 
-In this example, a site tile is being clicked and dragged into place.
+http://i.imgur.com/k8Wom.jpg
+
+Installed Chrome apps can also be viewed as tiles.
 
 ----
 
-== 8. Using Fauxbar from Chrome's Omnibox ==
+== 7. Using Fauxbar from Chrome's Omnibox ==
 
-http://i.imgur.com/iGxRl.png
+http://i.imgur.com/PUm9R.jpg
 
 A condensed version of Fauxbar's Address Box can be accessed from Chrome's Omnibox.
 
@@ -87,9 +95,17 @@ By pressing F and then Spacebar, you can find your history items and bookmarks u
 
 ----
 
-== 9. Options page ==
+== 8. Options page ==
 
-http://i.imgur.com/pQlwY.jpg
+http://i.imgur.com/k6146.jpg
 
 A peek at Fauxbar's Options page, with a custom background.
 Fauxbar has 60+ options you can configure.
+
+----
+
+== 9. Custom colors ==
+
+http://i.imgur.com/emPos.jpg
+
+Fauxbar lets you choose a custom background image to display. You can also change many other color options.
