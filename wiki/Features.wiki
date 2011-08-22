@@ -7,7 +7,7 @@ Fauxbar brings Firefox's Awesome Bar functionality to Google Chrome™.
 
 Do you dislike Chrome's Omnibox? You're not alone.
 
-Become a Fauxbar user and transform your New Tab page into something more useful.
+Become a Fauxbar user and transform Chrome's New Tab page into something more useful.
 
 Fauxbar's features include:
 
