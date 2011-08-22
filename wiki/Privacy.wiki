@@ -54,7 +54,7 @@ When you visit a webpage, Fauxbar may:
  * Scan the page's HTML code to see if the page has a search engine available that you can optionally add to Fauxbar.
  * Use the webpage's title to update Fauxbar's history entry for the page's URL.
  * Take a screenshot of the page to use as a tile thumbnail.
-No personal data is sought.
+No other data is sought.
 
 == Does Fauxbar send any non-collected data anywhere? ==
 
