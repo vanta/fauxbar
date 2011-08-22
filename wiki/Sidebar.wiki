@@ -1,0 +1,9 @@
+#summary Fauxbar's persistent wiki sidebar.
+#labels Deprecated
+
+ * [http://code.google.com/p/fauxbar/ Fauxbar Overview]
+ * [Features Features]
+ * [ScreenshotWalkthrough Screenshot Walkthrough]
+ * [TipsAndTricks Tips & Tricks]
+ * [QuestionsAndAnswers FAQ]
+ * [Privacy Privacy Policy]
