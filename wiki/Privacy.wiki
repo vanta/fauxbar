@@ -3,9 +3,9 @@
 
 = Fauxbar's Privacy Policy =
 
-In order to show you relevant websites that you search for, Fauxbar collects and stores data on your local computer, within Chrome's extension storage areas.
+In order to show you relevant websites that you search for, Fauxbar collects and stores data on your local computer, within Chrome's extension storage areas, and does not share this information.
 
-== What does Fauxbar collect? ==
+== What information does Fauxbar collect? ==
 
 Fauxbar may collect:
 
@@ -47,3 +47,11 @@ The following resources let you view the data that Fauxbar has collected:
 Fauxbar keeps its own copy of your Chrome history and bookmarks because Chrome's API's search abilities are rather limited, such as inconsistent mid-word searching, being forced to search page body contents, lack of sorting results using a ranking system, etc. By keeping a copy of this information in Fauxbar's own database, Fauxbar can search for, sort, and rank results in a more desirable fashion.
 
 Chrome's search engines also can not be accessed by extensions, so Fauxbar has to maintain its own list of search engines.
+
+== What happens when I visit a webpage? ==
+
+When you visit a webpage, Fauxbar may:
+ * Scan the page's HTML code to see if the page has a search engine available that you can optionally add to Fauxbar.
+ * Use the webpage's title to update Fauxbar's history entry for the page's URL.
+ * Take a screenshot of the page to use as a tile thumbnail.
+No personal data is sought.
