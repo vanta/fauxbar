@@ -23,7 +23,10 @@ Fauxbar may collect:
 
 == What does Fauxbar do with this information? ==
 
-Fauxbar uses the above information to help you search for and locate relevant webpages to visit.
+Fauxbar uses the above information to:
+ * help you search for and locate relevant webpages to visit, usually ones you've been to before.
+ * improve your Fauxbar experience, and Chrome browsing experience in general.
+ * assist with useful error information for debugging purposes (note: error logs are in plain text, and you can see what they contain, and it's up to you to manually email an error log to the Fauxbar development team if an error arises).
 
 Fauxbar may send search queries to the selected search engine as you type (details below), but apart from this, Fauxbar does not share any collected information over the Internet. All other collected information stays on your local computer.
 
