@@ -42,7 +42,7 @@ The following resources let you view the data that Fauxbar has collected:
   * the Databases menu lets you browse Fauxbar's errors, Address Box usage habits, search engines, search queries, URL keywords, thumbnail information, and your history and bookmarks.
  * Thumbnail image data can be viewed by going to `filesystem:chrome-extension://hibkhcnpkakjniplpfblaoikiggkopka/persistent/`
 
-== Why does Fauxbar copy my history and bookmarks? Why not just use Chrome's data? ==
+== Why does Fauxbar copy my history and bookmarks? Why not just access Chrome's data? ==
 
 Fauxbar keeps its own copy of your Chrome history and bookmarks because Chrome's API's search abilities are rather limited, such as inconsistent mid-word searching, being forced to search page body contents, lack of sorting results using a ranking system, etc. By keeping a copy of this information in Fauxbar's own database, Fauxbar can search for, sort, and rank results in a more desirable fashion.
 
@@ -58,7 +58,7 @@ No personal data is sought.
 
 == Does Fauxbar send any non-collected data anywhere? ==
 
-When you're typing a search query using one of Fauxbar's search engines, if the search engine supports receiving queries and returning suggestions that Fauxbar then displays, Fauxbar will send the query you're typing to the selected search engine as you type. This is enabled by default, but can be disabled within Fauxbar's Options > Search Engines > Suggestions.
+When you're typing a search query using one of Fauxbar's search engines, if the search engine supports receiving queries and returning suggestions that Fauxbar then displays, Fauxbar may send the query you're typing to the selected search engine as you type. This is enabled by default, but can be disabled within Fauxbar's Options > Search Engines > Suggestions.
 
 Fauxbar requests its Twitter account's latest tweet every 60 minutes, as mentioned above. Twitter.com may receive your IP address or other host information through this request, but this is no different from just visiting Twitter.com, or any website.
 
