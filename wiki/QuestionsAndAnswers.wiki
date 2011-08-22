@@ -12,22 +12,15 @@ Fauxbar requires Google Chrome version 13 or higher to run, and works on Windows
 === 3. Should I always leave Fauxbar enabled? ===
 For best results, yes, always leave it enabled if you can. If Fauxbar is disabled and you continue browsing with Chrome, Fauxbar's index will become out of sync with Chrome's index. While you can get Fauxbar back up to speed by clicking the Reindex button within Fauxbar's options, this can be tedious.
 
-=== 4. What is Fauxbar's privacy policy? ===
-Fauxbar does not send any of your personal data across the Internet. Your history, bookmarks, search engines and options stay put on your local computer.
-
-The only exception is, when typing into the Search Box, Fauxbar may send the text you've entered to the selected search engine, to retrieve and display query suggestions from the search engine. This is enabled by default but can be disabled in the options.
-
-Fauxbar may also fetch and display Fauxbar-related information from Twitter and Facebook, to display in Fauxbar's Support section in the Options.
-
-=== 5. Can I open Fauxbar without opening a New Tab? ===
+=== 4. Can I open Fauxbar without opening a New Tab? ===
 Yes. Use this address:
 
 `chrome-extension://hibkhcnpkakjniplpfblaoikiggkopka/fauxbar.html`
 
 You could add this to your bookmarks bar, or set it as Chrome's home page.
 
-=== 6. Why the name "Fauxbar"? ===
+=== 5. Why the name "Fauxbar"? ===
 Since it's impossible to add or modify a bar to Chrome's UI, Fauxbar's "bar" is merely part of the extension's HTML page. So really it's a fake bar, or a faux bar.
 
-=== 7. What is the Fauxbar logo supposed to be? ===
+=== 6. What is the Fauxbar logo supposed to be? ===
 It's a red panda. A faux fox, if you will.
