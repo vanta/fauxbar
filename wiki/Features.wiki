@@ -5,10 +5,6 @@
 
 Fauxbar brings Firefox's Awesome Bar functionality to Google Chrome™.
 
-Do you dislike Chrome's Omnibox? You're not alone.
-
-Become a Fauxbar user and transform Chrome's New Tab page into something more useful.
-
 Fauxbar's features include:
 
 === Address Box: ===
@@ -53,3 +49,7 @@ Fauxbar's features include:
  * Alter the frecency algorithm's scoring if desired
  * More than 60 different configurable options
  * Backup, restore, and/or reset Fauxbar's options with ease
+
+Do you dislike Chrome's Omnibox? You're not alone.
+
+Become a Fauxbar user and transform Chrome's New Tab page into something more useful.
