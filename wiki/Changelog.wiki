@@ -3,6 +3,13 @@
 
 = Fauxbar Version History =
 
+*30 August 2011 - v1.0.1:*
+ * Fixed:
+  * Fauxbar was causing certain redirection pages to stall. (issue #46)
+  * URLs with unencoded spaces were not being recognized as valid URLs. (issue #48)
+
+----
+
 *23 August 2011 - v1.0.0:*
 
  * Fauxbar has come out of beta and is now available to the public. Thank you to all who helped beta test Fauxbar to get to this point!
