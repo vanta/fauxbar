@@ -3,6 +3,26 @@
 
 = Fauxbar Version History =
 
+*12 September 2011 - v1.0.2:*
+ * Changed:
+  * To better reflect the original frecency algorithm's scoring, default transition type bonus scores have been modified:
+   * Transition bonuses decreased from 100 to 0:
+    * Reload bonus: 0
+    * !Start_Page bonus: 0
+    * !Form_Submit bonus: 0
+    * Keyword bonus: 0
+    * Generated bonus: 0
+   * Unchanged transitions:
+    * Link bonus: 100
+    * Typed bonus: 100
+    * !Auto_Bookmark bonus: 75
+ * Fixed:
+  * Incorrect bucket weights were being chosen during frecency score calculations, due to milliseconds being erroneously treated as seconds.
+ * Updated:
+  * Now using jQuery v1.6.3.
+
+----
+
 *30 August 2011 - v1.0.1:*
  * Fixed:
   * Fauxbar was causing certain redirection pages to stall. (issue #46)
