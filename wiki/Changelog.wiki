@@ -3,6 +3,14 @@
 
 = Fauxbar Version History =
 
+*13 September 2011 - v1.0.3:*
+ * Fixed:
+  * Fauxbar should no longer interfere with language-specific keyboard shortcuts. (issue #50)
+ * Changed:
+  * Fauxbar no longer VACUUMs its database upon start-up, hopefully fixing issue #47.
+
+----
+
 *12 September 2011 - v1.0.2:*
  * Changed:
   * To better reflect the original frecency algorithm's scoring, default transition type bonus scores have been modified:
