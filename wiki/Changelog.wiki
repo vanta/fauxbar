@@ -3,6 +3,20 @@
 
 = Fauxbar Version History =
 
+*20 September 2011 - v1.0.4:*
+ * Bug fixing and handling for issue #47:
+  * Added a delay to Fauxbar's background startup operations to hopefully prevent its database from becoming corrupted.
+  * Fauxbar now detects if its database has become corrupted on startup. If so, a special error page will display, providing a link to report the error, and a button to rebuild Fauxbar's database (no longer have to uninstall and reinstall Fauxbar completely to get things working again).
+  * Fauxbar's keywords and search engines are now automatically backed-up in localStorage (which is separate from the database) and will be restored if the database becomes corrupted.
+  * Added a "Rebuild" button within Fauxbar's Options > Management page, so you can manually choose to rebuild Fauxbar's database if the new automatic database corruption detection methods happen to fail.
+  * Reinistated database VACUUMing, as it doesn't seem to be the cause of this issue.
+ * Other fixes:
+  * Fauxbar's error log should be working again.
+ * Changed:
+  * Fauxbar now requires Google Chrome version 14 or higher to run.
+
+----
+
 *13 September 2011 - v1.0.3:*
  * Fixed:
   * Fauxbar should no longer interfere with language-specific keyboard shortcuts. (issue #50)
