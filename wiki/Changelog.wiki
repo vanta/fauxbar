@@ -3,6 +3,26 @@
 
 = Fauxbar Version History =
 
+*26 September 2011 - v1.0.5:*
+
+Fauxbar's database structure has been altered, so Fauxbar will need to reindex your Chrome data for this update.
+ * Improved:
+  * Fauxbar's indexing process is now speedier than before (approximately 70% faster!), regardless if you're using default scoring or custom scoring. (issue #1)
+  * Webpages you visit via Fauxbar or Chrome's Omnibox will now receive a much higher frecency score by default, reflecting the original frecency algorithm's scoring pretty much perfectly:
+   * When visiting a webpage via Fauxbar (eg Fauxbar's Address Box, automatically-chosen site tiles, or Fauxbar+Omnibox integration), Fauxbar now records the page transition as "typed", even though Chrome records it as a different kind of transition. (issue #49)
+   * The default frecency bonus score for "typed" page transitions has been increased from 100 to 2,000.
+  * After deleting a bookmark folder, Fauxbar no longer has to reindex your bookmarks. (issue #19)
+ * New:
+  * An option to attempt to display a ★ star character for Fauxbar's Omnibox bookmark results has been added, as Chrome no longer renders the star consistently across all operating systems (sometimes displays a □ white box instead). Enabled by default for Mac OS, otherwise disabled by default. Toggleable under Fauxbar's Options > General > Omnibox.
+ * Changed:
+  * For new installations, error messages will now be displayed by default. Toggleable under Fauxbar's Options > Management > Errors.
+ * Fixed:
+  * Address Box result titles and URLs were sometimes overlapping their bookmark icon.
+  * The specified primary font size was not being applied to Address Box result titles' truncated "..." text.
+  * A few undefined variables were not being caught.
+
+----
+
 *20 September 2011 - v1.0.4:*
  * Bug fixing and handling for issue #47:
   * Added a delay to Fauxbar's background startup operations to hopefully prevent its database from becoming corrupted.
