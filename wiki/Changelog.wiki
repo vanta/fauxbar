@@ -3,6 +3,11 @@
 
 = Fauxbar Version History =
 
+*28 September 2011 - v1.0.6:*
+ * Fixed a minor error that would occur when a bookmark was edited.
+
+----
+
 *26 September 2011 - v1.0.5:*
 
 Fauxbar's database structure has been altered, so Fauxbar will need to reindex your Chrome data for this update.
