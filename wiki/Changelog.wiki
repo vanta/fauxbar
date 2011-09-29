@@ -3,6 +3,11 @@
 
 = Fauxbar Version History =
 
+*29 September 2011 - v1.0.7:*
+ * Fixed a minor error that would sometimes occur after selecting an Address Box result.
+
+----
+
 *28 September 2011 - v1.0.6:*
  * Fixed a minor error that would occur when a bookmark was edited.
 
