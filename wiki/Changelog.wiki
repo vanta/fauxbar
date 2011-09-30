@@ -3,6 +3,11 @@
 
 = Fauxbar Version History =
 
+*30 September 2011 - v1.0.8:*
+ * Added another fix to hopefully resolve issue #47.
+
+----
+
 *29 September 2011 - v1.0.7:*
  * Fixed a minor error that would sometimes occur after selecting an Address Box result.
 
