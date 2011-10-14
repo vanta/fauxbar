@@ -144,23 +144,15 @@ Some of the features below can be adjusted or toggled within Fauxbar's Options.
 
 ----
 
-<img src="http://i.imgur.com/JHrZV.jpg" align="right" width="264" />
+<img src="http://i.imgur.com/EC7jK.png" align="right" width="264" />
 
 == 6. Search Engines ==
 
   * Fauxbar's Search Box comes pre-loaded with the Google, Yahoo! and Bing search engines.
 
   * To add a new search engine to the Search Box, you can either:
-     * Visit a webpage that offers a search engine. Fauxbar should detect the engine and display a clickable http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16plus.png icon in Chrome's Omnibox, symbolizing that you can add the webpage's search engine to Fauxbar. Left-click the icon to add the engine to the Search Box. Or,
+     * Visit a webpage that has a search field, then right-click its search field and select "Fauxbar: Add as search engine" from the context menu if it appears. If it does not appear, this means that Fauxbar can't add the field as a search engine, or the page has not finished loading.
      * Go to Fauxbar's Options > Search Engines > Adding Engines and click the Add Manually button (only worth using if you know a search engine's query URL)
-
-  * Fauxbar looks for new search engines by scanning each webpage you visit for:
-      * an [http://www.opensearch.org/ OpenSearch] declaration, or
-      * a lone input text box.
-
-  * If an !OpenSearch declaration is found, Fauxbar will check to ensure the webpage's !OpenSearch XML code is correct.
-
-  * If an !OpenSearch declaration is not found, but a text box is found that looks like it _might_ be used as a search input box, Fauxbar attempts to interpret the text box's HTML form variables to derive a usable search URL. This usually works fine, but not always.
 
 ----
 
