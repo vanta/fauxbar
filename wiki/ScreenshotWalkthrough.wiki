@@ -59,11 +59,15 @@ When a search query is entered in the Search Box (or the Address Box, once a sea
 
 == 5. Adding a search engine to Fauxbar ==
 
-http://i.imgur.com/JHrZV.jpg
+http://i.imgur.com/EC7jK.png
 
-When visiting a site that has a search box, Fauxbar displays a http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16plus.png icon in Chrome's Omnibox, signaling that it can add the page's search engine to Fauxbar's Search Box.
+When visiting a site that has a search box, right-click on the search field. If Fauxbar (or Fauxbar Lite) is able to interpret the field's form code, *Fauxbar: Add as search engine* will appear in the right-click context menu.
 
-In this example, Fauxbar has detected Wolfram|Alpha has a search engine it can use. By left-clicking the http://fauxbar.googlecode.com/svn/trunk/Fauxbar/fauxbar16plus.png icon, you can add the search engine to Fauxbar.
+In this example, Fauxbar Lite has detected that Wolfram|Alpha's input box can be used as a search engine.
+
+http://i.imgur.com/3lfYb.png
+
+Clicking Fauxbar's context menu item will then present a pop-up box, letting you edit the search engine's name, keyword and URL before adding it to Fauxbar.
 
 ----
 
