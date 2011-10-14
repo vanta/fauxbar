@@ -67,7 +67,7 @@ In this example, Fauxbar Lite has detected that Wolfram|Alpha's input box can be
 
 http://i.imgur.com/3lfYb.png
 
-Clicking Fauxbar's context menu item will then present a pop-up box, letting you edit the search engine's name, keyword and URL before adding it to Fauxbar.
+Clicking Fauxbar's context menu item will then present a pre-filled pop-up box, letting you edit the search engine's name, keyword and URL if desired, before adding it to Fauxbar.
 
 ----
 
