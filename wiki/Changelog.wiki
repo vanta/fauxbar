@@ -3,6 +3,37 @@
 
 = Fauxbar Version History =
 
+This changelog covers both [https://chrome.google.com/webstore/detail/hibkhcnpkakjniplpfblaoikiggkopka Fauxbar] and [https://chrome.google.com/webstore/detail/bfimmnpbjccjihohjkimphfmmebffbmk Fauxbar Lite], as well as [https://chrome.google.com/webstore/detail/domhiadbdhomljcdankobiglghedagkm Fauxbar Memory Helper].
+
+From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite" in most cases, and the changes below apply to both extensions unless otherwise stated.
+
+----
+
+*14 October 2011 - v1.1.1:*
+ * New:
+  * A new extension called [https://chrome.google.com/webstore/detail/bfimmnpbjccjihohjkimphfmmebffbmk Fauxbar Lite] has been released:
+   * Fauxbar Lite is identical to Fauxbar, except:
+    * Fauxbar Lite does not replace Chrome's New Tab page. (issue #51)
+    * Fauxbar Lite has the Alt+D, Ctrl+L and Ctrl+K override options disabled by default.
+   * Fauxbar and Fauxbar Lite are not meant to be run simultaneously. If both extensions are installed, when one extension starts, the other will be disabled automatically.
+   * Fauxbar and Fauxbar Lite's databases and options are kept separate from each other; the two are treated as individual extensions. However, options can be manually exported and imported between the two via Options > Management.
+   * Future updates to Fauxbar will also be applied to Fauxbar Lite. Version numbers should remain identical.
+  * A clickable http://fauxbar.googlecode.com/svn/trunk/Fauxbar/img/fauxbar19.png icon now sits to the right of Chrome's Omnibox, letting you open Fauxbar (or Fauxbar Lite) in a new tab, the current tab, or a new window. Changeable under Options > General.
+  * To add search engines to Fauxbar (or Fauxbar Lite), you can now right-click on search field text boxes on webpages. If Fauxbar (or Fauxbar Lite) is able to interpret the field's form code, http://fauxbar.googlecode.com/svn/trunk/Fauxbar/img/fauxbar16.png <b>Fauxbar: Add as search engine</b> will appear on the right-click context menu. Enabled by default. Toggleable under Options > Search Engines. (issue #29)
+ * Fauxbar Memory Helper changes:
+  * Now compatible with both Fauxbar and Fauxbar Lite. (updated to version 1.0.1)
+  * Updated logo to give more emphasis on the first-aid symbol.
+ * Fixed:
+  * Page titles should now always be correctly assigned to their corresponding URLs for Address Box results. (titles for ajax-heavy pages were often being mismatched, and titles were not being applied at all to certain URLs in some cases)
+  * App tile text colors now use Fauxbar's colors when site tiles are disabled.
+  * Certain unnecessary errors should no longer be added to Fauxbar's error log.
+  * Smoothed out some of the Fauxbar logo's pointy curves.
+ * Removed:
+  * The orange/blue "Fauxbar+" icon will no longer appear within Chrome's Omnibox. To add search engines to Fauxbar (or Fauxbar Lite), please right-click on search fields as detailed above.
+  * The orange/grey "Fauxbar..." icon will no longer appear within Chrome's Omnibox.
+
+----
+
 *30 September 2011 - v1.0.8:*
  * Added another fix to hopefully resolve issue #47.
 
