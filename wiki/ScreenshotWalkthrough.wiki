@@ -61,7 +61,7 @@ When a search query is entered in the Search Box (or the Address Box, once a sea
 
 http://i.imgur.com/EC7jK.png
 
-When visiting a site that has a search box, right-click on the search field. If Fauxbar (or Fauxbar Lite) is able to interpret the field's form code, *Fauxbar: Add as search engine* will appear in the right-click context menu.
+When visiting a site that has a search field, right-click on the search field. If Fauxbar (or Fauxbar Lite) is able to interpret the field's form code, *Fauxbar: Add as search engine* will appear in the right-click context menu.
 
 In this example, Fauxbar Lite has detected that Wolfram|Alpha's input box can be used as a search engine.
 
