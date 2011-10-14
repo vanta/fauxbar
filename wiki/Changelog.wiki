@@ -22,7 +22,7 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
   * To add search engines to Fauxbar (or Fauxbar Lite), you can now right-click on search field text boxes on webpages. If Fauxbar (or Fauxbar Lite) is able to interpret the field's form code, http://fauxbar.googlecode.com/svn/trunk/Fauxbar/img/fauxbar16.png <b>Fauxbar: Add as search engine</b> will appear on the right-click context menu. Enabled by default. Toggleable under Options > Search Engines. (issue #29)
  * Fauxbar Memory Helper changes:
   * Now compatible with both Fauxbar and Fauxbar Lite. (updated to version 1.0.1)
-  * Updated logo to give more emphasis on the first-aid symbol.
+  * Updated logo to give more emphasis to the first-aid symbol.
  * Fixed:
   * Page titles should now always be correctly assigned to their corresponding URLs for Address Box results. (titles for ajax-heavy pages were often being mismatched, and titles were not being applied at all to certain URLs in some cases)
   * App tile text colors now use Fauxbar's colors when site tiles are disabled.
@@ -31,6 +31,8 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
  * Removed:
   * The orange/blue "Fauxbar+" icon will no longer appear within Chrome's Omnibox. To add search engines to Fauxbar (or Fauxbar Lite), please right-click on search fields as detailed above.
   * The orange/grey "Fauxbar..." icon will no longer appear within Chrome's Omnibox.
+ * Known issues:
+  * F+Spacebar Omnibox integration sometimes doesn't work after Fauxbar or Fauxbar Lite automatically disable each other. To resolve, please try disabling and re-enabling your desired extension manually, or close and restart Chrome.
 
 ----
 
