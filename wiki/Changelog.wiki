@@ -9,6 +9,11 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 
 ----
 
+*21 October 2011 - v1.1.2:*
+ * Fixed a minor error that would sometimes occur when performing a search query.
+
+----
+
 *14 October 2011 - v1.1.1:*
  * New:
   * A new extension called [https://chrome.google.com/webstore/detail/bfimmnpbjccjihohjkimphfmmebffbmk Fauxbar Lite] has been released:
