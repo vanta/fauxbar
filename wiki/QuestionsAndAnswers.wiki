@@ -27,6 +27,8 @@ Fauxbar focuses on accuracy, convenience and speed to give you what you want, sa
 
 If you find Chrome's Omnibox's behavior frustrating, or don't like wading your way through Chrome's wrench menu, Fauxbar is for you.
 
+----
+
 == What's wrong with Chrome's Omnibox? ==
 
 Chrome's Omnibox is often confusing and unhelpful.
@@ -45,11 +47,15 @@ Whenever Chrome's Omnibox fails to give you what you're after, it wastes your ti
 
 Fauxbar, on the other hand, makes up for Chrome's shortcomings.
 
+----
+
 == How does Fauxbar save my time? ==
 
 To make up for the aforementioned issues, Fauxbar provides you with an alternative to Chrome's Omnibox: a locally-stored page that primarily acts like Firefox's Awesome Bar.
 
 Unforunately, the Omnibox can't be completely changed by a Chrome extension, so this is the next best solution.
+
+----
 
 == What's wrong with Firefox? ==
 
@@ -58,6 +64,8 @@ Although Firefox's Awesome Bar is quite possibly the epitome of the "find what y
 Firefox often hangs, freezes and takes too long to shut down, and you have to restart the whole browser just to enable or disable an add-on.
 
 After suffering from these frustrations time and again, you could say that using Firefox wastes more time than it's worth.
+
+----
 
 == So why was Fauxbar developed for Chrome? ==
 
@@ -75,6 +83,8 @@ Fauxbar requires Google Chrome version 15 or higher to run.
 
 And with Chrome, Fauxbar can be run on Windows, Mac OS or Linux.
 
+----
+
 == What's the difference between Fauxbar and Fauxbar Lite? ==
 
 Fauxbar replaces Chrome's New Tab page; Fauxbar Lite does not.
@@ -82,6 +92,8 @@ Fauxbar replaces Chrome's New Tab page; Fauxbar Lite does not.
 Ideally, the option to replace Chrome's New Tab page or not would be bundled into just the one Fauxbar extension, but due to Chrome's extension API limitations, this option can not be toggled by an extension; it is unchangeable, hard-coded into each extension.
 
 Fauxbar Lite was created to make up for this limitation.
+
+----
 
 == What is Fauxbar Memory Helper? ==
 
@@ -93,12 +105,16 @@ It is impossible for an extension to disable and re-enable itself on its own, so
 
 Hopefully, this cause of this bug will be found and fixed one day, but at least this is only a minor bug.
 
+----
+
 == Where can I download Fauxbar? ==
 
 The various Fauxbar extensions can be downloaded from the Chrome Web Store:
  * [https://chrome.google.com/webstore/detail/hibkhcnpkakjniplpfblaoikiggkopka Fauxbar]
  * [https://chrome.google.com/webstore/detail/bfimmnpbjccjihohjkimphfmmebffbmk Fauxbar Lite]
  * [https://chrome.google.com/webstore/detail/domhiadbdhomljcdankobiglghedagkm Fauxbar Memory Helper]
+
+----
 
 == What are Fauxbar's main features? ==
 
@@ -121,9 +137,13 @@ The menu bar provides handy shortcuts to your currently opened tabs, recently-vi
 
 Fauxbar also has over 120 configurable options, so you can customize everything to your liking.
 
+----
+
 == Why does Fauxbar index my history and bookmarks? ==
 
 When Fauxbar is first installed, Fauxbar creates its own index of your history and bookmarks, so that your history and bookmarks can be queried and ranked effectively within Fauxbar. After the initial index is created, Fauxbar silently updates its index on-the-fly as you browse.
+
+----
 
 == How does Fauxbar rank my bookmarks and history items? ==
 
@@ -133,21 +153,31 @@ Fauxbar uses Mozilla's [https://developer.mozilla.org/en/The_Places_frecency_alg
  
  The word "frecency" itself is a combination of the words "frequency" and "recency."</i>
 
+----
+
 == How do I disable the Search Box or Address Box? ==
 
 The Search Box and Address Box can be toggled via Fauxbar's Options > General > Input Boxes.
+
+----
 
 == How do I use Fauxbar from Chrome's Omnibox? ==
 
 To use an Omniboxified version of Fauxbar's Address Box, focus Chrome's Omnibox and press <b>F+Spacebar</b>, then type to find your desired bookmark or history page.
 
+----
+
 == Are Fauxbar's options synced between installations? ==
 
 Currently, Fauxbar's options are not synced between installations. This feature is planned for a future release, however.
 
+----
+
 == How do I export Fauxbar's options? ==
 
 Fauxbar's options can be exported and imported via Fauxbar's Options > Management > Options.
+
+----
 
 == How do I submit a suggestion or bug report? ==
 
@@ -157,9 +187,13 @@ If the issue exists, you may wish to "star" the issue, to signal that you're int
 
 But if the no issue exists for your suggestion or bug report, please [http://code.google.com/p/fauxbar/issues/entry submit a new issue].
 
+----
+
 == Why the name "Fauxbar"? ==
 
 Since it's impossible to add or modify a bar to Chrome's UI, Fauxbar's "bar" is merely part of the extension's HTML page. So really it's a fake bar, or a faux bar.
+
+----
 
 == What is Fauxbar's logo supposed to be? ==
 
