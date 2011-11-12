@@ -9,6 +9,52 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 
 ----
 
+*13 November 2011 - v1.2.0:*
+
+Fauxbar and Fauxbar Lite now require Google Chrome version 15 or higher to run.
+
+To resolve a bookmark-naming issue that was present in version 1.1.2, Fauxbar will need to reindex your Chrome data for this update.
+
+ * New:
+  * A menu bar has been added to Fauxbar and Fauxbar Lite (issue #57), providing convenient access to the main parts of Chrome:
+   * Positioned at the top of the page, menus include:
+    * Tabs: a list of your currently opened tabs, so you can quickly switch to or close them. Advanced tab operation sub-menus are also available (but disabled by default).
+    * History: a list of your recently-visited webpages.
+    * Bookmarks: your entire bookmark tree, including recently-added bookmarks.
+    * Apps: a list of your installed Chrome apps, with sub-menus for visiting their homepage, enabling/disabling, and uninstalling.
+    * Extensions: a list of your installed extensions, with sub-menus for visiting their homepage, enabling/disbling, and uninstalling.
+    * Chrome: contains links for Chrome's bookmarks, downloads, extensions, history, options, experiments and plug-in pages.
+    * Fauxbar: contains links to Fauxbar's options, documentation, social media pages and more.
+   * The current date is also displayed.
+   * The menu bar is enabled by default, and can be configured and toggled via Fauxbar's Options > Menu Bar.
+  * Added an option "Use Ajax to detect intranet URLs" to fix issue #58. Enabled by default. Toggleable via Fauxbar's Options > Address Box > Intranet.
+ * Changed:
+  * To temporarily resolve issue #59, frecency scores for your top 50 websites are no longer calculated outside of any full index operation. This issue will be properly addressed in a future update.
+  * Within Fauxbar's Options, the Results & Suggestions page has been renamed to Colors & Styling.
+  * Several color and font-sizing options have been moved into the Colors & Styling options page. Other parts of the options pages have been shuffled around, too.
+  * To declutter the list of search engine queries and suggestions:
+   * The default number of previous search engine queries to retrieve at a time has been decreased to 5, down from 10.
+   * The default number of search engine queries and suggestions to display without needing to scroll has been decreased to 15, down from 20.
+  * Certain messages and alert boxes now use HTML5 notification pop-ups instead.
+  * The latest tweet from Fauxbar's Twitter account is now fetched once every 24 hours instead of every hour.
+  * Added a link to [https://plus.google.com/106763880873922603221 Fauxbar's Google+ page] under Fauxbar's Options > Support.
+ * Fixed:
+  * Alt+D, Ctrl+K and Ctrl+L shortcuts are now working again. (issue #55)
+  * Bookmarks in Fauxbar's index will no longer be renamed accidentally when you visit them. (issue #67)
+  * "Malformed URIs" that are unable to be decoded will no longer throw an error; they will be rewritten as an error message instead. (thank you, Igor S.)
+  * Indexing will no longer stall if you do not have any history items or bookmarks available.
+  * Apps that do not contain icons will no longer cause errors. Additionally, a default app icon has been added for iconless apps.
+  * "Switch to tab" will no longer mistakenly appear in Address Box results if a resulting page is being loaded into the current Fauxbar tab. (issue #56)
+  * Number input fields are no longer unreasonably wide. (issue #54)
+  * App tile hover colors now correctly use the appropriate color you've set in the options.
+  * Reindexing operations no longer mistakenly reference "Fauxbar" instead of "Fauxbar Lite".
+ * Misc:
+  * Updated jQuery to version 1.7.
+  * [QuestionsAndAnswers Fauxbar's FAQ page] has been updated with lots of questions and answers.
+  * [Privacy Fauxbar's privacy policy] has been updated to clarify the policy better. The scope of the policy has not changed.
+
+----
+
 *21 October 2011 - v1.1.2:*
  * Fixed a minor error that would sometimes occur when performing a search query.
 
