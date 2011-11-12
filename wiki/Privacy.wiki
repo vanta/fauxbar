@@ -9,7 +9,7 @@ In order to show you relevant websites that you search for within Fauxbar, the F
 
 In general, the short version is:
  * Your history, bookmarks and other Chrome data that Fauxbar collects stays on your computer; Fauxbar does not send nor disclose this data to anyone over the Internet.
- * When you use a search engine within Fauxbar, if the search engine is capable of providing suggestions, the search input you're currently typing may be sent to the search engine (though this can be disabled).
+ * When you use a search engine within Fauxbar, if the search engine is capable of providing suggestions, the search input you're currently typing may be sent to the search engine you've selected (though this can be disabled).
  * Fauxbar's Options > Support page contains Facebook and Twitter plugins, so viewing this page may disclose your IP address to Facebook and Twitter when you view this page.
  * Fauxbar retrieves the latest tweet from its Twitter account every 24 hours to display it in Fauxbar's Options > Support page, so your IP address may be disclosed to Twitter when this happens.
 
