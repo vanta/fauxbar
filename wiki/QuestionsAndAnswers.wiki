@@ -167,6 +167,14 @@ To use an Omniboxified version of Fauxbar's Address Box, focus Chrome's Omnibox 
 
 ----
 
+== How do I add a keyword to a webpage? ==
+
+To add a keyword to a webpage, type to bring up your page in the Address Box's result list, then right-click on the desired result, then click <b>Add Keyword</b>, enter a keyword and click OK.
+
+Then, when you start typing the keyword, the keyworded page will always appear first in your result list.
+
+----
+
 == Are Fauxbar's options synced between installations? ==
 
 Currently, Fauxbar's options are not synced between installations. This feature is planned for a future release, however.
