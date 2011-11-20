@@ -12,6 +12,8 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 *20 November 2011 - v1.2.2:*
  * Fixed:
   * The "Upon clicking the http://fauxbar.googlecode.com/svn/trunk/Fauxbar/img/fauxbar19.png icon, open Fauxbar in..." option was not being remembered between sessions. (issue #71)
+  * Tiles for disabled apps were being displayed.
+  * Prevented a possible infinite reloading loop from occurring when opening Fauxbar's main page.
 
 ----
 
