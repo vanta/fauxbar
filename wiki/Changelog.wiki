@@ -9,6 +9,13 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 
 ----
 
+*2 December 2011 - v1.2.3:*
+ * Fixed:
+  * Google search suggestions were not working. (issue #78)
+  * Selecting a search engine to use would not work in some cases. (issue #77)
+
+----
+
 *20 November 2011 - v1.2.2:*
  * Fixed:
   * The "Upon clicking the http://fauxbar.googlecode.com/svn/trunk/Fauxbar/img/fauxbar19.png icon, open Fauxbar in..." option was not being remembered between sessions. (issue #71)
