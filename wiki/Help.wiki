@@ -1,0 +1,40 @@
+#summary Solutions to problems that Fauxbar may encounter.
+
+= Troubleshooting =
+
+Solutions to problems that Fauxbar may encounter.
+
+----
+
+== Trouble displaying site thumbnails ==
+
+=== Symptoms ===
+
+ * Fauxbar displays a message saying:
+  * "Fauxbar is having trouble displaying site thumbnails", or
+  * "Fauxbar has encountered a security error. Unable to access thumbnail files.".
+
+ * Fauxbar's site tiles no longer show their thumbnail images, even though they used to.
+
+=== Cause ===
+
+Fauxbar is attempting to use Chrome's HTML5 !FileSystem, which Fauxbar stores site thumbnails in, but Chrome is throwing a "!FileError.SECURITY_ERR" error.
+
+This is a problem that can occur with Chrome, and is out of Fauxbar's control.
+
+=== Solution ===
+
+To resolve this problem:
+
+ # Exit Chrome.
+ # Navigate to "*C:\Users\_USERNAME_\!AppData\Local\Google\Chrome\User Data\Default\File System\Origins*".
+ # Delete the file named "*CURRENT*".
+ # Open Chrome.
+
+Example screenshot of the file to delete:
+
+http://i.imgur.com/vBETJ.png
+
+If deleting the CURRENT file above does not work, uninstalling and re-installing Chrome should fix this problem.
+
+For more information, or for further assistance, please refer to issue #81.
