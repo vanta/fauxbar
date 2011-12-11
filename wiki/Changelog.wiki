@@ -9,6 +9,17 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 
 ----
 
+*12 December 2011 - v1.2.4:*
+ * Fixed:
+  * History page links in Fauxbar's Menu Bar will no longer link to chrome://history2 in Chrome 17 and higher. (issue #80)
+  * Alt+D, Ctrl+L and Ctrl+K options will now be properly honored on Fauxbar's main page. (issue #83)
+  * Prevented a couple of non-errors from being logged.
+ * Improved:
+  * If Chrome's HTML5 !FileSystem is preventing Fauxbar's site tile thumbnails from working, Fauxbar now displays a more helpful error message, providing a link to some [http://code.google.com/p/fauxbar/wiki/Help#Trouble_displaying_site_thumbnails instructions on how to fix the problem]. (issue #81, with thanks to andrewbond01)
+  * Fauxbar's error log reporting feature now contains Chrome's version number.
+
+----
+
 *2 December 2011 - v1.2.3:*
  * Fixed:
   * Google search suggestions were not working. (issue #78)
