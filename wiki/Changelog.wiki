@@ -17,11 +17,12 @@ Fauxbar and Fauxbar Lite now require Google Chrome version 16 or higher to run.
   * To comply with Chrome 18's upcoming security requirements for extensions, Fauxbar now uses a Content Security Policy. (issue #87)
   * Fauxbar's options page's tab opens a little less spastically now.
  * Fixed:
-  * The error log would throw an error in certain cases, preventing errors from being logged.
+  * The error log was throwing an error in certain cases, preventing errors from being logged.
   * Old site thumbnail image files were not getting deleted in Chrome 18. (issue #90)
   * Focusing an input box would not hide its placeholder text in Chrome 17+.
   * "Reload all tabs" was not reloading tabs that belonged to apps and extensions.
   * Input box icons were not being recolored in certain cases.
+  * The global font name option was not being applied to results and context menus.
 
 ----
 
