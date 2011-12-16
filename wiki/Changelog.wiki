@@ -9,7 +9,7 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 
 ----
 
-*COMING SOON - v1.2.5:*
+*Coming soon - v1.2.5:*
 
 Fauxbar and Fauxbar Lite now require Google Chrome version 16 or higher to run.
 
@@ -17,6 +17,7 @@ Fauxbar and Fauxbar Lite now require Google Chrome version 16 or higher to run.
   * To comply with Chrome 18's upcoming security requirements for extensions, Fauxbar now uses a Content Security Policy. (issue #87)
   * Fauxbar's options page's tab opens a little less spastically now.
  * Fixed:
+  * The error log should no longer throw an error in certain cases.
   * "Reload all tabs" now also reloads tabs that belong to apps and extensions.
   * PaintbrushJS should no longer sometimes fail to load to recolor the input box icons (merged two scripts into one).
 
