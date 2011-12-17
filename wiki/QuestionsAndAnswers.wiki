@@ -79,7 +79,7 @@ By combining Firefox's usability with Chrome's stability, an enjoyable browsing 
 
 == What are Fauxbar's system requirements? ==
 
-Fauxbar requires Google Chrome version 15 or higher to run.
+Fauxbar requires Google Chrome version 16 or higher to run.
 
 And with Chrome, Fauxbar can be run on Windows, Mac OS or Linux.
 
