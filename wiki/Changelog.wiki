@@ -9,6 +9,18 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 
 ----
 
+*8 April 2012 - v1.2.8:*
+
+Fauxbar and Fauxbar Lite now require Google Chrome version 18 or higher to run.
+
+ * Fixed:
+  * Database errors should now be resolved. (issue #100, issue #104, issue #105, issue #107)
+  * Clicking Fauxbar's icon/button should work again. (issue #108)
+
+And a big thank you to laboboLink for helping to resolve these errors.
+
+----
+
 *17 December 2011 - v1.2.5:*
 
 Fauxbar and Fauxbar Lite now require Google Chrome version 16 or higher to run.
