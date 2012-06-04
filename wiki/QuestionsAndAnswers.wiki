@@ -116,6 +116,16 @@ The various Fauxbar extensions can be downloaded from the Chrome Web Store:
 
 ----
 
+== How do I upgrade Fauxbar? ==
+
+If you already have Fauxbar, Fauxbar Lite, or Fauxbar Memory Helper installed, and a new update has been released, you can either wait for Chrome to automatically install the update within a few hours, or:
+
+ # Go to *chrome://chrome/extensions/*
+ # Click *Developer mode*
+ # Click *Update extensions now*
+
+----
+
 == What are Fauxbar's main features? ==
 
 Fauxbar's main page contains:
