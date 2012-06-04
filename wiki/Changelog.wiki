@@ -7,6 +7,8 @@ This changelog covers both [https://chrome.google.com/webstore/detail/hibkhcnpka
 
 From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite" in most cases, and the changes below apply to both extensions unless otherwise stated.
 
+For instructions on how to upgrade, [http://code.google.com/p/fauxbar/wiki/QuestionsAndAnswers#How_do_I_upgrade_Fauxbar? click here].
+
 ----
 
 *4 June 2012 - v1.2.9:*
