@@ -9,6 +9,20 @@ From version 1.1.1 and newer, "Fauxbar" can also be referred to as "Fauxbar Lite
 
 ----
 
+*4 June 2012 - v1.2.9:*
+
+Fauxbar, Fauxbar Lite, and Fauxbar Memory Helper now require Google Chrome version 19 or higher to run.
+
+ * Changed:
+  * Fauxbar Memory Helper (v1.0.2) now waits until your computer has been idle for 10 minutes before restarting Fauxbar, up from 1 minute. (issue #113)
+ * Fixed:
+  * Accessing Fauxbar via Alt+D, Ctrl+L, Ctrl+K, or clicking Fauxbar's toolbar button should no longer result in Chrome error pages. (issue #110, issue #112)
+  * Context menus should now be positioned appropriately when Fauxbar's page has been scrolled vertically. (issue #93)
+  * Restored missing wrench icon from Fauxbar's menus.
+  * Improved clarity of Chrome's new default globe icon within Fauxbar's Address Box.
+
+----
+
 *8 April 2012 - v1.2.8:*
 
 Fauxbar and Fauxbar Lite now require Google Chrome version 18 or higher to run.
