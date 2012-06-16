@@ -11,6 +11,23 @@ For instructions on how to upgrade, [http://code.google.com/p/fauxbar/wiki/Quest
 
 ----
 
+*16 June 2012 - v1.2.10:*
+ * New:
+  * Added an Auto Assist option under Fauxbar's Options > Address Box:
+    * When typing, Auto-fill the Address Box with a matching URL (default), _or_
+    * When typing, Auto-highlight the first result, _or_
+    * Don't assist me.
+     * _Details:_ Choosing "Auto-highlight" means you won't have to press the Down Arrow to select the first Address Box or Fauxbar+Omnibox result. If the first result is your desired result, just press Enter to go to it. (issue #97)
+  * Added the ability to press Ctrl+Up and/or Ctrl+Down to switch between search engines within Fauxbar's Address Box and Search Box. (issue #98)
+ * Fixed:
+  * Several minor !JavaScript errors should now be resolved.
+  * Really fixed the clarity of Chrome's globe icon this time.
+  * To help combat Chrome's erroneous app installations, added an option, "Show my app tiles when a new app is installed". Enabled by default, but can be disabled if you never want app tiles to appear. Available under Fauxbar's Options > Tiles > App Tiles. (issue #92)
+  * App tiles should now appear when they're supposed to. (issue #89)
+  * Fauxbar URLs with pre-filled Address Box input should now display results automatically. (issue #116)
+
+----
+
 *4 June 2012 - v1.2.9:*
 
 Fauxbar, Fauxbar Lite, and Fauxbar Memory Helper now require Google Chrome version 19 or higher to run.
