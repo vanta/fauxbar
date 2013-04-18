@@ -11,6 +11,18 @@ For instructions on how to upgrade, [http://code.google.com/p/fauxbar/wiki/Quest
 
 ----
 
+*18 April 2013 - v1.2.11:*
+
+Fauxbar now requires Google Chrome version 26 or higher to run.
+ * Fixed:
+  * "javascript:" bookmarks are now excluded from showing and should no longer throw errors. (issue #124)
+  * Custom background images should work again. (issue #99)
+  * Tile thumbnail images should work again. (issue #135)
+  * Pressing Alt+D whilst in Fauxbar's Address Bar now selects the text entered in the Address Box. (issue #128)
+  * Titleless bookmarks no longer look weird from within Fauxbar's menu bar. (issue #124)
+
+----
+
 *16 June 2012 - v1.2.10:*
  * New:
   * Added an Auto Assist option under Fauxbar's Options > Address Box:
