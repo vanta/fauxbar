@@ -24,6 +24,9 @@ function formatMenuTitle(title) {
 	}
 	title = str_replace('<', '&lt;', title);
 	title = str_replace('>', '&gt;', title);
+	if (title.length == 0) {
+		title = '&nbsp;';
+	}
 	return title;
 }
 

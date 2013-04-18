@@ -318,9 +318,10 @@ function dataURItoBlob(dataURI, callback) {
 	}
 
 	// write the ArrayBuffer to a blob, and you're done
-	var bb = new window.WebKitBlobBuilder();
-	bb.append(ab);
-	return bb.getBlob(mimeString);
+	// From http://stackoverflow.com/questions/10412299/whats-the-difference-between-blobbuilder-and-the-new-blob-constructor
+	var dataView = new DataView(ab);
+	var blob = new Blob([dataView], { type: mimeString });
+	return blob;
 }
 
 
