@@ -883,8 +883,8 @@ $(document).ready(function(){
 	});
 
 	// New version info
-	var currentVersion = "1.2.10";
-	if (
+	var currentVersion = "1.2.11";
+	/*if (
 		(!localStorage.currentVersion && localStorage.indexComplete && localStorage.indexComplete == 1) ||
 		(localStorage.currentVersion && localStorage.currentVersion != currentVersion) ||
 		(localStorage.readUpdateMessage && localStorage.readUpdateMessage == 0)
@@ -894,7 +894,7 @@ $(document).ready(function(){
 			localStorage.readUpdateMessage = 1;
 			window.webkitNotifications.createHTMLNotification('/html/notification_updated.html').show();
 		}
-	}
+	}*/
 	
 	// New Auto Assist option, added in 1.2.10
 	if (!localStorage.option_autoAssist) {
@@ -1273,6 +1273,8 @@ $(document).ready(function(){
 						window.omniboxFirstUrl = null;
 
 						// Create each result as a new object
+						// Don't process "javascript" items
+						var jsTest = 'javascript:';
 						for (var i = 0; i < len; i++) {
 							if (results.rows.item(i).url != lastUrl) {
 								if (!lastUrl.length) {
@@ -1280,13 +1282,15 @@ $(document).ready(function(){
 								}
 								lastUrl = results.rows.item(i).url;
 								newItem = {};
-								newItem.url = results.rows.item(i).url;
-								newItem.title = results.rows.item(i).title;
-								newItem.tag = results.rows.item(i).tag;
-								if (results.rows.item(i).type == 2) {
-									newItem.isBookmark = true;
+								if (lastUrl.toLowerCase().substring(0,jsTest.length) != jsTest) {
+									newItem.url = results.rows.item(i).url;
+									newItem.title = results.rows.item(i).title;
+									newItem.tag = results.rows.item(i).tag;
+									if (results.rows.item(i).type == 2) {
+										newItem.isBookmark = true;
+									}
+									sortedHistoryItems[i] = newItem;
 								}
-								sortedHistoryItems[i] = newItem;
 							}
 						}
 

@@ -1478,6 +1478,8 @@ $("#awesomeinput").bind("keydown", function(e){
 	// Alt+D
 	else if (e.keyCode == 68 && e.altKey == true && !e.ctrlKey) {
 		if (localStorage.option_altd == 1) {
+			// Select all text in Address Bar
+			$(this).select();
 			return false;
 		} else {
 			$(this).blur();
@@ -2592,7 +2594,8 @@ function getResults(noQuery) {
 						var newItem = {};
 
 						// Create each returned row into a new object
-						var jsTest = 'javascript:void';
+						// Don't process "javascript" items
+						var jsTest = 'javascript:';
 						for (var i = 0; i < len; i++) {
 							newItem = {};
 							if (results.rows.item(i).url.toLowerCase().substring(0,jsTest.length) != jsTest) {
