@@ -271,7 +271,7 @@ function getSearchEngines() {
 							iconUrl = "/img/"+iconUrl;
 						}
 						openEngines += '<tr class="opensearch_optionrow">';
-						openEngines += '<td class="osicon" style="width:1px; padding:0px 0px 0 5px"><img src="'+iconUrl+'" /></td>';
+						openEngines += '<td class="osicon" style="width:1px; padding:0px 0px 0 5px"><img src="'+iconUrl+'" style="height:16px; width:16px" /></td>';
 						openEngines += '<td style="width:25%" class="shortname"><input class="inputoption" type="text" value="'+str_replace('"', '&quot;', results.rows.item(i).shortname)+'" origvalue="'+str_replace('"', '&quot;', results.rows.item(i).shortname)+'" /></td>';
 						openEngines += '<td style="width:13%" class="keyword"><input class="inputoption" type="text" value="'+results.rows.item(i).keyword+'" origvalue="'+results.rows.item(i).keyword+'" /></td>';
 						openEngines += '<td style="width:75%" class="searchurl"><input class="inputoption" type="text" value="'+results.rows.item(i).searchurl+'" origvalue="'+results.rows.item(i).searchurl+'" style="color:rgba(0,0,0,.52)" spellcheck="false" autocomplete="off" /></td>';
@@ -394,7 +394,8 @@ function loadOptionsJS() {
 
 	// Get Fauxbar's Twitter RSS feed, find the first non-reply, and use it as a news message
 	// If there's no cache or if cache is more than 24 hours old, fetch news
-	if (!localStorage.latestNewsTime || !localStorage.latestNews || parseFloat(date("U")) - parseFloat(localStorage.latestNewsTime) > 86400) {
+	// EDIT: Twitter has killed off RSS feeds.
+	/*if (!localStorage.latestNewsTime || !localStorage.latestNews || parseFloat(date("U")) - parseFloat(localStorage.latestNewsTime) > 86400) {
 		$.ajax({
 			type: "GET",
 			url: "http://twitter.com/statuses/user_timeline/Fauxbar.rss",
@@ -435,7 +436,7 @@ function loadOptionsJS() {
 	// Otherwise just use existing news cache
 	} else {
 		$("#latestNews").html(localStorage.latestNews);
-	}
+	}*/
 }
 
 // Initialize the reindexing process

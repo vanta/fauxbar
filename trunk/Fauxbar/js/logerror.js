@@ -280,7 +280,7 @@ function logError(msg, file, line) {
 			}
 		} else {
 			console.log('Unable to open Fauxbar\'s database.');
-			webkitNotifications.createNotification('/img/fauxbar48sad.png', 'Unable to open Fauxbar\'s database.', 'Please try disabling and re-enabling Fauxbar to resolve this.\n\nAdditionally, Fauxbar\'s error log and/or background console may contain useful information to report.').show();
+			webkitNotifications.createNotification(chrome.extension.getURL('/img/fauxbar48sad.png'), 'Unable to open Fauxbar\'s database.', 'Please try disabling and re-enabling Fauxbar to resolve this.\n\nAdditionally, Fauxbar\'s error log and/or background console may contain useful information to report.').show();
 		}
 	}
 }

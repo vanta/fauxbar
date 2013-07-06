@@ -1,5 +1,65 @@
 // This file gets loaded into Fauxbar's background page.
 
+// Record if this is Fauxbar or Fauxbar Lite
+localStorage.extensionName = chrome.runtime.getManifest().name;
+
+// Due to issue #136, introduced in Chrome 27, New Tab Pages can't steal focus from Chrome's Omnibox.
+// So, as a workaround, when the New Tab Page appears, open Fauxbar in a new tab beside it and close the New Tab Page.
+// https://code.google.com/p/fauxbar/issues/detail?id=136
+if (chrome.runtime.getManifest().name == 'Fauxbar') {
+	chrome.webRequest.onBeforeRequest.addListener(function(details){
+		if (localStorage.option_stealFocusFromOmnibox == 1 && localStorage.option_openfauxbarfocus != 'chrome') {
+			chrome.tabs.get(details.tabId, function(chromeTab){
+				if (chromeTab.url == 'chrome://newtab/') {
+					chrome.tabs.create({ windowId:chromeTab.windowId, url:chrome.extension.getURL("/html/fauxbar.html") });
+					chrome.tabs.remove(chromeTab.id);
+				}
+			});
+		}
+	}, {urls: [chrome.extension.getURL("/html/fauxbar.html")]});
+}
+
+// Handle keyboard shortcuts as defined in the manifest, and changeable via chrome://extensions > Keyboard shortcuts > Fauxbar
+// Reference: https://developer.chrome.com/extensions/commands.html
+chrome.commands.onCommand.addListener(function(command){
+	chrome.windows.getLastFocused({populate:true}, function(topWindow){
+		if ((command == 'addressBoxCurrentTab' || command == 'searchBoxCurrentTab') && topWindow.tabs != null) {
+			var activeTab = null;
+			for (var t in topWindow.tabs) {
+				if (topWindow.tabs[t].active == true) {
+					activeTab = topWindow.tabs[t];
+				}
+			}
+		}
+		switch (command) {
+			case 'addressBoxCurrentTab':
+				if (activeTab != null) {
+					if (substr_count(activeTab.url, chrome.extension.getURL("/html/fauxbar.html")) > 0) {
+						chrome.tabs.sendMessage(activeTab.id, 'Focus Address Box');
+					} else {
+						chrome.tabs.update(activeTab.id, { url:chrome.extension.getURL("/html/fauxbar.html#sel=ai&ai="+window.urlencode(activeTab.url)) });
+					}
+				}
+				break;
+			case 'addressBoxNewTab':
+				chrome.tabs.create({ windowId:topWindow.id, url:chrome.extension.getURL("/html/fauxbar.html#sel=ai") });
+				break;
+			case 'searchBoxCurrentTab':
+				if (activeTab != null) {
+					if (substr_count(activeTab.url, chrome.extension.getURL("/html/fauxbar.html")) > 0) {
+						chrome.tabs.sendMessage(activeTab.id, 'Focus Search Box');
+					} else {
+						chrome.tabs.update(activeTab.id, { url:chrome.extension.getURL("/html/fauxbar.html#sel=os") });
+					}
+				}
+				break;
+			case 'searchBoxNewTab':
+				chrome.tabs.create({ windowId:topWindow.id, url:chrome.extension.getURL("/html/fauxbar.html#sel=os") });
+				break;
+		}
+	});
+});
+
 // Array to hold which URLs to record as "typed" transitions
 window.typedUrls = [];
 function addTypedUrl(url) {
@@ -18,7 +78,7 @@ function processUpdatedTab(tabId, tab) {
 		if (tab.url.substr(0,7) == 'http://' || tab.url.substr(0,8) == 'https://') {
 
 			// If user has opted to enable Alt+D, Ctrl+L or Ctrl+L functionality, make it so
-			if ((localStorage.option_altd && localStorage.option_altd == 1) || (localStorage.option_ctrll && localStorage.option_ctrll == 1) || (localStorage.option_ctrlk && localStorage.option_ctrlk == 1)) {
+			/*if ((localStorage.option_altd && localStorage.option_altd == 1) || (localStorage.option_ctrll && localStorage.option_ctrll == 1) || (localStorage.option_ctrlk && localStorage.option_ctrlk == 1)) {
 				if (localStorage.option_altd && localStorage.option_altd == 1) {
 					chrome.tabs.executeScript(tabId, {file:"/js/alt-d.js"});
 				}
@@ -28,7 +88,7 @@ function processUpdatedTab(tabId, tab) {
 				if (localStorage.option_ctrlk && localStorage.option_ctrlk == 1) {
 					chrome.tabs.executeScript(tabId, {file:"/js/ctrl-k.js"});
 				}
-			}
+			}*/
 
 			// Generate thumbnail if page is a top site
 			if (tab.selected) {
@@ -238,7 +298,7 @@ function refreshResults() {
 	}
 }
 
-// Starts the indexing procress.
+// Starts the indexing process.
 function beginIndexing() {
 	window.reindexing = true;
 	localStorage.indexComplete = 0;
@@ -793,7 +853,7 @@ function index() {
 $(document).ready(function(){
 
 	// Record if this is Fauxbar or Fauxbar Lite
-	$.ajax({
+	/*$.ajax({
 		type: "GET",
 		url: chrome.extension.getURL("manifest.json"),
 		dataType: "text",
@@ -807,7 +867,7 @@ $(document).ready(function(){
 			manifest = jQuery.parseJSON(lines.join("\n"));
 			localStorage.extensionName = manifest.name;
 		}
-	});
+	});*/
 
 	// Disable Fauxbar or Fauxbar Lite (shouldn't have both enabled simultaneously)
 	chrome.management.getAll(function(extensions){
@@ -883,18 +943,33 @@ $(document).ready(function(){
 	});
 
 	// New version info
-	var currentVersion = "1.2.11";
-	/*if (
+	var currentVersion = "1.3.0";
+	if (
 		(!localStorage.currentVersion && localStorage.indexComplete && localStorage.indexComplete == 1) ||
 		(localStorage.currentVersion && localStorage.currentVersion != currentVersion) ||
 		(localStorage.readUpdateMessage && localStorage.readUpdateMessage == 0)
 	) {
 		// Enable for big updates, disable for small. Don't need to annoy the user about a minor defect fix.
-		if (localStorage.currentVersion != '1.2.10') {
+		if (localStorage.currentVersion != '1.3.0') {
 			localStorage.readUpdateMessage = 1;
-			window.webkitNotifications.createHTMLNotification('/html/notification_updated.html').show();
+			window.webkitNotifications.createHTMLNotification(localStorage.extensionName == 'Fauxbar' ? '/html/notification_updated.html' : '/html/notification_updated_lite.html').show();
 		}
-	}*/
+	}
+	
+	// Enable Chrome's New Tab button overriding for Fauxbar
+	if (!localStorage.option_stealFocusFromOmnibox && localStorage.extensionName == 'Fauxbar') {
+		localStorage.option_stealFocusFromOmnibox = 1;
+	}
+	
+	// Disable showing the error count by default
+	if (localStorage.currentVersion != '1.3.0') {
+		localStorage.option_showErrorCount = 0;
+	}
+	
+	// New Web Store option under Chrome menu
+	if (!localStorage.option_chromeMenu_showWebStore) {
+		localStorage.option_chromeMenu_showWebStore = 1;
+	}
 	
 	// New Auto Assist option, added in 1.2.10
 	if (!localStorage.option_autoAssist) {
@@ -904,11 +979,6 @@ $(document).ready(function(){
 	if (!localStorage.option_showNewlyInstalledApps) {
 		localStorage.option_showNewlyInstalledApps = 1;
 	}
-	
-	// Reset CSS cache, 1.2.5
-	/*if (currentVersion == "1.2.5" && localStorage.currentVersion != "1.2.5") {
-		delete localStorage.customStyles;
-	}*/
 	
 	// Initialise menu bar options, added in 1.2.0
 	if (!localStorage.option_showMenuBar) {
@@ -1011,7 +1081,7 @@ $(document).ready(function(){
 	}
 	// Unread error count
 	if (!localStorage.option_showErrorCount) {
-		localStorage.option_showErrorCount = 1;
+		localStorage.option_showErrorCount = 0;
 	}
 
 	// Default tile arrangement. Added in v0.1.0
