@@ -1,3 +1,15 @@
+// Focus Address Box or Search Box if user presses appropriate keyboard shortcut
+chrome.runtime.onMessage.addListener(function(message){
+	switch (message) {
+		case 'Focus Address Box':
+			focusAddressBox();
+			break;
+		case 'Focus Search Box':
+			focusSearchBox();
+			break;
+	}
+});
+
 // http://stackoverflow.com/questions/890807/iterate-over-a-javascript-associative-array-in-sorted-order
 function sortKeys(obj) {
     var keys = [];

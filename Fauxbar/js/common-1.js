@@ -123,6 +123,8 @@ function compareStringLengths (a, b) {
 function resetOptions() {
 	delete localStorage.customStyles;
 	
+	localStorage.option_stealFocusFromOmnibox = chrome.runtime.getManifest().name == 'Fauxbar' ? 1 : 0;	// Shift focus from Chrome's Omnibox to Fauxbar by creating a new Fauxbar tab and closing the New Tab Page.
+	
 	localStorage.option_alert = 1; 							// Show a message when there's a database error.
 	localStorage.option_altd = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Alt+D functionality.
 	localStorage.option_autoAssist = 'autoFillUrl';			// Auto Assist for Address Box. 'autoFillUrl', 'autoSelectFirstResult', or 'dontAssist'
@@ -134,7 +136,7 @@ function resetOptions() {
 	localStorage.option_bgsize = "auto"; 					// Page background image size.
 	localStorage.option_blacklist = ""; 					// Blacklisted sites to exclude from Address Box results
 	localStorage.option_bold = 1; 							// Bolden matching words in results.
-	localStorage.option_bottomgradient = "#000000"; 		// Fauxbar wraper bottom gradient color.
+	localStorage.option_bottomgradient = "#000000"; 		// Fauxbar wrapper bottom gradient color.
 	localStorage.option_bottomopacity = "50"; 				// Fauxbar wrapper bottom gradient opacity.
 	localStorage.option_consolidateBookmarks = 1; 			// Consolidate bookmarks in Address Box results. Means extra duplicate bookmarks won't be shown.
 	localStorage.option_ctrlk = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Ctrl+K functionality.
@@ -195,13 +197,13 @@ function resetOptions() {
 	localStorage.option_shadow = 1;							// Drop shadow for the Fauxbar.
 	localStorage.option_showapps = 1;						// Display app tiles.
 	localStorage.option_showNewlyInstalledApps = 1;			// Re-enable localStorage.option_showapps when an app is installed.
-	localStorage.option_showErrorCount = 1;					// Show an error count on the Options' side menu.
+	localStorage.option_showErrorCount = 0;					// Show an error count on the Options' side menu.
 	localStorage.option_showjsonsuggestions = 1;			// Show Search Box suggestions from the selected search engine when user is typing a query.
 	localStorage.option_showmatchingfavs = 1;				// Search for and display matching bookmarks from the Address Box.
 	localStorage.option_showmatchinghistoryitems = 1;		// Search for and display matching history items from the Address Box.
 	localStorage.option_showQueriesViaKeyword = 1;			// Show previous search queries when seaching via keyword in the Address Box.
 	localStorage.option_showqueryhistorysuggestions = 1;	// Show Search Box past queries when user is typing a query into the Search Box.
-	localStorage.option_showStarInOmnibox = window.OS == "Mac" ? 1 : 0;		// Show a star in Omnibox bookmark results if possible.
+	localStorage.option_showStarInOmnibox = window.OS == "Mac" ? 1 : 1;		// Show a star in Omnibox bookmark results if possible.
 	localStorage.option_showSuggestionsViaKeyword = 1;		// Show suggestions from search engine when using keywords in the Address Box.
 	localStorage.option_showtopsites = 1;					// Show top site tiles.
 	localStorage.option_speech = "0";						// Show speech input icons in the Address Box and Search Box.
@@ -255,6 +257,7 @@ function resetMenuBarOptions() {
 	localStorage.option_chromeMenu_showOptions = 1;
 	localStorage.option_chromeMenu_showExperiments = 1;
 	localStorage.option_chromeMenu_showPlugins = 1;
+	localStorage.option_chromeMenu_showWebStore = 1;
 	localStorage.option_showFauxbarMenu = 1;
 	localStorage.option_menuBar_useHistory2 = 1;
 	localStorage.option_menuBarFontColor = '#000000';
@@ -335,3 +338,92 @@ function urlencode (str) {
     replace(/\)/g, '%29').replace(/\*/g, '%2A').replace(/%20/g, '+');
 }
 
+// http://phpjs.org/functions/substr/
+function substr (str, start, len) {
+  var i = 0,
+    allBMP = true,
+    es = 0,
+    el = 0,
+    se = 0,
+    ret = '';
+  str += '';
+  var end = str.length;
+
+  // BEGIN REDUNDANT
+  this.php_js = this.php_js || {};
+  this.php_js.ini = this.php_js.ini || {};
+  // END REDUNDANT
+  switch ((this.php_js.ini['unicode.semantics'] && this.php_js.ini['unicode.semantics'].local_value.toLowerCase())) {
+  case 'on':
+    // Full-blown Unicode including non-Basic-Multilingual-Plane characters
+    // strlen()
+    for (i = 0; i < str.length; i++) {
+      if (/[\uD800-\uDBFF]/.test(str.charAt(i)) && /[\uDC00-\uDFFF]/.test(str.charAt(i + 1))) {
+        allBMP = false;
+        break;
+      }
+    }
+
+    if (!allBMP) {
+      if (start < 0) {
+        for (i = end - 1, es = (start += end); i >= es; i--) {
+          if (/[\uDC00-\uDFFF]/.test(str.charAt(i)) && /[\uD800-\uDBFF]/.test(str.charAt(i - 1))) {
+            start--;
+            es--;
+          }
+        }
+      } else {
+        var surrogatePairs = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;
+        while ((surrogatePairs.exec(str)) != null) {
+          var li = surrogatePairs.lastIndex;
+          if (li - 2 < start) {
+            start++;
+          } else {
+            break;
+          }
+        }
+      }
+
+      if (start >= end || start < 0) {
+        return false;
+      }
+      if (len < 0) {
+        for (i = end - 1, el = (end += len); i >= el; i--) {
+          if (/[\uDC00-\uDFFF]/.test(str.charAt(i)) && /[\uD800-\uDBFF]/.test(str.charAt(i - 1))) {
+            end--;
+            el--;
+          }
+        }
+        if (start > end) {
+          return false;
+        }
+        return str.slice(start, end);
+      } else {
+        se = start + len;
+        for (i = start; i < se; i++) {
+          ret += str.charAt(i);
+          if (/[\uD800-\uDBFF]/.test(str.charAt(i)) && /[\uDC00-\uDFFF]/.test(str.charAt(i + 1))) {
+            se++; // Go one further, since one of the "characters" is part of a surrogate pair
+          }
+        }
+        return ret;
+      }
+      break;
+    }
+    // Fall-through
+  case 'off':
+    // assumes there are no non-BMP characters;
+    //    if there may be such characters, then it is best to turn it on (critical in true XHTML/XML)
+  default:
+    if (start < 0) {
+      start += end;
+    }
+    end = typeof len === 'undefined' ? end : (len < 0 ? len + end : len + start);
+    // PHP returns false if start does not fall within the string.
+    // PHP returns false if the calculated end comes before the calculated start.
+    // PHP returns an empty string if start and end are the same.
+    // Otherwise, PHP returns the portion of the string from start to end.
+    return start >= str.length || start < 0 || start > end ? !1 : str.slice(start, end);
+  }
+  return undefined; // Please Netbeans
+}

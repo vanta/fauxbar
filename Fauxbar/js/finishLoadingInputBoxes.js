@@ -1,5 +1,5 @@
 $('#awesomeinput').ready(function(){
-	if (getHashVar('options') == 1) {
+	if (getHashVar('options') == 1 || (window.location.hash == '#newTab' && localStorage.option_stealFocusFromOmnibox != 1)) {
 		$('#awesomeinput').attr('placeholder', 'Go to a web site');
 	} else if (localStorage.option_openfauxbarfocus == 'addressbox') {
 		$('#awesomeinput:focus').live('focus', function(){

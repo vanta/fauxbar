@@ -86,16 +86,16 @@ function refreshChromeMenu() {
 			(localStorage.option_chromeMenu_showBookmarks == 1 ? '<item style="background-image:url(/img/bookmarks_favicon.png)"><a href="chrome://bookmarks">Bookmarks</a></item>' : '') +
 			(localStorage.option_chromeMenu_showDownloads == 1 ? '<item style="background-image:url(chrome://favicon/chrome://downloads/)"><a href="chrome://downloads">Downloads</a></item>' : '') +
 			(localStorage.option_chromeMenu_showExtensions == 1 ?
-				'<item style="background-image:url(chrome://favicon/chrome://plugins/)"><a href="chrome://settings/extensions">Extensions</a></item>' : '') +
+				'<item style="background-image:url(chrome://favicon/chrome://plugins/)"><a href="chrome://extensions">Extensions</a></item>' : '') +
 			(localStorage.option_chromeMenu_showHistory == 1 ?
 				'<item style="background-image:url(chrome://favicon/chrome://history/)"><a href="chrome://history'+(chromeVersion<17&&localStorage.option_menuBar_useHistory2==1?'2':'')+'">History</a></item>' : '') +
 			(localStorage.option_chromeMenu_showOptions == 1 ?
-				'<item style="background-image:url(chrome://theme/IDR_SETTINGS_FAVICON)">' +
+				'<item style="background-image:url(/img/wrench.png)">' +
 					'<items>' +
 						/*'<item><a href="chrome://settings/browser">Basics</a></item>' +
 						'<item><a href="chrome://settings/personal">Personal stuff</a></item>' +
 						'<item><a href="chrome://settings/advanced">Under the hood</a></item>' +
-						'<item><a href="chrome://settings/extensions">Extensions</a></item>' +
+						'<item><a href="chrome://extensions">Extensions</a></item>' +
 						'<hr/>' +*/
 						'<item><a href="chrome://settings/clearBrowserData">Clear browsing data...</a></item>' +
 						'<item><a href="chrome://settings/importData">Import bookmarks and settings...</a></item>' +
@@ -121,6 +121,7 @@ function refreshChromeMenu() {
 			(localStorage.option_chromeMenu_showExperiments == 1 || localStorage.option_chromeMenu_showPlugins == 1 ? '<hr/>' : '') +
 			(localStorage.option_chromeMenu_showExperiments == 1 ? '<item style="background-image:url(chrome://favicon/chrome://flags)"><a href="chrome://flags">Experiments</a></item>' : '') +
 			(localStorage.option_chromeMenu_showPlugins == 1 ? '<item style="background-image:url(chrome://favicon/chrome://plugins)"><a href="chrome://plugins">Plug-ins</a></item>' : '') +
+			(localStorage.option_chromeMenu_showWebStore == 1 ? '<hr/><item style="background-image:url(/img/icon-webstore.png)"><a href="https://chrome.google.com/webstore/">Web Store</a></item>' : '') +
 		'</group></items>'
 	);
 	if ($('menu[chrome] > items > group').html().trim() == '') {
@@ -189,7 +190,7 @@ function refreshAppAndExtensionMenus() {
 			'<item style="background-image:url(/img/icon-webstore.png)"><a getMoreExtensions href="https://chrome.google.com/webstore/category/extensions">Get more extensions</a></item>' +
 			(
 				localStorage.option_extensionsMenu_showExtensionsLink == 1 ?
-					'<hr /><item style="background-image:url(chrome://favicon/chrome://plugins)"><a href="chrome://settings/extensions">Open the extensions page</a></item></items>'
+					'<hr /><item style="background-image:url(chrome://favicon/chrome://plugins)"><a href="chrome://extensions">Open the extensions page</a></item></items>'
 					: ''
 			)
 		);
@@ -226,7 +227,7 @@ function refreshAppAndExtensionMenus() {
 						'<items>' +
 							(e.appLaunchUrl && e.appLaunchUrl.length ? '<item><a href="'+e.appLaunchUrl+'">Launch app</a></item><hr/>' : '') +
 							(e.homepageUrl && e.homepageUrl.length ? '<item><a href="'+e.homepageUrl+'">Visit website</a></item><hr />' : '') +
-							(e.optionsUrl && e.optionsUrl.length && e.enabled ? '<item style="background-image:url(chrome://theme/IDR_SETTINGS_FAVICON)"><a href="'+e.optionsUrl+'">Options</a></item>' : '') +
+							(e.optionsUrl && e.optionsUrl.length && e.enabled ? '<item style="background-image:url(/img/wrench.png)"><a href="'+e.optionsUrl+'">Options</a></item>' : '') +
 							(e.enabled ? '<item><a disable extensionId="'+e.id+'">Disable</a></item>' : '<item><a enable extensionId="'+e.id+'">Enable</a></item>') +
 							'<item><a uninstall extensionId="'+e.id+'">Uninstall</a></item><hr />' +
 							'<item faded><a>Version '+e.version+'</a></item>' +
@@ -469,7 +470,7 @@ function refreshHistoryMenu() {
 			$('menu[history] group').append('<item style="background-image:url(chrome://favicon/chrome://history)"><a href="chrome://history'+(chromeVersion<17&&localStorage.option_menuBar_useHistory2==1?'2':'')+'">View full history</a></item>');
 		}
 		if (localStorage.option_historyMenu_showClearDataLink == 1) {
-			$('menu[history] group').append('<item style="background-image:url(chrome://theme/IDR_SETTINGS_FAVICON)"><a href="chrome://settings/clearBrowserData">Clear browsing data...</a></item>');
+			$('menu[history] group').append('<item style="background-image:url(/img/wrench.png)"><a href="chrome://settings/clearBrowserData">Clear browsing data...</a></item>');
 		}
 		repositionMenus();
 	});
@@ -565,7 +566,7 @@ chrome.bookmarks.onRemoved.addListener(refreshBookmarkMenu);
 
 function refreshFauxbarMenu() {
 	var options = window.location.href != chrome.extension.getURL("/html/fauxbar.html#options=1") ?
-		'<item style="background-image:url(chrome://theme/IDR_SETTINGS_FAVICON)" '+(localStorage.indexComplete==1?'':'faded')+'><a '+(localStorage.indexComplete==1?'options':'')+'>Options</a></item>' : '';
+		'<item style="background-image:url(/img/wrench.png)" '+(localStorage.indexComplete==1?'':'faded')+'><a '+(localStorage.indexComplete==1?'options':'')+'>Options</a></item>' : '';
 	$('menu[fauxbar]').html('<menuName>'+localStorage.extensionName+'</menuName><items><group>' +
 		options +
 		'<item faded><a>'+'Version '+localStorage.currentVersion+'</a></item><hr/>' +
@@ -580,9 +581,9 @@ function refreshFauxbarMenu() {
 			'<item><a href="https://chrome.google.com/webstore/detail/domhiadbdhomljcdankobiglghedagkm">Fauxbar Memory Helper</a></item>' +
 			'</items><a href="https://chrome.google.com/webstore/search/intitle%3AFauxbar"><arrow>&#x25BC;</arrow>Chrome Web Store</a></item>' +
 		'<item style="background-image:url(/img/icon-facebook.png)"><a href="http://facebook.com/Fauxbar">Facebook</a></item>' +
-		'<item style="background-image:url(/img/icon-gplus.png)"><a href="https://plus.google.com/106763880873922603221">Google+</a></item>' +
+		//'<item style="background-image:url(/img/icon-gplus.png)"><a href="https://plus.google.com/106763880873922603221">Google+</a></item>' +
 		'<item style="background-image:url(/img/icon-twitter.png)"><a href="http://twitter.com/Fauxbar">Twitter</a></item>' +
-		'<item style="background-image:url(/img/icon-reddit.png)"><a href="http://reddit.com/r/Fauxbar">Reddit</a></item>' +
+		//'<item style="background-image:url(/img/icon-reddit.png)"><a href="http://reddit.com/r/Fauxbar">Reddit</a></item>' +
 		'<hr/>' +
 		'<item style="background-image:url(/img/icon-paypal.png)"><a href="/html/loadpaypal.html">Donate via PayPal</a></item>' +
 	'</group></items>');

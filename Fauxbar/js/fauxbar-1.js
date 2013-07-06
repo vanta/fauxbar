@@ -724,7 +724,7 @@ function showContextMenu(e) {
 	if (($("#opensearchinput:focus, #awesomeinput:focus").length || usingSuperTriangle || $("#opensearch_triangle .glow").length) && !window.tileEditMode) {
 		$(".menuitem").each(function(){
 			if ($(this).attr("shortname")) {
-				html += '	<div class="menuOption engine" shortname="'+$(this).attr("shortname")+'" keyword="'+$(this).attr("keyword")+'" style="background-image:url('+$(this).attr("iconsrc")+'); background-repeat:no-repeat; background-position:'+(window.OS == "Mac" ? "4px 1px" : "4px 2px")+';">'+
+				html += '	<div class="menuOption engine" shortname="'+$(this).attr("shortname")+'" keyword="'+$(this).attr("keyword")+'" style="background-image:url('+$(this).attr("iconsrc")+'); background-size:16px 16px; background-repeat:no-repeat; background-position:'+(window.OS == "Mac" ? "4px 1px" : "4px 2px")+';">'+
 				$(this).attr("shortname")+
 				($(this).attr("keyword") && !strstr($(this).attr("keyword"),"fakekeyword_") ? ' <span style="display:inline-block; opacity:.5; float:right; margin-right:-20px">&nbsp;'+$(this).attr("keyword")+'</span>' : '') +
 				'</div>';
@@ -2236,6 +2236,18 @@ function navigateResults(e) {
 	}
 }
 
+function focusAddressBox () {
+	$("#opensearchinput").blur();
+	$("#awesomeinput").focus().setSelection(0,$("#awesomeinput").val().length);
+}
+
+function focusSearchBox () {
+	setTimeout(function(){
+		$("#awesomeinput").blur();
+		$("#opensearchinput").focus().setSelection(0,$("#opensearchinput").val().length);
+	}, 1);
+}
+
 // Enter text into the Address Box or Search Box if window.location.hash has input to use.
 // Handy when using Chrome's Back/Forward navigation buttons
 function refillInputs() {
@@ -2288,16 +2300,11 @@ function refillInputs() {
 			}
 			if (getHashVar('sel')) {
 				if (getHashVar('sel') == 'ai') { // "if selection == #awesomeinput/AddressBox"
-					$("#opensearchinput").blur();
-					$("#awesomeinput").focus().setSelection(0,$("#awesomeinput").val().length);
+					focusAddressBox();
 				} else if (getHashVar('sel') == 'os') { // "if selection == #opensearchinput/SearchBox"
-					setTimeout(function(){
-						$("#awesomeinput").blur();
-						$("#opensearchinput").focus().setSelection(0,$("#opensearchinput").val().length);
-					}, 100);
+					focusSearchBox();
 				} else if (getHashVar('ai')) {
-					$("#opensearchinput").blur();
-					$("#awesomeinput").focus().setSelection(0,$("#awesomeinput").val().length);
+					focusAddressBox();
 				}
 			}
 		}, 10);
@@ -3312,5 +3319,38 @@ chrome.extension.onRequest.addListener(function(request){
 	}
 	else if (request == "done reindexing bookmarks") {
 		$(".reindexingBookmarksMessage").remove();
+	}
+});
+
+// Make chrome:// links work
+$('a').live('mouseup', function(e){
+	if (substr($(this).attr('href'), 0, 9) == 'chrome://') {
+		console.log(e);
+		var link = $(this);
+		if ($(this).hasClass('forceNewTab')) {
+			if (e.shiftKey == true && e.button == 0) { // Left-click
+				chrome.windows.create({ url:$(this).attr('href'), focused:true });
+			} else {
+				chrome.tabs.getCurrent(function(currentTab){
+					chrome.tabs.create({ url:$(link).attr('href'), active:e.shiftKey?true:false, index:currentTab.index+1 });
+				});
+			}
+		} else {
+			if (e.shiftKey == true && e.button == 0) {
+				chrome.windows.create({ url:$(this).attr('href'), focused:true });
+			} else if (e.button == 0) {
+				chrome.tabs.getCurrent(function(currentTab){
+					if (e.ctrlKey) {
+						chrome.tabs.create({ url:$(link).attr('href'), active:e.shiftKey?true:false, index:currentTab.index+1 });
+					} else {
+						chrome.tabs.update(currentTab.id, { url:$(link).attr('href') });
+					}
+				});
+			} else if (e.button == 1) {
+				chrome.tabs.getCurrent(function(currentTab){
+					chrome.tabs.create({ url:$(link).attr('href'), active:e.shiftKey?true:false, index:currentTab.index+1 });
+				});
+			}
+		}
 	}
 });

@@ -12,6 +12,7 @@
 			<div id="option_section_general" class="section_selected" optionbox="generaloptions">General</div>
 			<div id="option_section_addressbox" class="section_general" optionbox="addressoptions">Address Box</div>
 			<div id="option_section_searchengines" class="section_general" optionbox="searchoptions">Search Engines</div>
+			<div id="option_section_keyboardshortcuts" class="section_general" optionbox="shortcutoptions">Keyboard Shortcuts</div>
 			<div id="option_section_tiles" class="section_general" optionbox="tilesoptions">Tiles</div>
 			<div id="option_section_menubar" class="section_general" optionbox="menubaroptions">Menu Bar</div>
 			<div id="option_section_results" class="section_general" optionbox="resultoptions">Colors &amp; Styling</div>
@@ -271,15 +272,15 @@ Then, if you type the same query in the future, Fauxbar will ask Chrome to start
 							</label>
 							Change to:
 							<button class="fallback google" url="http://www.google.com/search?btnI=&q={searchTerms}" style="font-size:12px; padding:2px 4px 2px 3px;">
-								<img src="/img/google.ico" style="vertical-align:middle; margin-top:-3px;" />
+								<img src="/img/google.ico" style="vertical-align:middle; margin-top:-3px; height:16px; width:16px;" />
 								Google.com
 							</button>
 							<button class="fallback yahoo" url="http://search.yahoo.com/search?p={searchTerms}" style="font-size:12px; padding:2px 4px 2px 3px;">
-								<img src="/img/yahoo.ico" style="vertical-align:middle; margin-top:-3px;" />
+								<img src="/img/yahoo.ico" style="vertical-align:middle; margin-top:-3px; height:16px; width:16px;" />
 								Yahoo.com
 							</button>
 							<button class="fallback bing" url="http://www.bing.com/search?q={searchTerms}" style="font-size:12px; padding:2px 4px 2px 3px;">
-								<img src="/img/bing.ico" style="vertical-align:middle; margin-top:-3px;" />
+								<img src="/img/bing.ico" style="vertical-align:middle; margin-top:-3px; height:16px; width:16px;" />
 								Bing.com
 							</button>
 							<div class="optionstip">
@@ -301,7 +302,7 @@ But if you don't normally visit local intranet sites that use custom domain name
 							</label>
 						</td>
 					</tr>
-					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
+					<!--<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>Focus</th>
 						<td>
@@ -315,7 +316,7 @@ But if you don't normally visit local intranet sites that use custom domain name
 								<input name="option_ctrll" id="option_ctrll" type="checkbox" /> by pressing <b>Ctrl</b>+<b>L</b> on most webpages
 							</label>
 						</td>
-					</tr>
+					</tr>-->
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>Quick Delete</th>
@@ -348,7 +349,6 @@ But if you don't normally visit local intranet sites that use custom domain name
 					Search Engine Options
 				</h1>
 				If a website you visit has a search field, right-click the field to add it as a <span class="extensionName">Fauxbar</span> search engine.<br/>
-<!--				Search engines can be added to <span class="extensionName">Fauxbar</span> by right-clicking on websites' search fields.<br />-->
 				Then, within <span class="extensionName">Fauxbar</span>, search engines you've added can be used from either the Address Box or Search Box.
 				<table>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
@@ -421,7 +421,7 @@ But if you don't normally visit local intranet sites that use custom domain name
 							</label>
 						</td>
 					</tr>
-					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
+					<!--<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>Focus</th>
 						<td>
@@ -432,10 +432,50 @@ But if you don't normally visit local intranet sites that use custom domain name
 								<input name="option_ctrlk" id="option_ctrlk" type="checkbox" /> by pressing <b>Ctrl</b>+<b>K</b> on most webpages
 							</label>
 						</td>
-					</tr>
+					</tr>-->
 				</table>
 			</div>
 
+			<!-- Keyboard Shortcut options -->
+			<div id="shortcutoptions" class="optionbox">
+				<img src="/img/cross.png" class="closeoptions" title="Close" />
+				<h1>
+					<img src="/img/fauxbar48.png" style="height:28px; width:28px; vertical-align:middle; position:relative; top:-2px; padding-right:2px" />
+					Keyboard Shortcut Options
+				</h1>
+				You can customize various shortcuts to open <span class="extensionName">Fauxbar</span> with your keyboard.
+				<table>
+					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
+					<tr>
+						<th>Instructions</th>
+						<td>
+							<div style="margin-top:1px">To view or modify <span class="extensionName">Fauxbar</span>'s keyboard shortcuts:</div>
+							<ol>
+								<li><a href="chrome://extensions" target="_blank" class="fakelink forceNewTab" style="text-decoration:underline; color:rgba(0,102,204,1);">Open Chrome's Extensions page.</a></li>
+								<li>Scroll to the bottom of the page.</li>
+								<li>Click the "Keyboard shortcuts" link.</li>
+								<li>Under <span class="extensionName">Fauxbar</span>, several shortcut options will be available.</li>
+								<li>To modify a shortcut, click an input box, then press your desired keys.</li>
+							<ol>
+						</td>
+					</tr>
+					<tr class="defaultShortcuts"><td colspan="2" class="tdhr"><div></div></td></tr>
+					<tr class="defaultShortcuts">
+						<th>Default Shortcuts</th>
+						<td>
+							<table id="defaultKeyboardShortcuts">
+								<tr><td>Activate the extension: <span style="opacity:.5; cursor:help"
+									  title="This is the equivalent of clicking Fauxbar's toolbar icon (located beside Chrome's Omnibox).">(?)</span></td><td>Not set</td></tr>
+								<tr><td>Open <span class="extensionName">Fauxbar</span>'s Address Box in the current tab:</td><td>Alt+D</td></tr>
+								<tr><td>Open <span class="extensionName">Fauxbar</span>'s Address Box in a new tab:</td><td>Ctrl+T</td></tr>
+								<tr><td>Open <span class="extensionName">Fauxbar</span>'s Search Box in the current tab:</td><td>Ctrl+K</td></tr>
+								<tr><td>Open <span class="extensionName">Fauxbar</span>'s Search Box in a new tab:</td><td>Ctrl+Shift+K</td></tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
 			<!-- Results & Suggestions options -->
 			<div id="resultoptions" class="optionbox">
 				<img src="/img/cross.png" class="closeoptions" title="Close" />
@@ -445,6 +485,15 @@ But if you don't normally visit local intranet sites that use custom domain name
 				</h1>
 				Many parts of <span class="extensionName">Fauxbar</span> can be colored and sized to your liking.
 				<table>
+					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
+					<tr>
+						<th>Font</th>
+						<td>
+							<label class="legend" style="margin-top:0px;">
+								Global font name: <input name="option_font" id="option_font" type="text" spellcheck="false" />
+							</label>
+						</td>
+					</tr>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>Preset Colors</th>
@@ -702,7 +751,26 @@ But if you don't normally visit local intranet sites that use custom domain name
 					<tr>
 						<th>Startup</th>
 						<td>
-							<label class="legend" style="margin-top:0">
+							<label class="legend stealFocusFromOmnibox" style="margin-top:0; padding-bottom:5px;">
+								<input name="option_stealFocusFromOmnibox" id="option_stealFocusFromOmnibox" type="checkbox" /> Override Chrome's New Tab button
+								<span style="opacity:.5; cursor:help"
+									  title="If enabled, Fauxbar will quickly close Chrome's New Tab Page and open Fauxbar in a regular tab instead, allowing Fauxbar to steal focus from Chrome's Omnibox.
+
+If not enabled, Fauxbar won't gain focus automatically when you click Chrome's New Tab button; Chrome's Omnibox will retain focus instead.
+
+This option has no effect if you've chosen to focus Chrome's Omnibox when Fauxbar opens.">(?)</span>
+							</label>
+							<label class="legend whenFauxbarOpens" style="margin-top:0px">
+								When <span class="extensionName">Fauxbar</span> opens, focus:
+								<select name="option_openfauxbarfocus" id="option_openfauxbarfocus">
+									<option value="chrome">Chrome's Omnibox<!-- (if overriding the New Tab page)--></option>
+									<option value="addressbox">Fauxbar's Address Box</option>
+									<option value="searchbox">Fauxbar's Search Box</option>
+								</select>
+								<span id="whenFauxbarOpens" style="opacity:.5; cursor:help"
+									  title="&quot;Override Chrome's New Tab button&quot; must be enabled for Address Box and Search Box focusing to work when you click Chrome's New Tab button.">(?)</span>
+							</label>
+							<label class="legend" style="margin-top:5px">
 								Upon clicking the
 								<img src="/img/fauxbar19.png" style="height:19px; width:19px; vertical-align:top" />
 								icon, open <span class="extensionName">Fauxbar</span>:
@@ -711,17 +779,6 @@ But if you don't normally visit local intranet sites that use custom domain name
 									<option value="newTab">in a new tab</option>
 									<option value="newWindow">in a new window</option>
 								</select>
-							</label>
-							<label class="legend">
-								When <span class="extensionName">Fauxbar</span> opens, focus:
-								<select name="option_openfauxbarfocus" id="option_openfauxbarfocus">
-									<option value="chrome">Chrome's Omnibox<!-- (if overriding the New Tab page)--></option>
-									<option value="addressbox">Fauxbar's Address Box</option>
-									<option value="searchbox">Fauxbar's Search Box</option>
-								</select>
-							</label>
-							<label class="legend" style="margin-top:1px">
-								Global font name: <input name="option_font" id="option_font" type="text" spellcheck="false" />
 							</label>
 							<label class="legend" style="margin-top:5px" id="overrideNewTab">
 								<input type="checkbox" disabled checked />
@@ -738,7 +795,7 @@ But if you don't normally visit local intranet sites that use custom domain name
 					<tr>
 						<th>Input Boxes</th>
 						<td>
-							<label class="legend" style="margin-top:1px">
+							<label class="legend">
 								Display:
 								<select id="option_inputboxdisplayorder" name="option_inputboxdisplayorder">
 									<option value="addressleft_searchright">Address Box then Search Box</option>
@@ -801,7 +858,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 					<img src="/img/fauxbar48.png" style="height:28px; width:28px; vertical-align:middle; position:relative; top:-2px; padding-right:2px;" />
 					Management
 				</h1>
-				<span class="extensionName">Fauxbar</span> version 1.2.11 &nbsp;<span style="opacity:.5">(18 April 2013)</span>
+				<span class="extensionName">Fauxbar</span> version 1.3.0 &nbsp;<span style="opacity:.5">(7 July 2013)</span>
 				<table>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
@@ -1104,6 +1161,10 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 								<input name="option_chromeMenu_showPlugins" id="option_chromeMenu_showPlugins" type="checkbox" />
 								Plug-ins
 							</label>
+							<label class="legend chromeMenu">
+								<input name="option_chromeMenu_showWebStore" id="option_chromeMenu_showWebStore" type="checkbox" />
+								Web Store
+							</label>
 						</td>
 					</tr>
 					<tr class="menuOptions"><td colspan="2" class="tdhr"><div></div></td></tr>
@@ -1116,7 +1177,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 							</label>
 						</td>
 					</tr>
-					<tr class="menuOptions history2"><td colspan="2" class="tdhr"><div></div></td></tr>
+					<!--<tr class="menuOptions history2"><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr class="menuOptions history2">
 						<th>Other</th>
 						<td class="menuOptions">
@@ -1127,7 +1188,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 									  title="If enabled, certain links for Chrome's history page within Fauxbar's menu bar will go to &quot;chrome://history2&quot; instead of &quot;chrome://history&quot;">(?)</span>
 							</label>
 						</td>
-					</tr>
+					</tr>-->
 				</table>
 				<script>
 					chromeVersion >= 17 && $('.history2').remove();
@@ -1284,9 +1345,9 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 					Support
 				</h1>
 				Questions? Feedback? Wanting to donate? Found a bug?<br />Engage with Fauxbar using the links below.
-				<div style="margin-top:11px; font-size:90%; opacity:.55">
+				<!--<div style="margin-top:11px; font-size:90%; opacity:.55">
 					<b>Latest tweet:</b> <span id="latestNews" style="font-size:100%;">Loading...</span>
-				</div>
+				</div>-->
 				<table>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
@@ -1329,7 +1390,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 							<a href="http://www.facebook.com/Fauxbar" target="_blank" style="color:#06c">Fauxbar's Facebook page</a><br />
 						</td>
 					</tr>
-					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
+					<!--<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>
 							<img src="/img/icon-gplus.png" />
@@ -1338,7 +1399,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 						<td>
 							<a href="https://plus.google.com/106763880873922603221" target="_blank" style="color:#06c">Fauxbar's Google+ page</a><br />
 						</td>
-					</tr>
+					</tr>-->
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>
@@ -1350,7 +1411,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 							<a href="http://twitter.com/FauxbarDev" class="twitter-follow-button">Follow @FauxbarDev</a>
 						</td>
 					</tr>
-					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
+					<!--<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>
 							<img src="/img/icon-reddit.png" />
@@ -1369,7 +1430,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 						<td>
 							fauxbar.org@gmail.com
 						</td>
-					</tr>
+					</tr>-->
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>

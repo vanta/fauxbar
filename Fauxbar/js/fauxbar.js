@@ -1,7 +1,5 @@
 //// This file is used by Fauxbar's main page. Gets loaded first before the other JS files.
 
-
-
 // Placeholder text for Address Box
 window.placeholder = "Go to a web site";
 

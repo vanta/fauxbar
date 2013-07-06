@@ -557,3 +557,9 @@ $('[addressBoxOptions]').live('mouseup', function(){
 	$("#addressoptions").css("display","block");
 	localStorage.option_optionpage = "option_section_addressbox";
 });
+
+// Remove options that aren't used by Fauxbar Lite
+if (localStorage.extensionName == 'Fauxbar Lite') {
+	$('tr.defaultShortcuts, span#whenFauxbarOpens, label.stealFocusFromOmnibox').remove();
+	$('label.whenFauxbarOpens').css('margin-top','-17px');
+}

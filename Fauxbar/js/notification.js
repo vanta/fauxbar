@@ -13,9 +13,9 @@ $(document).ready(function(){
 		$('h1, h1 *').css('font-size','12px');
 	}
 	
-	$('a').live('click', function(){
+	/*$('a').live('click', function(){
 		closeWindow();
 		return true;
-	});
+	});*/
 });
 
