@@ -11,6 +11,32 @@ For instructions on how to upgrade, [http://code.google.com/p/fauxbar/wiki/Quest
 
 ----
 
+*7 July 2013 - v1.3.0:*
+
+Fauxbar now requires Google Chrome version 27 or higher to run.
+
+ * New:
+  * Fauxbar can now "override" Chrome's New Tab button, restoring the ability steal focus from Chrome's Omnibox. Enabled by default; located under Fauxbar's Options > General > Startup. Not available for Fauxbar Lite. (issue #136)
+  * The following customizable Keyboard Shortcuts are now available and have replaced the previous static shortcuts:
+   * Open Fauxbar's Address Box in the current tab (Fauxbar default: Alt+D -- Not available for Fauxbar Lite)
+   * Open Fauxbar's Address Box in a new tab (Fauxbar default: Ctrl+T -- Fauxbar Lite default: Ctrl+I)
+   * Open Fauxbar's Search Box in the current tab (Fauxbar default: Ctrl+K -- Not available for Fauxbar Lite)
+   * Open Fauxbar's Search Box in a new tab (Fauxbar default: Ctrl+Shift+K -- Fauxbar Lite default: None)
+    * Instructions on how to modify these shortcuts are under Fauxbar's Options > Keyboard Shortcuts. (issue #136)
+    * _Helpful tip: Pressing Ctrl+T gets you to Fauxbar's Address Box faster than clicking Chrome's New Tab button._
+  * A link to Chrome's Web Store has been added to Fauxbar's Chrome menubar.
+ * Fixed:
+  * Links to internal chrome:// pages should now work again. (issue #137)
+  * Updated Google's icon to the blue and white "g".
+  * Restored the wrench/settings icon.
+ * Housecleaning:
+  * Removed the option to enable chrome://history2.
+  * Removed fetching @Fauxbar's latest tweet; Twitter has removed RSS feeds.
+  * Removed links for Google+, Reddit, and email (I rarely check them).
+  * Error counts are now hidden by default. You can enable them again under Fauxbar's Options > Management > Errors.
+
+----
+
 *18 April 2013 - v1.2.11:*
 
 Fauxbar now requires Google Chrome version 26 or higher to run.
