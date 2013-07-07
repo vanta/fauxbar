@@ -124,6 +124,7 @@ function resetOptions() {
 	delete localStorage.customStyles;
 	
 	localStorage.option_stealFocusFromOmnibox = chrome.runtime.getManifest().name == 'Fauxbar' ? 1 : 0;	// Shift focus from Chrome's Omnibox to Fauxbar by creating a new Fauxbar tab and closing the New Tab Page.
+	localStorage.option_overrideMethod = 2;					// New Tab button override method: 1 is better for older hardware; 2 is better for newer hardware
 	
 	localStorage.option_alert = 1; 							// Show a message when there's a database error.
 	localStorage.option_altd = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Alt+D functionality.
