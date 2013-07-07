@@ -7,10 +7,13 @@ localStorage.extensionName = chrome.runtime.getManifest().name;
 // So, as a workaround, when the New Tab Page appears, open Fauxbar in a new tab beside it and close the New Tab Page.
 // https://code.google.com/p/fauxbar/issues/detail?id=136
 if (chrome.runtime.getManifest().name == 'Fauxbar') {
+	if (!localStorage.option_overrideMethod) {
+		localStorage.option_overrideMethod = 2;
+	}
 	chrome.webRequest.onBeforeRequest.addListener(function(details){
-		if (localStorage.option_stealFocusFromOmnibox == 1 && localStorage.option_openfauxbarfocus != 'chrome') {
+		if (localStorage.option_stealFocusFromOmnibox == 1 && localStorage.option_openfauxbarfocus != 'chrome' && localStorage.option_overrideMethod == 2 && details && details.tabId) {
 			chrome.tabs.get(details.tabId, function(chromeTab){
-				if (chromeTab.url == 'chrome://newtab/') {
+				if (chromeTab && chromeTab.url == 'chrome://newtab/') {
 					chrome.tabs.create({ windowId:chromeTab.windowId, url:chrome.extension.getURL("/html/fauxbar.html") });
 					chrome.tabs.remove(chromeTab.id);
 				}
@@ -943,17 +946,22 @@ $(document).ready(function(){
 	});
 
 	// New version info
-	var currentVersion = "1.3.0";
+	var currentVersion = "1.3.1";
 	if (
 		(!localStorage.currentVersion && localStorage.indexComplete && localStorage.indexComplete == 1) ||
 		(localStorage.currentVersion && localStorage.currentVersion != currentVersion) ||
 		(localStorage.readUpdateMessage && localStorage.readUpdateMessage == 0)
 	) {
 		// Enable for big updates, disable for small. Don't need to annoy the user about a minor defect fix.
-		if (localStorage.currentVersion != '1.3.0') {
+		if (localStorage.currentVersion != '1.3.0' && localStorage.currentVersion != '1.3.1') {
 			localStorage.readUpdateMessage = 1;
 			window.webkitNotifications.createHTMLNotification(localStorage.extensionName == 'Fauxbar' ? '/html/notification_updated.html' : '/html/notification_updated_lite.html').show();
 		}
+	}
+	
+	// Chrome New Tab button override method
+	if (!localStorage.option_overrideMethod) {
+		localStorage.option_overrideMethod = 2;
 	}
 	
 	// Enable Chrome's New Tab button overriding for Fauxbar
@@ -962,7 +970,7 @@ $(document).ready(function(){
 	}
 	
 	// Disable showing the error count by default
-	if (localStorage.currentVersion != '1.3.0') {
+	if (localStorage.currentVersion != '1.3.0' && localStorage.currentVersion != '1.3.1') {
 		localStorage.option_showErrorCount = 0;
 	}
 	

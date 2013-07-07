@@ -560,6 +560,6 @@ $('[addressBoxOptions]').live('mouseup', function(){
 
 // Remove options that aren't used by Fauxbar Lite
 if (localStorage.extensionName == 'Fauxbar Lite') {
-	$('tr.defaultShortcuts, span#whenFauxbarOpens, label.stealFocusFromOmnibox').remove();
-	$('label.whenFauxbarOpens').css('margin-top','-17px');
+	$('tr.defaultShortcuts, span#whenFauxbarOpens, tr.tabOverride').remove();
+	//$('label.whenFauxbarOpens').css('margin-top','-17px');
 }
