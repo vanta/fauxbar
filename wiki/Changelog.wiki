@@ -11,6 +11,16 @@ For instructions on how to upgrade, [http://code.google.com/p/fauxbar/wiki/Quest
 
 ----
 
+*7 July 2013 - v1.3.1:*
+ * Hopefully fixed an error regarding the new Tab Override feature.
+ * Added a Tab Override Method option for Fauxbar:
+  * Method 1 (better for older hardware)
+  * Method 2 (better for newer hardware) (selected by default)
+   * Method 2 is faster, but might not look as smooth on older computers. Method 1 should also be more reliable if you're having issues with Method 2.
+   * Available under Fauxbar's Options > General > Tab Override.
+
+----
+
 *7 July 2013 - v1.3.0:*
 
 Fauxbar now requires Google Chrome version 27 or higher to run.
@@ -29,7 +39,7 @@ Fauxbar now requires Google Chrome version 27 or higher to run.
   * Links to internal chrome:// pages should now work again. (issue #137)
   * Updated Google's icon to the blue and white "g".
   * Restored the wrench/settings icon.
- * Housecleaning:
+ * Housekeeping:
   * Removed the option to enable chrome://history2.
   * Removed fetching @Fauxbar's latest tweet; Twitter has removed RSS feeds.
   * Removed links for Google+, Reddit, and email (I rarely check them).
