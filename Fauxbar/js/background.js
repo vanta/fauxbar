@@ -6,7 +6,8 @@ localStorage.extensionName = chrome.runtime.getManifest().name;
 // Due to issue #136, introduced in Chrome 27, New Tab Pages can't steal focus from Chrome's Omnibox.
 // So, as a workaround, when the New Tab Page appears, open Fauxbar in a new tab beside it and close the New Tab Page.
 // https://code.google.com/p/fauxbar/issues/detail?id=136
-if (chrome.runtime.getManifest().name == 'Fauxbar') {
+// Disabling Override Method 2 for v1.3.2 - critical bug where Chrome can't stay launched - issue #138
+/*if (chrome.runtime.getManifest().name == 'Fauxbar') {
 	if (!localStorage.option_overrideMethod) {
 		localStorage.option_overrideMethod = 2;
 	}
@@ -14,13 +15,14 @@ if (chrome.runtime.getManifest().name == 'Fauxbar') {
 		if (localStorage.option_stealFocusFromOmnibox == 1 && localStorage.option_openfauxbarfocus != 'chrome' && localStorage.option_overrideMethod == 2 && details && details.tabId) {
 			chrome.tabs.get(details.tabId, function(chromeTab){
 				if (chromeTab && chromeTab.url == 'chrome://newtab/') {
-					chrome.tabs.create({ windowId:chromeTab.windowId, url:chrome.extension.getURL("/html/fauxbar.html") });
-					chrome.tabs.remove(chromeTab.id);
+					chrome.tabs.create({ windowId:chromeTab.windowId, url:chrome.extension.getURL("/html/fauxbar.html") }, function(){
+						chrome.tabs.remove(chromeTab.id);
+					});
 				}
 			});
 		}
 	}, {urls: [chrome.extension.getURL("/html/fauxbar.html")]});
-}
+}*/
 
 // Handle keyboard shortcuts as defined in the manifest, and changeable via chrome://extensions > Keyboard shortcuts > Fauxbar
 // Reference: https://developer.chrome.com/extensions/commands.html
@@ -946,14 +948,14 @@ $(document).ready(function(){
 	});
 
 	// New version info
-	var currentVersion = "1.3.1";
+	var currentVersion = "1.3.2";
 	if (
 		(!localStorage.currentVersion && localStorage.indexComplete && localStorage.indexComplete == 1) ||
 		(localStorage.currentVersion && localStorage.currentVersion != currentVersion) ||
 		(localStorage.readUpdateMessage && localStorage.readUpdateMessage == 0)
 	) {
 		// Enable for big updates, disable for small. Don't need to annoy the user about a minor defect fix.
-		if (localStorage.currentVersion != '1.3.0' && localStorage.currentVersion != '1.3.1') {
+		if (localStorage.currentVersion != '1.3.0' && localStorage.currentVersion != '1.3.1' && localStorage.currentVersion != '1.3.2') {
 			localStorage.readUpdateMessage = 1;
 			window.webkitNotifications.createHTMLNotification(localStorage.extensionName == 'Fauxbar' ? '/html/notification_updated.html' : '/html/notification_updated_lite.html').show();
 		}
@@ -970,7 +972,7 @@ $(document).ready(function(){
 	}
 	
 	// Disable showing the error count by default
-	if (localStorage.currentVersion != '1.3.0' && localStorage.currentVersion != '1.3.1') {
+	if (localStorage.currentVersion != '1.3.0' && localStorage.currentVersion != '1.3.1' && localStorage.currentVersion != '1.3.2') {
 		localStorage.option_showErrorCount = 0;
 	}
 	
