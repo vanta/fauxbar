@@ -13,6 +13,7 @@ For instructions on how to upgrade, [http://code.google.com/p/fauxbar/wiki/Quest
 
 *8 July 2013 - v1.3.2:*
  * Fixed a critical bug where Chrome would not stay open after launching. If you are unable to open Chrome, [https://code.google.com/p/fauxbar/wiki/Help#Chrome_will_not_stay_open click here for instructions on how to fix this]. (issue #138)
+ * Removed the option to choose the tab override method, as Method 2 was causing problems.
 
 ----
 
