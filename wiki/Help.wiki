@@ -6,6 +6,35 @@ Solutions to problems that Fauxbar may encounter.
 
 ----
 
+== Chrome will not stay open ==
+
+_Please note: these instructions are a work in progress._
+
+=== Cause ===
+
+There is a bug in Fauxbar v1.3.0 and v1.3.1 that can cause Chrome to close itself after you launch it.
+
+=== Solution ===
+
+Fauxbar needs to be upgraded to v1.3.2. Here's how you can do this:
+
+ # Create a blank HTML file on your desktop. (you can create a blank .txt file and rename it to .html).
+ # Double-click on the HTML file to open the file with Chrome; Chrome will remain open. If Chrome is not your default browser, right-click the HTML file and choose to open the file with Chrome.
+ # Open Chrome's Extensions page ( chrome://extensions ).
+ # Enable "Developer mode" at the top of the page.
+ # Click the "Update extensions now" button.
+ # After a moment, Fauxbar should restart itself and be updated to v1.3.2.
+
+If Fauxbar does not seem to want to update to v1.3.2, here's how to temporarily resolve this bug:
+
+ # Open Fauxbar's Options.
+ # Under the General > Tab Override category, select Method 1 as the override method. (Method 2 is causing the bug)
+ # Close and restart Chrome.
+
+For further details and discussion, please view issue #138.
+
+----
+
 == Trouble displaying site thumbnails ==
 
 === Symptoms ===
