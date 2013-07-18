@@ -8,12 +8,12 @@ $(document).ready(function(){
 			($(this).attr("type") == "text" || $(this).attr("type") == "search") &&
 			$(this).attr("name")
 		) {
-			chrome.extension.sendRequest("create context menu");
+			chrome.runtime.sendMessage(null, "create context menu");
 		} else {
-			chrome.extension.sendRequest("remove context menu");
+			chrome.runtime.sendMessage(null, "remove context menu");
 		}
 	});
 	$("textarea").live("mouseenter", function(){
-		chrome.extension.sendRequest("remove context menu");
+		chrome.runtime.sendMessage(null, "remove context menu");
 	});
 });

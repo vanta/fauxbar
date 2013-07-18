@@ -919,7 +919,6 @@ $(document).ready(function(){
 			}
 		}
 	});
-
 	// If Helper detects computer is idle, Fauxbar will report back to restart Fauxbar IF no Fauxbar tabs are open.
 	chrome.extension.onRequestExternal.addListener(function(request){
 		if (request == "restart fauxbar?" && localStorage.indexComplete == 1) {
@@ -1688,7 +1687,7 @@ $(document).ready(function(){
 			if (localStorage.option_fallbacksearchurl && localStorage.option_fallbacksearchurl.length && strstr(localStorage.option_fallbacksearchurl, "{searchTerms}")) {
 				url = str_replace("{searchTerms}", urlencode(url), localStorage.option_fallbacksearchurl);
 			} else {
-				url = 'http://www.google.com/search?btnI=&q='+urlencode(url);
+				url = 'https://www.google.com/search?btnI=&q='+urlencode(url);
 			}
 		} else {
 			addTypedVisitId(url);

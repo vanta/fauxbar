@@ -3,7 +3,7 @@ function reinit() {
 	localStorage.indexedbefore = 0;
 	localStorage.unreadErrors = 0;
 	localStorage.issue47 = 1;
-	chrome.extension.sendRequest({action:"reindex"});
+	chrome.runtime.sendMessage(null, {action:"reindex"});
 	setTimeout(function(){
 		chrome.tabs.create({selected:true, url:chrome.extension.getURL("html/fauxbar.html")}, function(){
 			chrome.tabs.getCurrent(function(tab){

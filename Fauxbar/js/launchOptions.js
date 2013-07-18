@@ -35,7 +35,7 @@ setTimeout(function(){
 				if (tabs[tt].title == "Fauxbar" && (strstr(tabs[tt].url, fb) || strstr(tabs[tt].url, "chrome://newtab"))) {
 					found = true;
 					chrome.tabs.update(tabs[tt].id, {selected:true, url:chrome.extension.getURL("/html/fauxbar.html#options=1")}, function(tab){
-						chrome.extension.sendRequest({action:"openOptions", tabId:tab.id});
+						chrome.runtime.sendMessage(null, {action:"openOptions", tabId:tab.id});
 					});
 					chrome.tabs.getCurrent(function(tab){
 						chrome.tabs.remove(tab.id);

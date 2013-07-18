@@ -1,3 +1,102 @@
+function saveOptionsToCloud () {
+	var clickedButton = window.document.title == localStorage.extensionName +': Options' ? true : false;
+	if (!clickedButton && localStorage.option_autoSaveToCloud != 1) {
+		return false;
+	}
+	clickedButton && $("#restoreinfo, #backupinfo").css("display","none");
+	!clickedButton && console.log('Options page closed. Beginning process to save local options to your Google account cloud.');
+	if (!clickedButton || confirm("Save your local "+localStorage.extensionName+" options to your Google account?\n\nAny existing "+localStorage.extensionName+" options that are stored on your Google account will be overwritten.\n")) {
+		clickedButton && hideCloudButtons('Saving...');
+		setTimeout(function(){
+			var localKeyNames = new Array();
+			var keyName;
+			for (keyName in localStorage) {
+				if ((substr(keyName, 0, 7) == 'option_' || keyName == 'sapps') && !strstr(keyName,'font') && !strstr(keyName,'color') && keyName != 'option_bgimg' && keyName != 'option_autoSaveToCloud') {
+					localKeyNames.push(keyName);
+				}
+			}
+
+			var continueSaving = function(totalSearchEngines, searchEngines, totalTags, tags) {
+				chrome.storage.sync.get(localKeyNames, function(items){
+					var optionsToPush = {};
+					for (var i in localKeyNames) {
+						keyName = localKeyNames[i];
+						if (!items[keyName] || items[keyName] != localStorage[keyName]) {
+							optionsToPush[keyName] = localStorage[keyName];
+						}
+					}
+					
+					// Site tiles
+					if (localStorage.siteTiles) {
+						var siteTiles = JSON.parse(localStorage.siteTiles);
+						optionsToPush['totalSiteTiles'] = siteTiles.length;
+						for (var st in siteTiles) {
+							optionsToPush['siteTile_'+st] = siteTiles[st];
+						}
+						
+					}
+					
+					// Set a var to say how many search engines there are
+					optionsToPush['totalSearchEngines'] = totalSearchEngines;
+					// Set each search engine as its own var, eg: searchEngine_0, searchEngine_1, etc
+					for (var se in searchEngines) {
+						optionsToPush['searchEngine_'+se] = searchEngines[se];
+					}
+					
+					// Set a var to say how many tags there are
+					optionsToPush['totalTags'] = totalTags;
+					// Set each tag as its own var, eg: tag_0, tag_1, etc
+					for (var t in tags) {
+						optionsToPush['tag_'+t] = tags[t];
+					}
+					
+					if (Object.keys(optionsToPush).length > 0) {
+						chrome.storage.sync.set(optionsToPush, function(){
+							if (chrome.runtime.lastError) {
+								var errorMessage = 'Failed to save your '+localStorage.extensionName+' options to your Google account because:\n\n' + chrome.runtime.lastError.message;
+								clickedButton ? alert(errorMessage) : console.warn(errorMessage);
+							} else {
+								var successMessage = 'Your local '+localStorage.extensionName+' options have been saved to your Google account.';
+								clickedButton ? alert(successMessage) : console.log(successMessage);
+							}
+							clickedButton && showCloudButtons();
+						});
+					}
+				});
+			};
+			
+			// Get search engines and URL keyword tags
+			if (openDb()) {
+				window.db.readTransaction(function(tx){
+					tx.executeSql('SELECT * FROM opensearches ORDER BY position DESC, shortname ASC', [], function(tx, results){
+						var totalSearchEngines = results.rows.length;
+						var searchEngines = new Array();
+						for (var s = 0; s < results.rows.length; s++) {
+							var searchEngine = results.rows.item(s);
+							searchEngines.push(searchEngine);
+						}
+						tx.executeSql('SELECT * FROM tags', [], function(tx, results2){
+							var totalTags = results2.rows.length;
+							var tags = new Array();
+							for (var t = 0; t < results2.rows.length; t++) {
+								var tag = results2.rows.item(t);
+								tags.push(tag);
+							}
+							continueSaving(totalSearchEngines, searchEngines, totalTags, tags);
+						});
+					});
+				}, function(t){
+					errorHandler(t, getLineInfo());
+				});
+			} else {
+				var dbError = 'Error: Unable to open database to process your search engines.';
+				clickedButton ? alert(dbError) : console.warn(dbError);
+				clickedButton && showCloudButtons();
+			}
+		}, clickedButton ? 1000 : 1);
+	}
+}
+
 // Tell Fauxbar to record the next visit to a URL as a "typed" transition instead of "link"
 function addTypedVisitId(url) {
 	var len = localStorage.option_fallbacksearchurl ? localStorage.option_fallbacksearchurl.length : 0;
@@ -5,7 +104,7 @@ function addTypedVisitId(url) {
 		if (document.title == "fauxbar.background") {
 			addTypedUrl(url);
 		} else {
-			chrome.extension.sendRequest({action:"add typed visit id", url:url});
+			chrome.runtime.sendMessage(null, {action:"add typed visit id", url:url});
 		}
 	}
 	return true;
@@ -123,13 +222,17 @@ function compareStringLengths (a, b) {
 function resetOptions() {
 	delete localStorage.customStyles;
 	
+	localStorage.option_enableMemoryManagement = 1;			// Whether to reload Fauxbar or not after a few minutes to free up memory
+	localStorage.option_memoryIdleReloadMinutes = 10;		// Number of minutes to check for computer idleness to safely/quietly reload Fauxbar
+	
 	localStorage.option_stealFocusFromOmnibox = chrome.runtime.getManifest().name == 'Fauxbar' ? 1 : 0;	// Shift focus from Chrome's Omnibox to Fauxbar by creating a new Fauxbar tab and closing the New Tab Page.
 	localStorage.option_overrideMethod = 2;					// New Tab button override method: 1 is better for older hardware; 2 is better for newer hardware
 	
+	localStorage.option_autoSaveToCloud = 0;				// Whether or not to automatically save Fauxbar's local options to the user's Google account when Chrome starts up
+	
 	localStorage.option_alert = 1; 							// Show a message when there's a database error.
-	localStorage.option_altd = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Alt+D functionality.
-	localStorage.option_autoAssist = 'autoFillUrl';			// Auto Assist for Address Box. 'autoFillUrl', 'autoSelectFirstResult', or 'dontAssist'
-	//localStorage.option_autofillurl = 1; 					// Auto-fill the Address Box's input with a matching URL when typing.
+	//localStorage.option_altd = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Alt+D functionality.
+	localStorage.option_autoAssist = 'autoSelectFirstResult';	// Auto Assist for Address Box. 'autoFillUrl', 'autoSelectFirstResult', or 'dontAssist'
 	localStorage.option_bgcolor = "#F0F0F0"; 				// Page background color.
 	localStorage.option_bgimg = ""; 						// Page background image.
 	localStorage.option_bgpos = "center"; 					// Page background image position.
@@ -140,15 +243,15 @@ function resetOptions() {
 	localStorage.option_bottomgradient = "#000000"; 		// Fauxbar wrapper bottom gradient color.
 	localStorage.option_bottomopacity = "50"; 				// Fauxbar wrapper bottom gradient opacity.
 	localStorage.option_consolidateBookmarks = 1; 			// Consolidate bookmarks in Address Box results. Means extra duplicate bookmarks won't be shown.
-	localStorage.option_ctrlk = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Ctrl+K functionality.
-	localStorage.option_ctrll = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Ctrl+L functionality.
+	//localStorage.option_ctrlk = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Ctrl+K functionality.
+	//localStorage.option_ctrll = localStorage.extensionName == "Fauxbar Lite" ? 0 : 1; // Use Ctrl+L functionality.
 	localStorage.option_customscoring = 0; 					// Use custom frecency scoring.
 	localStorage.option_cutoff1 = 4; 						// Frecency bucket cutoff days #1
 	localStorage.option_cutoff2 = 14; 						// Frecency bucket cutoff days #2
 	localStorage.option_cutoff3 = 31; 						// Frecency bucket cutoff days #3
 	localStorage.option_cutoff4 = 90; 						// Frecency bucket cutoff days #4
 	localStorage.option_enableSearchContextMenu = 1;		// Right-click context menu for search input boxes on webpages
-	localStorage.option_fallbacksearchurl = "http://www.google.com/search?btnI=&q={searchTerms}";	// Fallback URL for Address Box.
+	localStorage.option_fallbacksearchurl = "https://www.google.com/search?btnI=&q={searchTerms}";	// Fallback URL for Address Box.
 	localStorage.option_fauxbarfontcolor = "#000000";		// Address Box and Search Box input box font color.
 	localStorage.option_favcolor = "#FFFFFF";				// Bookmark icon tint color.
 	localStorage.option_favopacity = "0";					// Bookmark icon tint opacity.
@@ -175,8 +278,8 @@ function resetOptions() {
 	localStorage.option_inputfontsize = window.OS == "Mac" ? 13 : 15;	// Address & Search Box font size (px).
 	localStorage.option_leftcellwidthpercentage = 66;		// Width percentage of the Address Box.
 	localStorage.option_launchFauxbar = "newTab";			// Open Fauxbar upon clicking browser action icon. newTab, currentTab or newWindow
-	localStorage.option_maxaddressboxresults = 16;			// Max Address Box results to display to the user at a time.
-	localStorage.option_maxaddressboxresultsshown = 8;		// Max Address Box results to be shown at a time; extra results will have to be scrolled to see.
+	localStorage.option_maxaddressboxresults = 10;			// Max Address Box results to display to the user at a time.
+	localStorage.option_maxaddressboxresultsshown = 10;		// Max Address Box results to be shown at a time; extra results will have to be scrolled to see.
 	localStorage.option_maxretrievedsuggestions = 5;		// Max Search Box saved queries to retrieve. This option name is misleading; suggestions are generally JSON results from the search engine.
 	localStorage.option_maxsuggestionsvisible = 15;			// Max queries/suggestions to display before needing to scroll. So with these 2 default options, 10 JSON suggestions will probably be displayed.
 	localStorage.option_maxwidth = 1200;					// Max-width for the Fauxbar('s wrapper).
@@ -291,7 +394,11 @@ function fileErrorHandler(e) {
       break;
   }
   if (securityErr == 1) {
-	  window.webkitNotifications.createHTMLNotification('/html/notification_fileSecurityErr.html').show();
+	  if (window.webkitNotifications.createHTMLNotification) {
+		window.webkitNotifications.createHTMLNotification(chrome.runtime.getURL('/html/notification_fileSecurityErr.html')).show();
+	  } else {
+		chrome.tabs.create({url:chrome.runtime.getURL('/html/notification_fileSecurityErr.html')});
+	  }
 	  return;
   }
   if (localStorage.option_alert == 1) {

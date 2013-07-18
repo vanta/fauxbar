@@ -41,7 +41,7 @@ function selectOpenSearchType(el, focusToo) {
 			if (window.location.hash.length == 0) {
 				window.location.hash = "#options=1";
 			} else {
-				window.location.hash += "options=1";
+				window.location.hash += "&options=1";
 			}
 			window.location.reload();
 		} else {
@@ -74,7 +74,7 @@ function selectOpenSearchType(el, focusToo) {
 			}, function(t){
 				errorHandler(t, getLineInfo());
 			}, function(){
-				chrome.extension.sendRequest("backup search engines");
+				chrome.runtime.sendMessage(null, "backup search engines");
 			});
 		}
 	}
@@ -90,7 +90,7 @@ function reindex() {
 	if (openDb(true)) {
 		$("#addresswrapper").css("cursor","wait");
 		window.indexStatus = "Initiating..."; // Step 1
-		chrome.extension.sendRequest({message:"currentStatus",status:"Initiating...", step:1}); // Step 1
+		chrome.runtime.sendMessage(null, {message:"currentStatus",status:"Initiating...", step:1}); // Step 1
 		index();
 	}
 }

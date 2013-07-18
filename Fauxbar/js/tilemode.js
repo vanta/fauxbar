@@ -25,6 +25,9 @@ function saveSiteTiles(justChecking) {
 				// success
 				localStorage.option_topsitecols = $("select").val();
 				localStorage.siteTiles = JSON.stringify(tiles);
+				if (localStorage.option_autoSaveToCloud == 1) {
+					chrome.runtime.sendMessage(null, 'Save options to cloud');
+				}
 				if (getHashVar("edittiles")) {
 					window.close();
 				} else {

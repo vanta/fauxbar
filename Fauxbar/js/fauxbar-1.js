@@ -191,7 +191,7 @@ function goToUrl(url, fromClickedResult, dontResolve) {
 		if (localStorage.option_fallbacksearchurl && localStorage.option_fallbacksearchurl.length && strstr(localStorage.option_fallbacksearchurl, "{searchTerms}")) {
 			url = str_replace("{searchTerms}", urlencode(url), localStorage.option_fallbacksearchurl);
 		} else {
-			url = 'http://www.google.com/search?btnI=&q='+urlencode(url);
+			url = 'https://www.google.com/search?btnI=&q='+urlencode(url);
 		}
 	} else if (!window.keywordEngine && !window.usedSearchBox) {
 		addTypedVisitId(url);
@@ -227,13 +227,13 @@ function goToUrl(url, fromClickedResult, dontResolve) {
 	}
 
 	if (window.prerenderedUrl && window.prerenderedUrl == url) {
-		chrome.extension.sendRequest("process prerendered page");
+		chrome.runtime.sendMessage(null, "process prerendered page");
 	}
 }
 
 function recordInputUrl(url) {
 	if (window.actualUserInput && window.actualUserInput.length) {
-		chrome.extension.sendRequest({action:"record input url", input:window.actualUserInput, url:url});
+		chrome.runtime.sendMessage(null, {action:"record input url", input:window.actualUserInput, url:url});
 	}
 }
 
@@ -316,7 +316,7 @@ $("*").live("mouseup", function(){
 				}, function(t){
 					errorHandler(t, getLineInfo());
 				}, function(){
-					chrome.extension.sendRequest("backup search engines");
+					chrome.runtime.sendMessage(null, "backup search engines");
 				});
 				populateOpenSearchMenu();
 			}
@@ -471,7 +471,7 @@ function submitOpenSearch(query) {
 }
 
 // Listen to either the background page, or the Memory Helper...
-chrome.extension.onRequest.addListener(function (request) {
+chrome.runtime.onMessage.addListener(function (request) {
 
 	// If Fauxbar has finished indexing history and bookmarks, reload the Fauxbar page to get rid of the progress div
 	if (request == "DONE INDEXING") {
@@ -893,7 +893,7 @@ $("#contextMenu .menuOption").live("mousedown", function(){
 								$("#awesomeinput").focus();
 								getResults(true);
 							}
-							chrome.extension.sendRequest("backup keywords");
+							chrome.runtime.sendMessage(null, "backup keywords");
 						});
 					}
 				}
@@ -917,7 +917,7 @@ $("#contextMenu .menuOption").live("mousedown", function(){
 								$("#awesomeinput").focus();
 								getResults(true);
 							}
-							chrome.extension.sendRequest("backup keywords");
+							chrome.runtime.sendMessage(null, "backup keywords");
 						});
 					}
 					else if (openDb()) {
@@ -933,7 +933,7 @@ $("#contextMenu .menuOption").live("mousedown", function(){
 								$("#awesomeinput").focus();
 								getResults(true);
 							}
-							chrome.extension.sendRequest("backup keywords");
+							chrome.runtime.sendMessage(null, "backup keywords");
 						});
 					}
 				}
@@ -1084,7 +1084,7 @@ $("#contextMenu .menuOption").live("mousedown", function(){
 					if (window.location.hash.length == 0) {
 						window.location.hash = "#options=1";
 					} else {
-						window.location.hash += "options=1";
+						window.location.hash += "&options=1";
 					}
 					window.location.reload();
 				} else {
@@ -1879,7 +1879,7 @@ if (localStorage.indexComplete != 1) {
 			$("button").focus();
 		}, 50);
 		if (window.OS == "Mac") {
-			$("button").css("font-family", "Ubuntu, Lucida Grande, Segoe UI, Arial, sans-serif");
+			$("button").css("font-family", "Lucida Grande, Segoe UI, Arial, sans-serif");
 		}
 		
 		$("#addresswrapper").css("cursor","wait");
@@ -2567,8 +2567,8 @@ function getResults(noQuery) {
 					window.fetchResultStartTime = microtime(true);
 					setTimeout(function(){
 						if (window.waitingForResults == true && microtime(true) - window.fetchResultStartTime > 1 && $("#awesomeinput:focus").length == 1 && $("#awesomeinput").getSelection().length != $("#awesomeinput").val().length) {
-							$("#addressbaricon").attr("src","chrome://resources/images/throbber.svg");
-						} else if ($("#addressbaricon").attr("src") == "chrome://resources/images/throbber.svg") {
+							$("#addressbaricon").attr("src","/img/throbber.svg");
+						} else if ($("#addressbaricon").attr("src") == "/img/throbber.svg") {
 							$("#addressbaricon").attr("src","chrome://favicon/null");
 						}
 					}, 1000);
@@ -2883,7 +2883,7 @@ function getResults(noQuery) {
 
 						// Remove the Address Box's loading icon
 						window.fetchResultStartTime = microtime(true);
-						if ($("#addressbaricon").attr("src") == "chrome://resources/images/throbber.svg") {
+						if ($("#addressbaricon").attr("src") == "/img/throbber.svg") {
 							$("#addressbaricon").attr("src","chrome://favicon/null");
 						}
 
@@ -3313,7 +3313,7 @@ if (localStorage.reindexingBookmarks) {
 	$("#maindiv").before(reindexingBookmarksMessage);
 }
 
-chrome.extension.onRequest.addListener(function(request){
+chrome.runtime.onMessage.addListener(function(request){
 	if (request == "reindexing bookmarks") {
 		$("#maindiv").before(reindexingBookmarksMessage);
 	}
@@ -3332,7 +3332,7 @@ $('a').live('mouseup', function(e){
 				chrome.windows.create({ url:$(this).attr('href'), focused:true });
 			} else {
 				chrome.tabs.getCurrent(function(currentTab){
-					chrome.tabs.create({ url:$(link).attr('href'), active:e.shiftKey?true:false, index:currentTab.index+1 });
+					chrome.tabs.create({ url:$(link).attr('href'), active:e.shiftKey||$(link).hasClass('makeActive')?true:false, index:currentTab.index+1 });
 				});
 			}
 		} else {

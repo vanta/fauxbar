@@ -139,7 +139,10 @@ $(document).ready(function(){
 		}, function(t){
 			errorHandler(t, getLineInfo());
 		}, function(){
-			chrome.extension.sendRequest("backup search engines");
+			chrome.runtime.sendMessage(null, 'backup search engines');
+			if (localStorage.option_autoSaveToCloud == 1) {
+				chrome.runtime.sendMessage(null, 'Save options to cloud');
+			}
 			window.close();
 		});
 	};
