@@ -11,6 +11,26 @@ For instructions on how to upgrade, [http://code.google.com/p/fauxbar/wiki/Quest
 
 ----
 
+*19 July 2013 - v1.4.0:*
+
+Fauxbar now requires Google Chrome version 28 or higher to run.
+ * Added ability to sync Fauxbar's options to your Google account. Available under Fauxbar's Options > Management > Options. (issue #65)
+ * Added ability to restore missing search engine favicons. Available under Fauxbar's Options > Search Engines. (issue #142)
+ * Added changelog link to Fauxbar's menu bar menu.
+ * Improved Fauxbar's start-up times in certain situations.
+ * Updated Google search engine and fallback URLs to use HTTPS instead of HTTP.
+ * Updated Address Box Auto Assist to use "Auto-highlight the first result" as the default option for new installations.
+ * Updated Address Box to display 10 items by default for new installations, up from 8.
+ * Fixed HTML notifications trying to be used if Chrome doesn't support them. (issue #140)
+ * Fixed MD5 errors.
+ * Fixed menu bar font size being too small on Mac OS.
+ * Fixed Google's icon being too large in certain places.
+ * Fixed the spinning loading image not loading.
+
+ 
+
+----
+
 *8 July 2013 - v1.3.2:*
  * Fixed a critical bug where Chrome would not stay open after launching. If you are unable to open Chrome, [https://code.google.com/p/fauxbar/wiki/Help#Chrome_will_not_stay_open click here for instructions on how to fix this]. (issue #138)
  * Removed the option to choose the tab override method, as Method 2 was causing problems.
