@@ -22,7 +22,7 @@ function showErrors() {
 						$("body").append('<div style="text-align:center; padding-top:40px; font-size:130%">Whoops! No errors have been logged.<br /><br />False alarm. Sorry about that.</div>');
 						localStorage.unreadErrors = 0;
 						window.onunload = function(){
-							chrome.extension.sendRequest("reload options");
+							chrome.runtime.sendMessage(null, "reload options");
 						}
 
 					} else {
@@ -78,7 +78,7 @@ $(document).ready(function(){
 					errorHandler(t, getLineInfo());
 				}, function(){
 					localStorage.unreadErrors = 0;
-					chrome.extension.sendRequest("reload options");
+					chrome.runtime.sendMessage(null, "reload options");
 					setTimeout(function(){
 						window.close();
 					}, 100);

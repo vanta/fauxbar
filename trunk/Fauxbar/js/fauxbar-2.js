@@ -354,7 +354,7 @@ $(document).ready(function(){
 });
 
 $('button[startIndexing]').live('click', function(){
-	chrome.extension.sendRequest({action:'reindex'});
+	chrome.runtime.sendMessage(null, {action:'reindex'});
 	$(this).prop('disabled',true).html('Please Wait...');
 });
 

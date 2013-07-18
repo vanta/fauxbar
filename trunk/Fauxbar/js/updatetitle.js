@@ -1,5 +1,5 @@
 window.titleModified = function() {
-	chrome.extension.sendRequest({action:"updateUrlTitles", urltitle:window.document.title, url:window.document.location.href});
+	chrome.runtime.sendMessage(null, {action:"updateUrlTitles", urltitle:window.document.title, url:window.document.location.href});
 }
 
 $(document).ready(function(){

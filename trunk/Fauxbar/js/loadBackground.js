@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	setTimeout(function(){
 		var newScript = document.createElement("script");
-		newScript.setAttribute("src", "/js/background.js");
+		newScript.setAttribute("src", "/js/background-new.js");
 		document.head.appendChild(newScript);
 	}, 500);
 });

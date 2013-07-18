@@ -54,9 +54,7 @@
 								<label class="legend">
 									Choose tiles:
 									<select id="option_pagetilearrangement" name="option_pagetilearrangement">
-										<!--<option value="bookmarkbar">Based on Chrome's Bookmark Bar</option>-->
 										<option value="frecency">Automatically</option>
-										<!--<option value="visitcount">By visit count</option>-->
 										<option value="manual">Manually</option>
 									</select>
 									<span style="opacity:.5; cursor:help" title="&bull; Automatically: Fauxbar chooses which site tiles to display based on your browsing behavior.
@@ -156,6 +154,23 @@
 				<table>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
+						<th>Auto Assist</th>
+						<td>
+							<label class="legend">
+								When typing:
+								<select id="option_autoAssist" name="option_autoAssist">
+									<option value="autoSelectFirstResult">Auto-highlight the first result</option>
+									<option value="autoFillUrl">Auto-fill the Address Box with a matching URL</option>
+									<option value="dontAssist">Don't assist me</option>
+								</select>
+								<span style="opacity:.5; cursor:help" title="&bull; Auto-highlight: Saves you from having to press the Down Arrow to select the first result.
+
+&bull; Auto-fill: Tries to complete the rest of the URL you're presumably typing.">(?)</span>
+							</label>
+						</td>
+					</tr>
+					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
+					<tr>
 						<th>Results</th>
 						<td>
 							<label class="legend">
@@ -166,10 +181,10 @@
 								</select>
 							</label>
 							<label class="legend">
-								Retrieve up to <input title="Default: 16" name="option_maxaddressboxresults" id="option_maxaddressboxresults" class="upto inputoption" type="number" min="0" max="100" step="1" value="" maxlength="3" size="4" style="text-align:center; padding:0" /> results at a time
+								Retrieve up to <input title="Default: 10" name="option_maxaddressboxresults" id="option_maxaddressboxresults" class="upto inputoption" type="number" min="0" max="100" step="1" value="" maxlength="3" size="4" style="text-align:center; padding:0" /> results at a time
 							</label>
 							<label class="legend">
-								Display up to <input title="Default: 8" name="option_maxaddressboxresultsshown" id="option_maxaddressboxresultsshown" class="upto inputoption" type="number" min="0" max="100" step="1" value="" maxlength="3" size="4" style="text-align:center; padding:0" /> retrieved results without needing to scroll
+								Display up to <input title="Default: 10" name="option_maxaddressboxresultsshown" id="option_maxaddressboxresultsshown" class="upto inputoption" type="number" min="0" max="100" step="1" value="" maxlength="3" size="4" style="text-align:center; padding:0" /> retrieved results without needing to scroll
 							</label>
 							<label class="legend">
 								<input name="option_showmatchinghistoryitems" id="option_showmatchinghistoryitems" type="checkbox" /> Show matching results from my browsing history
@@ -221,32 +236,7 @@ Then, if you type the same query in the future, Fauxbar will ask Chrome to start
 							</div>
 						</td>
 					</tr>
-					<!--<tr><td colspan="2" class="tdhr"><div></div></td></tr>
-					<tr>
-						<th>Auto-fill</th>
-						<td>
-							<label class="legend" style="margin-top:1px">
-								<input name="option_autofillurl" id="option_autofillurl" type="checkbox" /> Auto-fill the Address Box with a matching URL while typing
-							</label>
-						</td>
-					</tr>-->
-					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
-					<tr>
-						<th>Auto Assist</th>
-						<td>
-							<label class="legend">
-								When typing:
-								<select id="option_autoAssist" name="option_autoAssist">
-									<option value="autoFillUrl">Auto-fill the Address Box with a matching URL</option>
-									<option value="autoSelectFirstResult">Auto-highlight the first result</option>
-									<option value="dontAssist">Don't assist me</option>
-								</select>
-								<span style="opacity:.5; cursor:help" title="&bull; Auto-fill: Tries to complete the rest of the URL you're presumably typing.
 
-&bull; Auto-highlight: Saves you from having to press the Down Arrow to select the first result.">(?)</span>
-							</label>
-						</td>
-					</tr>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
 						<th>Keywords</th>
@@ -271,7 +261,7 @@ Then, if you type the same query in the future, Fauxbar will ask Chrome to start
 								<input name="option_fallbacksearchurl" id="option_fallbacksearchurl" class="http" type="text" spellcheck="false" style="width:95%" />
 							</label>
 							Change to:
-							<button class="fallback google" url="http://www.google.com/search?btnI=&q={searchTerms}" style="font-size:12px; padding:2px 4px 2px 3px;">
+							<button class="fallback google" url="https://www.google.com/search?btnI=&q={searchTerms}" style="font-size:12px; padding:2px 4px 2px 3px;">
 								<img src="/img/google.ico" style="vertical-align:middle; margin-top:-3px; height:16px; width:16px;" />
 								Google.com
 							</button>
@@ -363,7 +353,7 @@ But if you don't normally visit local intranet sites that use custom domain name
 							<div id="opensearchengines" style="margin-top:-3px">You haven't added any search engines to Fauxbar yet.</div>
 							<div id="restorebig3" style="margin-top:10px">
 								Restore:
-								<button class="searchenginebutton google" shortname="Google" searchurl="http://www.google.com/search?q={searchTerms}" suggesturl="http://suggestqueries.google.com/complete/search?output=firefox&q={searchTerms}" keyword="g" style="font-size:12px; padding:2px 4px 2px 3px;">
+								<button class="searchenginebutton google" shortname="Google" searchurl="https://www.google.com/search?q={searchTerms}" suggesturl="https://suggestqueries.google.com/complete/search?output=firefox&q={searchTerms}" keyword="g" style="font-size:12px; padding:2px 4px 2px 3px;">
 									<img src="/img/google.ico" style="vertical-align:middle; margin-top:-3px;" />
 									Google.com
 								</button>
@@ -375,6 +365,9 @@ But if you don't normally visit local intranet sites that use custom domain name
 									<img src="/img/bing.ico" style="vertical-align:middle; margin-top:-3px;" />
 									Bing.com
 								</button>
+							</div>
+							<div id="restoreSearchEngineIcons" style="margin-top:16px">
+								<button>Restore missing favicons...</button>
 							</div>
 						</td>
 					</tr>
@@ -390,7 +383,7 @@ But if you don't normally visit local intranet sites that use custom domain name
 								When you visit a webpage that has a search field, right-click the field.
 								If <span class="extensionName" style="font-size:12px">Fauxbar</span> is able to interpret the field's code,&nbsp;<b style="white-space:nowrap"><span class="extensionName" style="font-size:12px">Fauxbar</span>: Add as search engine</b> will appear on the context menu.
 							</div>
-							Or: <button addManually style="font-size:12px;font-family:inherit">Add Manually...</button>
+							Or: <button addManually style="font-size:12px;font-family:inherit">Add manually...</button>
 						</td>
 					</tr>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
@@ -746,6 +739,11 @@ But if you don't normally visit local intranet sites that use custom domain name
 					General Options
 				</h1>
 				Below are some initial options to configure <span class="extensionName">Fauxbar</span> how you'd like.
+				<div class="optionstip" style="margin-top:5px">
+					Note: <span class="extensionName" style="font-size:12px">Fauxbar</span>'s
+					<span style="text-decoration:underline; cursor:pointer; font-size:12px" class="fakelink" keyboardShortcutOptions>keyboard shortcuts</span>
+					can override some of Chrome's behaviors.
+				</div>
 				<table>
 					<tr class="tabOverride"><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr class="tabOverride">
@@ -760,6 +758,7 @@ If not enabled, Fauxbar won't gain focus automatically when you click Chrome's N
 
 This option has no effect if you've chosen to focus Chrome's Omnibox when Fauxbar opens.">(?)</span>
 							</label>
+							
 							<!--<label class="legend">
 								Override using:
 								<select name="option_overrideMethod" id="option_overrideMethod">
@@ -874,7 +873,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 					<img src="/img/fauxbar48.png" style="height:28px; width:28px; vertical-align:middle; position:relative; top:-2px; padding-right:2px;" />
 					Management
 				</h1>
-				<span class="extensionName">Fauxbar</span> version 1.3.2 &nbsp;<span style="opacity:.5">(8 July 2013)</span>
+				<span class="extensionName">Fauxbar</span> version 1.4.0 &nbsp;<span style="opacity:.5">(19 July 2013)</span>
 				<table>
 					<tr><td colspan="2" class="tdhr"><div></div></td></tr>
 					<tr>
@@ -886,15 +885,13 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 								&nbsp;&bull; <span id="stats_bookmarks">?</span> <span id="bookmarksplural">bookmarks</span><br />
 								&nbsp;&bull; <span id="stats_searchengines">?</span> search <span id="enginesplural">engines</span><br />
 								&nbsp;&bull; <span id="stats_searchqueries">?</span> search <span id="queriesplural">queries</span><br />
-								<!-- Removing the thumbnail count because the counting algorithm is usually incorrect; it's merely a "possible" max amount of thumbnails, and isn't necessarily true.
-								&nbsp;&bull; <span id="stats_thumbs">?</span> tile <span id="thumbsplural">thumbnails</span><br />-->
 								&nbsp;&bull; <span id="stats_tags">?</span> URL <span id="tagsplural">keywords</span><br />
 								&nbsp;&bull; <span id="stats_inputurls">?</span> pre-renderable <span id="inputurlsplural">URLs</span>
 							</label>
 							<br />
 							<button reindex style="font-size:95%">Reindex...</button>
-							<button id="button_clearsearchhistory" style="font-size:95%; position:relative;">Clear Search Queries...</button>
-							<button id="button_clearinputurls" style="font-size:95%; position:relative;">Clear Usage Habits...</button>
+							<button id="button_clearsearchhistory" style="font-size:95%; position:relative;">Clear search queries...</button>
+							<button id="button_clearinputurls" style="font-size:95%; position:relative;">Clear usage habits...</button>
 							<button id="button_rebuild" style="font-size:95%; position:relative;">Rebuild...</button>
 						</td>
 					</tr>
@@ -902,43 +899,66 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 					<tr>
 						<th>Options</th>
 						<td>
-							<div class="legend" style="margin-top:-4px">
-								<button showBackupInfo style="font-size:12px;">
-									Export...
+							<div class="optionstip" style="margin-top:-3px">
+								Here you can save or restore <span class="extensionName" style="font-size:12px">Fauxbar</span>'s options: all cosmetic and functionality settings you've chosen, including your site tiles, <span class="extensionName" style="font-size:12px">Fauxbar</span> search engines, URL keywords, and blacklist.
+								However, options do <i>not</i> contain your history items, bookmarks, search queries, or Address Box usage habits.
+							</div>
+							<div class="optionstip" style="margin-top:5px">
+								For Google account cloud sync to work, you <b>must</b> be signed in under Chrome's settings, and under Advanced Sync Settings, &quot;Extensions&quot; must be ticked.
+								<a href="chrome://settings/search#sync" target="_blank" class="forceNewTab makeActive" style="text-decoration:underline">Click to here to check.</a>
+							</div>
+							<div id="cloudButtons" style="margin-top:13px">
+								Google account sync:
+								<button saveToCloud>Save to cloud...</button>
+								<button retrieveFromCloud>Retrieve from cloud...</button>
+								<button clearCloud>Clear...</button>
+							</div>
+							<div id="cloudStatus" style="display:none"></div>
+							
+							<label class="legend" style="margin-top:6px">
+								<input type="checkbox" id="option_autoSaveToCloud" name="option_autoSaveToCloud" />
+								Automatically save to cloud when I change an option
+							</label>
+							
+							<br />
+							<div class="legend" style="margin-top:4px">
+								Local backup/restore:
+								<button showBackupInfo>
+									Export to file...
 								</button>
-								<button showRestoreInfo style="font-size:12px;">
-									Import...
+								<button showRestoreInfo>
+									Import from file...
 								</button>
-								<button resetButton style="font-size:12px;">
+								<button resetButton>
 									Reset...
 								</button>
 							</div>
 							<div style="clear:both"></div>
 							<div class="legend" id="backupinfo" style="display:none">
 								<div style="line-height:180%">
-									To export your <span class="extensionName">Fauxbar</span> options:<br />
+									To manually export your <span class="extensionName">Fauxbar</span> options:<br />
 									1. Copy all the text in the box below to your clipboard.<br />
 									2. Paste the text into a new plain-text document somewhere, then save it for later.
 								</div>
 								<textarea id="backup" disabled style="font-size:12px; width:90%; height:200px; margin-top:10px"></textarea>
-								<div class="optionstip" style="margin-top:6px">
+								<!--<div class="optionstip" style="margin-top:6px">
 									Exported options contain all cosmetic and functionality settings you've chosen, including your site tiles, <span class="extensionName" style="font-size:12px">Fauxbar</span> search engines, URL keywords, and blacklist.<br />
 									<div style="margin-top:8px">However, backups do <i>not</i> contain your history items, bookmarks, search queries, or Address Box usage habits.</div>
-								</div>
+								</div>-->
 							</div>
 							<div class="legend" id="restoreinfo" style="display:none">
 								<div style="line-height:180%">
-									To import your Fauxbar or Fauxbar Lite options:<br />
+									To manually import your Fauxbar or Fauxbar Lite options:<br />
 									1. Open the document containing the exported options text.<br />
 									2. Select all the text, then copy it to your clipboard.<br />
 									3. Paste the text into the box below.<br />
 									4. Click <button id="applyrestore" style="font-size:12px">Apply</button>
 								</div>
 								<textarea id="restore" style="font-size:12px; width:90%; height:200px; margin-top:10px"></textarea>
-								<div class="optionstip" style="margin-top:6px">
+								<!--<div class="optionstip" style="margin-top:6px">
 									Exported options contain all cosmetic and functionality settings you've chosen, including your site tiles, <span class="extensionName" style="font-size:12px">Fauxbar</span> search engines, URL keywords, and blacklist.<br />
 									<div style="margin-top:8px">However, backups do <i>not</i> contain your history items, bookmarks, search queries, or Address Box usage habits.</div>
-								</div>
+								</div>-->
 							</div>
 						</td>
 					</tr>
@@ -946,6 +966,22 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 					<tr>
 						<th>Memory</th>
 						<td>
+							<!-- Uncomment once https://code.google.com/p/chromium/issues/detail?id=260981 is fixed
+							<div style="margin-top:-4px">
+								<label class="legend noBreak" style="clear:none">
+									<input name="option_enableMemoryManagement" id="option_enableMemoryManagement" type="checkbox" />
+									Reload <span class="extensionName">Fauxbar</span> when your computer has been idle for
+								</label>
+								<input name="option_memoryIdleReloadMinutes" id="option_memoryIdleReloadMinutes" class="fontsize" type="number" min="1" maxlength="3" size="3" spellcheck="false" style="text-align:center" title="Default: 10">
+								minutes
+								<span style="opacity:.5; cursor:help" title="To minimize Fauxbar's memory usage, Fauxbar can quietly reload itself when your computer has been idle for a few minutes, as long as none of Fauxbar's pages are open.">(?)</span>
+							</div>-->
+							<!--<div class="optionstip">
+								To minimize <span class="extensionName" style="font-size:12px">Fauxbar</span>'s memory usage, <span class="extensionName" style="font-size:12px">Fauxbar</span> can quietly reload
+								itself when your computer has been idle for a few minutes, as long as none of
+								<span class="extensionName" style="font-size:12px">Fauxbar</span>'s pages are open.
+							</div>-->
+							
 							<img src="/img/fauxbarhelper48.png" style="height:48px; width:48px; float:left; padding-right:10px; padding-bottom:5px;" />
 							<label class="legend" style="margin-top:0px">
 								Fauxbar Memory Helper</a> is <span id="helperstatus">???</span>
@@ -1378,6 +1414,7 @@ If disabled, a hyphen will be displayed between the URL and title.">(?)</span>
 							</div>-->
 							
 							<a href="http://code.google.com/p/fauxbar/" target="_blank" style="color:#06c">Project Overview</a><br />
+							<a href="http://code.google.com/p/fauxbar/wiki/Changelog" target="_blank" style="color:#06c">Changelog</a><br />
 							<a href="http://code.google.com/p/fauxbar/w/list" target="_blank" style="color:#06c">Documentation Wiki</a><br />
 							<a href="http://code.google.com/p/fauxbar/issues/list" target="_blank" style="color:#06c">Suggestions &amp; Bug Reports</a><br />
 							<a href="http://code.google.com/p/fauxbar/source/browse/trunk#trunk%2FFauxbar" target="_blank" style="color:#06c">Source Code</a>

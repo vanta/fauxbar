@@ -245,7 +245,7 @@ function logError(msg, file, line) {
 							$("#errorMessage").html(msg);
 							$("#errorBox").css("display","inline-block");
 						} else {
-							chrome.extension.sendRequest({action:"displayError", errorLine:file+", line "+line, errorMessage:msg});
+							chrome.runtime.sendMessage(null, {action:"displayError", errorLine:file+", line "+line, errorMessage:msg});
 						}
 					});
 				}

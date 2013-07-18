@@ -40,7 +40,7 @@ $("table#options td").each(function(){
 });
 
 // Some more automatic HTML insertion, making my life easier
-$("label.legend").after("<br />");
+$("label.legend:not(.noBreak)").after("<br />");
 
 // When user changes the Fallback URL option, disable the preset buttons if needed (usability design)
 $("#option_fallbacksearchurl").live("change", function(){
@@ -117,7 +117,7 @@ $("tr.opensearch_optionrow td input").live("change", function(){
 				$(this).attr("origvalue",$(this).val());
 			});
 			populateOpenSearchMenu();
-			chrome.extension.sendRequest("backup search engines");
+			chrome.runtime.sendMessage(null, "backup search engines");
 		});
 	}
 });
@@ -131,7 +131,7 @@ $(".opensearchcross").live("mousedown", function(){
 		}, function(t){
 			errorHandler(t, getLineInfo());
 		}, function(){
-			chrome.extension.sendRequest("backup search engines");
+			chrome.runtime.sendMessage(null, "backup search engines");
 		});
 		$(theCell).parent().animate({opacity:0}, 0, function() {
 			$(this).remove();
@@ -182,11 +182,20 @@ $(".searchenginebutton").live("click", function(){
 		}, function(t){
 			errorHandler(t, getLineInfo());
 		}, function(){
-			chrome.extension.sendRequest("backup search engines");
+			chrome.runtime.sendMessage(null, "backup search engines");
 		});
 		getSearchEngines();
 		populateOpenSearchMenu();
 	}
+});
+
+// When user adjusts localStorage.option_memoryIdleReloadMinutes, make it so
+$('#option_memoryIdleReloadMinutes').live('change', function(){
+	if (!$(this).val().length) {
+		localStorage.option_memoryIdleReloadMinutes = 10;
+	}
+	localStorage.option_memoryIdleReloadMinutes = $(this).val();
+	chrome.idle.setDetectionInterval(localStorage.option_memoryIdleReloadMinutes * 60);
 });
 
 // When the Page Background options are changed, make it so
@@ -466,7 +475,7 @@ loadOptionsJS();
 $("#options").css("display","block");
 
 $('.fallback.google').live('click', function(){
-	$('#option_fallbacksearchurl').val('http://www.google.com/search?btnI=&q={searchTerms}').change();
+	$('#option_fallbacksearchurl').val('https://www.google.com/search?btnI=&q={searchTerms}').change();
 });
 $('.fallback.yahoo').live('click', function(){
 	$('#option_fallbacksearchurl').val('http://search.yahoo.com/search?p={searchTerms}').change();
@@ -499,7 +508,7 @@ $('button[clearBackgroundImage]').live('click', function(){
 $('button[reindex]').live('click', function(){
 	if (confirm('Reindex '+(localStorage.extensionName?localStorage.extensionName:'Fauxbar')+'\'s history items and bookmarks?\n\n' +
 		'If '+(localStorage.extensionName?localStorage.extensionName:'Fauxbar')+'\'s Address Box results seem stale, or if you\'ve just altered the frecency options, click OK - reindexing will ensure '+
-		(localStorage.extensionName?localStorage.extensionName:'Fauxbar')+'\'s database is up to date.\n\nOtherwise, click Cancel - reindexing probably won\'t accomplish much.\n')) {
+		(localStorage.extensionName?localStorage.extensionName:'Fauxbar')+'\'s database is up to date.\n')) {
 		tellBgToReindex();
 	}
 });
@@ -524,7 +533,7 @@ $('button[showBackupInfo]').live('click', showBackupInfo);
 $('button[showRestoreInfo]').live('click', showRestoreInfo);
 $('button[resetButton]').live('click', function(){
 	$('#restoreinfo, #backupinfo').css('display','none');
-	if (confirm('Reset '+(localStorage.extensionName?localStorage.extensionName:'Fauxbar')+'\'s options back to their default values?\n\nYour history items, bookmarks, search engines, search queries and keywords will remain intact.\n')) {
+	if (confirm('Reset your local '+(localStorage.extensionName?localStorage.extensionName:'Fauxbar')+' options back to their default values?\n\nYour history items, bookmarks, search engines, search queries and keywords will remain intact.\n')) {
 		resetOptions();
 		window.location.reload();
 	}
@@ -558,8 +567,188 @@ $('[addressBoxOptions]').live('mouseup', function(){
 	localStorage.option_optionpage = "option_section_addressbox";
 });
 
+$('[keyboardShortcutOptions]').live('mouseup', function(){
+	$("#option_menu div").removeClass("section_selected");
+	$("#option_section_keyboardshortcuts").addClass("section_selected");
+	$("div.optionbox").css("display","none");
+	$("#shortcutoptions").css("display","block");
+	localStorage.option_optionpage = "option_section_keyboardshortcuts";
+});
+
 // Remove options that aren't used by Fauxbar Lite
 if (localStorage.extensionName == 'Fauxbar Lite') {
 	$('tr.defaultShortcuts, span#whenFauxbarOpens, tr.tabOverride').remove();
-	//$('label.whenFauxbarOpens').css('margin-top','-17px');
 }
+
+function hideCloudButtons (message) {
+	$('div#cloudButtons').css('display','none');
+	$('div#cloudStatus').text(message).css('display','block');
+}
+
+function showCloudButtons () {
+	$('div#cloudButtons').css('display','block');
+	$('div#cloudStatus').css('display','none');
+}
+
+function tellBackgroundToSaveToCloud () {
+	if (localStorage.option_autoSaveToCloud == 1) {
+		chrome.runtime.sendMessage(null, 'Save options to cloud');
+	}
+}
+
+$('button[saveToCloud]').live('click', saveOptionsToCloud);
+
+$('button[retrieveFromCloud]').live('click', function(){
+	$("#restoreinfo, #backupinfo").css("display","none");
+	if (confirm("Retrieve "+localStorage.extensionName+" options from your Google account?\n\nYour local "+localStorage.extensionName+" options will be overwritten.\n")) {
+		hideCloudButtons('Retrieving...');
+		setTimeout(function(){
+			chrome.storage.sync.get(null, function(items){
+				if (chrome.runtime.lastError) {
+					alert('Failed to retrieve options from your Google account because:\n\n'+chrome.runtime.lastError.message);
+					showCloudButtons();
+				} else {
+					for (var prop in items) {
+						if (prop.substr(0,7) == 'option_' || prop == 'sapps') {
+							localStorage[prop] = items[prop];
+						}
+					}
+					
+					// Apply site tiles
+					if (items['totalSiteTiles']) {
+						var siteTiles = [];
+						for (var st = 0; st < items['totalSiteTiles']; st++) {
+							var tile = items['siteTile_'+st];
+							siteTiles.push({url:tile.url, title:tile.title});
+						}
+						localStorage.siteTiles = JSON.stringify(siteTiles);
+					}
+					
+					var finishRetrieving = function () {
+						if (confirm(localStorage.extensionName+' options from your Google account have been retrieved, and your local '+localStorage.extensionName+' options have been overwritten.\n\n' +
+								'To complete this operation, '+localStorage.extensionName+' needs to be reloaded.\n\n' +
+								'Reload '+localStorage.extensionName+' now? Any open '+localStorage.extensionName+' tabs will be closed.')) {
+							localStorage.justRetrievedFromCloud = 1;
+							chrome.runtime.reload();
+						} else {
+							hideCloudButtons('Please disable and re-enable '+localStorage.extensionName+' to finish applying your retrieved options.');
+						}
+					};
+					
+					// Load search engines
+					if ((items['totalSearchEngines'] || items['totalTags']) && openDb()) {
+						window.db.transaction(function(tx){
+							if (items['totalSearchEngines']) {
+								tx.executeSql('DELETE FROM opensearches');
+								for (var x = 0; x < items['totalSearchEngines']; x++) {
+									var se = items['searchEngine_'+x];
+									if (se) {
+										tx.executeSql('INSERT INTO opensearches (shortname, iconurl, searchurl, xmlurl, xml, isdefault, method, suggestUrl, keyword) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+										[se.shortname, se.iconurl, se.searchurl, se.xmlurl, se.xml, se.isdefault, se.method, se.suggestUrl, se.keyword]);
+									}
+								}
+							}
+							if (items['totalTags']) {
+								tx.executeSql('DELETE FROM tags');
+								tx.executeSql('UPDATE urls SET tag = ?', ['']);
+								for (var y = 0; y < items['totalTags']; y++) {
+									var tag = items['tag_'+y];
+									if (tag) {
+										tx.executeSql('INSERT INTO tags (url, tag) VALUES (?, ?)', [tag.url, tag.tag]);
+										tx.executeSql('UPDATE urls SET tag = ? WHERE url = ?', [tag.tag, tag.url]);
+									}
+								}
+							}
+						}, function(t){
+							errorHandler(t, getLineInfo());
+						}, finishRetrieving);
+					} else {
+						alert('No search engines were found.');
+						finishRetrieving();
+					}
+				}
+			});
+		}, 1000);
+	}
+});
+
+$('button[clearCloud]').live('click', function(){
+	$("#restoreinfo, #backupinfo").css("display","none");
+	if (confirm("Clear all "+localStorage.extensionName+" options that are stored on your Google account?\n\nYour local "+localStorage.extensionName+" options will remain intact.\n")) {
+		hideCloudButtons('Clearing...');
+		setTimeout(function(){
+			chrome.storage.sync.clear(function(){
+				if (chrome.runtime.lastError) {
+					alert('Failed to clear your '+localStorage.extensionName+' from your Google account because:\n\n'+chrome.runtime.lastError.message);
+				} else {
+					alert('All '+localStorage.extensionName+' options that were stored on your Google account have been cleared.');
+				}
+				$('div#cloudButtons').css('display','block');
+				$('div#cloudStatus').css('display','none');
+			});
+		}, 1000);
+	}
+});
+
+$('#restoreSearchEngineIcons button').live('click', function(){
+	if (confirm('Are your search engine icons showing blank white page icons instead of their normal ones?\n\nIf so, click OK; '+localStorage.extensionName+
+				' will load your search engines in a new window, allowing Chrome to retrieve their favicons again.\n\nThis will take a moment. '+localStorage.extensionName+
+				' will automatically reload itself once the operation is complete.')) {
+		$(this).text('Restoring...').prop('disabled','disabled');
+		setTimeout(function(){
+			if (openDb()) {
+				window.db.readTransaction(function(tx){
+					tx.executeSql('select * from opensearches', [], function(tx, results){
+						if (results.rows.length) {
+							var urlsToGet = new Array();
+							for (var i = 0; i < results.rows.length; i++) {
+								var searchEngine = results.rows.item(i);
+								if (strstr(searchEngine.iconurl, ':')) {
+									urlsToGet.push(searchEngine.iconurl);
+								}
+							}
+							if (urlsToGet.length) {
+								var newWindowId;
+								var tabsRemoved = 0;
+								chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
+									if (tab.windowId == newWindowId && changeInfo.status && changeInfo.status == 'complete' && tab.url != chrome.runtime.getURL('/html/restoreSearchEngineIcons.html')) {
+										// Wait 2 seconds before removing tab, to ensure Chrome has retrieved the site's favicon
+										setTimeout(function(){
+											chrome.tabs.remove(tabId);
+											tabsRemoved++;
+											if (tabsRemoved == urlsToGet.length) {
+												chrome.windows.remove(newWindowId, function(){
+													setTimeout(function(){
+														localStorage.justRestoredSearchEngineIcons = 1;
+														chrome.runtime.reload();
+													}, 500);
+												});
+											}
+										}, 1000);
+									}
+								});
+								chrome.windows.create({ focused:true, url:chrome.runtime.getURL('/html/restoreSearchEngineIcons.html') }, function(newWindow){
+									newWindowId = newWindow.id;
+									for (i in urlsToGet) {
+										chrome.tabs.create({ windowId:newWindowId, url:urlsToGet[i], active:false });
+									}
+								});
+							}
+						}
+					}, function(t){
+						errorHandler(t, getLineInfo());
+					});
+				}, function(t){
+					errorHandler(t, getLineInfo());
+				});
+			}
+		}, 500);
+	}
+});
+
+// When user closes the options, sync the options
+window.onbeforeunload = function () {
+	if (localStorage.option_autoSaveToCloud == 1) {
+		chrome.runtime.sendMessage(null, 'Save options to cloud');
+	}
+};

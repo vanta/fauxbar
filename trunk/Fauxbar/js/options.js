@@ -1,3 +1,6 @@
+// Monitor which options should be synced
+window.optionsToSync = new Array();
+
 // Prevent CSS caching while the options are open
 setInterval(function(){
 	delete localStorage.customStyles;
@@ -172,8 +175,8 @@ function restoreOptions() {
 			}, function(t){
 				errorHandler(t, getLineInfo());
 			}, function(){
-				chrome.extension.sendRequest("backup keywords");
-				chrome.extension.sendRequest("backup search engines");
+				chrome.runtime.sendMessage(null, "backup keywords");
+				chrome.runtime.sendMessage(null, "backup search engines");
 				alert("The import was successful.\n\nFauxbar will now restore your options.");
 				window.location.reload();
 			});
@@ -248,7 +251,7 @@ function sortSearchEnginesAlphabetically() {
 		}, function(t){
 			errorHandler(t, getLineInfo());
 		}, function(){
-			chrome.extension.sendRequest("backup search engines");
+			chrome.runtime.sendMessage(null, "backup search engines");
 		});
 	}
 }
@@ -386,7 +389,7 @@ function loadOptionsJS() {
 		}
 	});
 
-	chrome.extension.onRequest.addListener(function(r){
+	chrome.runtime.onMessage.addListener(function(r){
 		if (r == "reload options") {
 			window.location.reload();
 		}
@@ -441,7 +444,7 @@ function loadOptionsJS() {
 
 // Initialize the reindexing process
 function tellBgToReindex() {
-	chrome.extension.sendRequest({action:"reindex"});
+	chrome.runtime.sendMessage(null, {action:"reindex"});
 	$("button").prop("disabled",true);
 	$("body").css("cursor","progress");
 	window.location.reload();
@@ -534,7 +537,7 @@ function addEngineManually() {
 			errorHandler(t, getLineInfo());
 		}, function(){
 			getSearchEngines();
-			chrome.extension.sendRequest("backup search engines");
+			chrome.runtime.sendMessage(null, "backup search engines");
 		});
 	}
 }
@@ -592,7 +595,7 @@ function rebuildDatabase() {
 	localStorage.indexedbefore = 0;
 	localStorage.unreadErrors = 0;
 	localStorage.issue47 = 1;
-	chrome.extension.sendRequest({action:"reindex"});
+	chrome.runtime.sendMessage(null, {action:"reindex"});
 	setTimeout(function(){
 		chrome.tabs.create({selected:true, url:chrome.extension.getURL("html/fauxbar.html")}, function(){
 			chrome.tabs.getCurrent(function(tab){
@@ -603,3 +606,23 @@ function rebuildDatabase() {
 }
 
 $('.closeoptions').live('click', closeOptions);
+
+// Hide "Restore missing favicons..." button if user hasn't added any custom search engines
+if (openDb()) {
+	window.db.readTransaction(function(tx){
+		tx.executeSql('select * from opensearches', [], function(tx, results){
+			var userHasCustomSearchEngines = false;
+			if (results.rows.length) {
+				for (var i = 0; i < results.rows.length; i++) {
+					var searchEngine = results.rows.item(i);
+					if (strstr(searchEngine.iconurl, ':')) {
+						userHasCustomSearchEngines = true;
+					}
+				}
+			}
+			if (!userHasCustomSearchEngines) {
+				$('#restoreSearchEngineIcons').remove();
+			}
+		});
+	});
+}

@@ -423,6 +423,11 @@ $('a[reloadAllTabs]').live('mousedown', function(){
 	}, 1);
 });
 
+$('a[reloadFauxbar]').live('mousedown', function(){
+	localStorage.reloadUrl = window.document.location.href;
+	chrome.runtime.reload();
+});
+
 $('a[switchToTab]').live('mousedown', function(e){
 	if (e.which == 2) { // middle-mouse
 		chrome.tabs.remove(parseInt($(this).attr('tabId')));
@@ -571,6 +576,7 @@ function refreshFauxbarMenu() {
 		options +
 		'<item faded><a>'+'Version '+localStorage.currentVersion+'</a></item><hr/>' +
 		'<item style="background-image:url(/img/fauxbar16.png)"><a href="http://code.google.com/p/fauxbar/">Project overview</a></item>' +
+		'<item><a href="http://code.google.com/p/fauxbar/wiki/Changelog">Changelog</a></item>' +
 		'<item><a href="http://code.google.com/p/fauxbar/w/list">Documentation</a></item>' +
 		'<item><a href="http://code.google.com/p/fauxbar/issues/list">Suggestions and bug reports</a></item>' +
 		'<item><a href="http://code.google.com/p/fauxbar/source/browse/trunk#trunk%2FFauxbar">Source code</a></item>' +
@@ -586,6 +592,8 @@ function refreshFauxbarMenu() {
 		//'<item style="background-image:url(/img/icon-reddit.png)"><a href="http://reddit.com/r/Fauxbar">Reddit</a></item>' +
 		'<hr/>' +
 		'<item style="background-image:url(/img/icon-paypal.png)"><a href="/html/loadpaypal.html">Donate via PayPal</a></item>' +
+		//'<hr/>' +
+		//'<item><a reloadFauxbar>Reload '+localStorage.extensionName+'</a></item>' +
 	'</group></items>');
 }
 

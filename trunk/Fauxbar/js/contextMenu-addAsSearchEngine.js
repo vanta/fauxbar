@@ -2,7 +2,7 @@
 // Context menu should be enabled/disabled via contextMenu-hoverToggle.js, but just in case it still gets shown, error checking below exists
 var focusedEl = $('form input[type="text"]:focus, form input[type="search"]:focus').first();
 if (focusedEl && focusedEl.length && !focusedEl.attr("name")) {
-	chrome.extension.sendRequest({action:"invalid search field", reason:"no name"});
+	chrome.runtime.sendMessage(null, {action:"invalid search field", reason:"no name"});
 }
 else if (focusedEl && focusedEl.length) {
 	var loc = window.location;
@@ -33,7 +33,7 @@ else if (focusedEl && focusedEl.length) {
 			searchUrl = loc.protocol + "//" + (loc.port == 80 ? loc.hostname : loc.host) + loc.pathname + loc.search;
 		}
 
-		chrome.extension.sendRequest({
+		chrome.runtime.sendMessage(null, {
 			action: "show 'add search engine' pop-up",
 			engine: {
 				method: method,
@@ -87,18 +87,18 @@ else if (focusedEl && focusedEl.length) {
 	}
 } else {
 	if ($("textarea:focus").length) {
-		chrome.extension.sendRequest({action:"invalid search field", reason:"textarea"});
+		chrome.runtime.sendMessage(null, {action:"invalid search field", reason:"textarea"});
 	}
 	else if ($('input[type="password"]:focus').length) {
-		chrome.extension.sendRequest({action:"invalid search field", reason:"password"});
+		chrome.runtime.sendMessage(null, {action:"invalid search field", reason:"password"});
 	}
 	else if (!$('input[type="text"]:focus, input[type="search"]:focus').length) {
-		chrome.extension.sendRequest({action:"invalid search field", reason:"invalid type"});
+		chrome.runtime.sendMessage(null, {action:"invalid search field", reason:"invalid type"});
 	}
 	else if (!$("input:focus").parents("form").length) {
-		chrome.extension.sendRequest({action:"invalid search field", reason:"no parent form"});
+		chrome.runtime.sendMessage(null, {action:"invalid search field", reason:"no parent form"});
 	}
 	else {
-		chrome.extension.sendRequest({action:"invalid search field"});
+		chrome.runtime.sendMessage(null, {action:"invalid search field"});
 	}
 }
